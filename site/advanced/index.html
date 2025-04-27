@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Advanced Section - bex's Stable Diffusion And Illustrious Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Advanced Section";
+        var mkdocs_page_input_path = "advanced.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> bex's Stable Diffusion And Illustrious Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reusage/">IMPORTANT. Re-usage of My Prompt/Generations</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../forge_guide/">Installing Stable Diffusion; ForgeUI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../illustrious_guide/">Illustrious Guide; Basics</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Advanced Section</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preamble">Preamble</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prompt-order">Prompt Order</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quality-tags-do-we-need-them">Quality tags; Do we need them?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#quality-tags-compilation">Quality tags; Compilation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#negative-prompting-how-and-when">Negative Prompting: How and When</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-how-including-redundant-tags-ruins-gens">Tags; How Including Redundant Tags Ruins Gens</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-tag-bleeding-and-how-to-avoid-it">Tags; Tag Bleeding, and How To Avoid It</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-how-tags-impact-seemingly-unrelated-things">Tags; How Tags Impact Seemingly Unrelated Things</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-rating-tags-and-how-to-avoid-or-embrace-horny">Tags; Rating Tags and How to Avoid (or Embrace) Horny</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-how-models-wont-do-anything-unless-you-ask-them">Tags; How Models Won't Do Anything Unless You Ask Them</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-conclusion">Tags; Conclusion</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prompt-clips-and-why-you-should-follow-the-prompt-order">Prompt; CLIPs, and Why You Should Follow The Prompt Order</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#syntax-introduction">Syntax; Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax-separators">Syntax; Separators</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax-prompts-weight-manipulation">Syntax; Prompt's Weight Manipulation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax-break-is-love-break-is-life">Syntax; BREAK is love, BREAK is life</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#multiple-defined-character-gens-without-extensions">Multiple (Defined) Character Gens without Extensions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#multiple-non-original-character-gens">Multiple (Non-Original) Character Gens</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax-prompt-merging-delaying-prompts-and-keeping-the-quality-with-styles">Syntax; Prompt Merging, Delaying Prompts and Keeping the Quality with Styles</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax-prompt-addition">Syntax; Prompt Addition</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#loras">LoRAs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generation-parameters-introduction">Generation Parameters; Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-align-your-steps-and-full-quality-gens-in-just-12-steps">Generation Parameters; Align Your Steps, and Full-Quality Gens in Just 12 Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-extra-quality-gens-in-60-steps">Generation Parameters; Extra-Quality Gens in 60 Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-lcm-and-draft-gens-in-just-5-steps">Generation Parameters; LCM, and Draft Gens in Just 5 Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-ipndm_v-and-quicker-high-quality-gens">Generation Parameters; IPNDM_V and Quick(er) High-Quality Gens.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-deis-my-main-sampler">Generation Parameters; DEIS, my Main Sampler.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-hires">Generation Parameters; Hires</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-refiner">Generation Parameters; Refiner</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prompting-iterating-on-your-gens">Prompting; Iterating on Your Gens</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#prompting-prompt-complexity">Prompting; Prompt Complexity</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#new-illustrious-1011-based-models">New Illustrious 1.0/1.1-Based Models</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v-pred-models-how-to-use">V-Pred Models; How to Use</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#img2img-introduction-wip">img2img; Introduction (WIP)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#img2img-main-parameters-and-principles-not-finished-yet-wip">img2img; Main Parameters and Principles (NOT FINISHED YET; WIP)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../comfy_guide/">ComfyUI Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../conclusion/">Conclusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Special Thanks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../todo/">To-Do List</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../updates/">Update History</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">bex's Stable Diffusion And Illustrious Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Advanced Section</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="advanced-section-loras-samplers-comprehensive-tagging-and-prompting-advanced-syntax-and-more">Advanced Section: LoRAs, Samplers, Comprehensive Tagging and Prompting, Advanced Syntax, and More</h1>
+<p>This is the part I'm dreading. I have so much to write about and even more stuff I feel like I'm forgetting. This part can be messy and not extremely detailed as I'm explaining my experience and "feels" on how certain things work or impact your generation. I can be very wrong on some aspects and completely misunderstand others, so if you see anything that you disagree with or it doesn't make sense, tell me. This part will be loosely sorted, refer to the Table of Contents to find stuff you want. Here we go.</p>
+<hr />
+<h2 id="preamble">Preamble</h2>
+<p>So, let's talk about the extent of stuff I'm going to talk about here. While some things are universal to SD and Illustrious, I don't think I'll be able to completely avoid stuff specific to, say, Forge, or some extensions/functions I rely on personally. Some things may not apply to your specific frontend or, especially, model. Illustrious models are generally similar to each other, but they still can have their specifics. To give you some ground to, maybe, follow me along, here are my exact parameters that I'll use to talk about everything in this section. I will touch on some of them in more detail in this section. Assume the following parameters unless stated otherwise:
+- Model: Amanatsu v1.1 OR AnnnslMixIllustrious
+- Sampler: DPM++ 2M Karras
+- Steps: 28 
+- CFG: 5
+- Assume that ADetailer is always on
+- Hires: R-ESRGAN 4x+ Anime6B. Hires Steps: 22. Denoising Strength: 0.39. Upscale By: 1.6
+- Quality Tags: Positive: None, Negative: <code>bad quality,worst quality,worst detail</code></p>
+<hr />
+<h2 id="prompt-order">Prompt Order</h2>
+<p>Let's start with basics. again. Ideally, your prompt order should be: <code>&lt;Quality Tags?&gt;, &lt;People Tags&gt;, &lt;Character Tags?&gt;, &lt;Action Tags&gt;, &lt;Appearance Tags&gt;, &lt;Background Tags&gt;, &lt;Composition Tags&gt;, &lt;Style/Artist Tags?&gt;, &lt;Quality Tags?&gt;</code>. It's not a strict requirement, but it has it's own huge advantages. Besides keeping stuff organised, we're positioning more important stuff closer to the beginning, and the closer a prompt is to the beginning, the harder the model will adhere to it. "Adhere" here is not really similar to stuff like LLMs, for example. Here, it's more like "what will the model consider more important". Very roughly speaking, we want the model to focus on a detailed and correct character first, then assign specifics to them, and only then it will start figuring out the background and style. Of course, models do all of that simultaneously, like how it positions the character correctly according to Composition Tags, but there's still an order of More Important to Less Important. Another huge reason is preventing concepts from separating into different CLIPs when you're not intending to do it (we'll talk about them when it comes to Syntax). Since we're here, let's touch on Quality tags.</p>
+<hr />
+<h2 id="quality-tags-do-we-need-them">Quality tags; Do we need them?</h2>
+<p>Quality tags have been a staple of image genning since the earliest days. Adding <code>masterpiece</code> to prompts is almost a reflex at this point, but it's, first, a bit different with Illustrious, and, second, has it's own drawbacks. Let's start with a bit of philosophy. SD 1.0, then SD 1.5, and now SDXL always had a collection of images in the Training Data that represent either <code>good quality</code>, <code>best quality</code>, <code>masterpiece</code>, <code>bad quality</code>, <code>worst quality</code>, etc. Even the newest checkpoints inherit some of them; that's why these tags work, because Danbooru (from where Illustrious gets almost all training data) does not have it's own quality tags. A lot of Training Data associated with these <code>quality</code> tags is outdated and, well, does not fit the anime/drawing style we all are trying to get here; that's the first reason I argue for abandoning Positive Quality tags completely.</p>
+<p>The second reason is, when we use these Positive Quality tags, we're needlessly increasing the complexity of prompt and generation with, well, Training Data of unknown quality/stylistic match with what we're trying to get, plus these tags take space that could've been used for stuff that's actually improving our image stylistically or with details/actions/etc. Okay, you get it, I don't like Positive Quality tags. What about Negative Quality tags? That's a completely separate case. When we negative <code>worst quality, bad quality</code>, we're not missing out on anything; it's a separate CLIP that doesn't increase the Prompt Complexity, and it doesn't make available Training Data that we want slimmer: it's just using shitty images to show the model how NOT to do. Even with that, there is stuff you should be aware of.</p>
+<p>First, a lot of recommended Quality Tags you may find on different models' pages are, in fact, unnecessary and may make your experience much worse. Take, for example, <code>sketch</code> that's almost unanimously suggested as a Negative tag on almost all models. At first you may think, "well, I don't want shitty drawn images to be used as a data for my beautiful gens", and it's a rational thought; but if we take a look at these <code>sketch</code> images, we see that they're not "shitty", they just have a specific look and style to it that can be the exact thing you're looking for. Keep in mind that this <code>sketch</code> training data will be just a fraction of the overall data used for making your gen; it comes from all the other tags, like <code>1girl</code>, <code>outdoors</code>, character tags, style tags, etc. You can think of it as, the overall look and "style" of your generation tries to reach a median value of all the different styles used for all regular tags in your image, and style tags like <code>sketch</code> just move it one way or another a little and do not define the overwhelming look of the image, if it makes sense. 
+TL;DR: be thoughtful of what tags you're using for your image, even if everybody else is using them. Think of why exactly you want this or that tag, experiment and see what gives you the best result. </p>
+<hr />
+<h3 id="quality-tags-compilation">Quality tags; Compilation</h3>
+<p>There are a few Quality Tags combinations I can suggest:</p>
+<ul>
+<li>
+<p>Positive: None. Negative: <code>worst quality, worst detail, bad quality, simple background, sketch, censor</code>
+This one is my main Quality Prompt. It's lightweight and doesn't limit your options too much, but here are a few things you should know: One, <code>simple background</code> in the negatives improves the quality of indoors and outdoors but completely prevents you from using "simple backgrounds" like <code>white background</code>, <code>grey background</code>, etc. It's pretty safe to use for most purposes, but keep it in mind if you decide to generate simpler backgrounds. Two, <code>sketch</code> in the negatives gives the images more of a "2.5D" look. It's great for when you want a more refined and clean style, but prevents some cool styles completely. See the previous section for more in-depth explanation. Three,<code>censor</code>. While you never want a censor in your NSFW gens, it's completely redundant in SFW gens, and I'm not a fan of redundancy. I usually take it out when genning SFW and put it back in NSFW gens. You can just have it always there and it won't impact your SFW gens much, but just know that it's there. To fight watermarks, add <code>signature, watermark</code> to your negatives (but avoid it if you can. You'll be cutting off a huge chunk of training data with them in the Negatives).</p>
+</li>
+<li>
+<p>Positive: <code>,masterpiece,best quality,amazing quality</code>. Negative: <code>bad quality,worst quality,worst detail,sketch,censor,</code>
+A solid Quality Prompt that I use for all my model comparisons, just to include all regular SD users that do use Positive Quality tags. The only issue I have with it is Positive Quality prompt, which I already explained in the previous section. Overall, a completely solid prompt.</p>
+</li>
+<li>
+<p>Positive: <code>,masterpiece, best quality, amazing quality, very aesthetic, absurdres, newest,</code>. Negative: <code>,lowres, (worst quality, bad quality:1.2), bad anatomy, sketch, jpeg artifacts, signature, watermark, old, oldest, censored, l0li, bar_censor, (pregnant), chibi, simple background, conjoined, futanari,</code> (yes I had to censor one tag, hi Rentry pls don't ban).
+I used to use this prompt a lot when I was still on NTR Mix, but now I see it as a bit overwhelming. It gives the image a pretty nice 2.5D look but can have a pretty big negative impact on detail and background quality. In my opinion, a lot of tags here are redundant and unnecessary in most cases. This prompt tries to be a catch-all, but I appreciate the reverse approach much more.</p>
+</li>
+</ul>
+<hr />
+<h2 id="negative-prompting-how-and-when">Negative Prompting: How and When</h2>
+<p>Since we're on topic of Negative prompting, let's dive a bit deeper. While Positive prompting is somewhat straightforward: you just prompt for what you want to see, it doesn't work exactly like this with Negatives. You can't always go "Hm, I don't want to see this, let's Negative it"; you shouldn't, at least. Negative-ing is extremely powerful; it's basically purging all training data based a particular tag, which can result in "collateral damage" to training data you would want to see. Instead, you should do your best to find a solution based on Positive prompts; to a degree, of course. If you solve it in a tag or two - great, there's no need to add Negative prompts. If it requires more effort, or, which happens often, there's no Positive prompt you can add to solve the problem, then yes, adding negatives is worth it. They're not something to be scared of; a tag or two or five <em>generally</em> won't result in quality loss, but it depends. As it would happen often going on, you should always evaluate how many images a particular tag has on Booru. You should avoid negative-ing a tag that has 100k+ images, to a degree. </p>
+<p>As the first example, let's imagine that we're generating a picture of a girl with <code>green eyes</code>. Even with ADetailer, models may want to turn the whole eye into a sea of green color, without pupils. There's no tag for <code>black pupil</code>, so there's nothing left to do but negative <code>no pupils</code>, and it indeed solves the issue completely. </p>
+<p>As an opposite example, let's imagine generating an image of <code>1girl</code>. It happens pretty often that when you generate an image of a single person, a copy of theirs appears somewhere in the background, especially if the background is complex. You may try to solve this by negative-ing <code>2girls, 3girls, multiple girls</code>, but it just won't work. Instead, you should positive <code>solo</code>; that's it, the issue is completely gone. Same applies to nudity tags: it's easier and much more "gentle" to use <code>topless</code>, <code>no panties</code>, <code>no bra</code>, etc instead of Negative-ing <code>shirt, panties, bra</code>. On the same topic;</p>
+<hr />
+<h2 id="tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</h2>
+<p>Not all tags are born equal. While there are some necessary tags that always work, like <code>1girl</code>, <code>indoors</code> or <code>blonde hair</code>, others may result in messy images or not work at all. Why does it happen? The reason is, some tags are just less populated than others. For example, a tag called <code>grabbing own ankles</code> does exist, but it only has 23 images on Danbooru, which means that using it is practically meaningless. More populated tags that count a few hundred images may work, but they may look messy, be impossible to influence or just won't work, overwhelmed by other more populated tags. A safe area for general tags starts at 1k+ images, with them working close to perfectly at 2k-3k population of images. It's a bit more difficult with characters and styles: they must have at least 2k population to even have a chance at working. Characters with 2k-ish images will often have wrong clothes, hair/eyes color, and will be completely messed up if you try to generate two characters in the same gen, for example. I'll touch on multiple character gens and how you can circumvent some of the issues later. Anyway, the morale is – always keep in mind how populated the tag you're adding is, and try to avoid tags with &lt;1k images entirely (besides artist tags. They start working from 100+ images getting close to perfect at 500+)</p>
+<p>Another thing is <strong>overtrained tags</strong>. Tags with 100k+ results can completely overwhelm others, even if they technically allow for another action. For example, let's take <code>1girl, arm up, arm behind back</code>. Technically, these tags allow the other, but <code>arm up</code> is 5x more populated than <code>arm behind back</code>, so <code>arm behind back</code> may be ignored or inconsistent. You can avoid that by manipulating weight, like <code>(arm up:0.4)</code>; more about it later.</p>
+<hr />
+<h3 id="tags-how-including-redundant-tags-ruins-gens">Tags; How Including Redundant Tags Ruins Gens</h3>
+<p>Let's start with an example. We have a prompt, <code>1girl, 1boy, hug, sobbing, crying, streaming tears, head on chest, arms around waist, dress, medium breasts, covered nipples, green eyes, barefoot,</code><strong><code>pov</code></strong>. We aim for a POV image from <code>1boy</code>'s perspective where he's hugging a crying girl, but no matter what we do, we get either a non-POV image somewhere from the side; the guy hugging this girl with stretched hands (so it's not <code>head on chest</code>), or even a second boy appearing in the image; to put it simply — the result is completely different from what we prompted. What could be the issue? On the first glance, the prompt is completely fine. Before digging deeper, let's talk philosophy. Why are we even prompting for stuff? So that we could see it, of course. It's more true than ever for the AI model; if you prompted for something, the model will try it's hardest to include it. It pulls up all the training data corresponding to the stuff you prompted and uses it for the generation. Let's get back to our prompt. What we're <em>actually</em> expecting is an image of a girl in the POV's arms, burying her head in his chest, which means that it would be <code>from above</code> and/or <code>height difference</code>/<code>size difference</code>, and also means that <strong>we would be unable to see that she has <code>covered nipples</code>, <code>green eyes</code>,<code>streaming tears</code>, that she's <code>barefoot</code> or has <code>medium breasts</code>.</strong> When we prompt for something, the model <em>will</em> include it, going so far as to disregard other parts of the prompt. If something should not be seen on the image, <em>do not prompt for it</em>. </p>
+<hr />
+<h3 id="tags-tag-bleeding-and-how-to-avoid-it">Tags; Tag Bleeding, and How To Avoid It</h3>
+<p>It's a fairly simple section, but it would be wrong not to include. Let's start with an example. We're prompting for <code>1girl, smirk, standing, against wall, green hair, ... ,</code>. Huge chances are, we're going to not only get <code>green hair</code>, but also green eyes, dress, some accessory, or something green in the background. It's not only with hair, really, but with any mention of any color. The solution is fairly simple; we just specify specific concepts that got affected by the bleeding. If with <code>green hair</code> we also got green eyes, just prompt for <code>blue eyes</code>. The fact of multiple colors in the prompt lowers the chance of Color Tags bleeding by itself. Sadly, Color Tags bleeding is the simplest of bleeding tags. I cannot possibly account for every case of Tag Bleeding, but, in general, simply specifying the part that got affected by bleeding should be enough. I'll touch on it more when I get to Syntax, CLIPs and BREAKs.</p>
+<hr />
+<h3 id="tags-how-tags-impact-seemingly-unrelated-things">Tags; How Tags Impact Seemingly Unrelated Things</h3>
+<p>As always, an example. We have a prompt, <code>1girl, lying, on bed, presenting, seductive smile, underwear,</code><strong><code>large breasts</code></strong><code>, ... ,</code>. Here, we want to focus on the <code>large breasts</code> tag. The gen will look like an adult (in anime terms, at least) woman. If we swap this tag for <code>small breasts</code> or <code>flat chest</code>, we would notice that the character suddenly started looking much younger than before. This is an example of how tags affect unrelated things, in this case, it's the age. The reason is pretty obvious: a lot of images that have <code>small breasts</code> and <code>flat chest</code> tags are also <code>l0l1</code> and <code>child</code> images. Same for <code>school uniform</code> and <code>petite</code>, for example. In this specific case, we can solve this by adding <code>l0l1, child</code> into the Negatives, or adding <code>mature female</code> or stuff like <code>milf</code> if that's what you're going for (in this case, the solution using Negatives and Positive are both viable and used for completely separate things). This is just one example of this behavior. Another example would be using Character Tags. Some media have very distinct art-styles that will be brought into the gen; characters from stuff like <code>Steins;Gate</code> or <code>OMORI</code> will bring some of their style, and there's little to nothing you can do about them. The morale is, when you're thinking on what tags you should use, also keep in mind what kind of other aspects it can bring into your gen.</p>
+<hr />
+<h3 id="tags-rating-tags-and-how-to-avoid-or-embrace-horny">Tags; Rating Tags and How to Avoid (or Embrace) Horny</h3>
+<p>Rating Tags are extremely powerful instruments that... you will rarely use, really. You can see their exact definitions on the <a href="https://danbooru.donmai.us/wiki_pages/howto%3Arate">Rate Wiki</a>, but in general: There are four rating tags, <code>general, sensitive, questionable, explicit</code>. First is no nudity or suggestive imagery, second is no nudity but with some suggestive stuff, third is no genital nudity (breasts are OK) and no sex, and fourth is genital nudity and/or sex and/or gore and/or other extremely graphic shit. You can use them accordingly, but they should have a purpose, as with everything. If you're going for a completely SFW gen but the model keeps throwing lewd shit at you, you can try using <code>general</code>, for example, and so on. One thing you should never do is negative one of them: they're some of the most populated tags in the training data, and negative-ing one of them will have a negative impact on the gen. With NSFW, there's really no need to use <code>explicit</code> or alike ever, as you can just specifically prompt for what you want.</p>
+<hr />
+<h3 id="tags-how-models-wont-do-anything-unless-you-ask-them">Tags; How Models Won't Do Anything Unless You Ask Them</h3>
+<p>An example. We have a prompt, <code>1girl, undressing, averting eyes, shy, blush,</code><strong><code>open shirt</code></strong><code>, ... ,</code>. If we try to gen it, we would quickly find out that no matter how much we regen, the model will never generate nipples and will be extremely reluctant to even show breasts, despite <code>open shirt</code> seemingly implying it. That's where we get into the area of introducing concepts to the model. No matter how smart image gen model may seem, they still do not understand connections between things that are obvious to us. In the example above, to actually get a look at the tiddies, we have to specify; it's either <code>breasts</code> or some version with a size like <code>large breasts</code>, and <code>nipples</code> to actually see them. Without using both tags, the model would have almost never actually generated partial nudity we want. It's very similar with NSFW sex tags; with sex, you should always add stuff like <code>nude</code> if nude, <code>penis</code> and/or <code>pussy</code> if it's sex or other sexual activities. It's pretty similar to what I explained in <strong>Redundant Tags</strong>: you prompt what you see, exactly like you want to see it; but, just like in <strong>Redundant Tags</strong>, you should prompt only for necessary stuff. I'll explain Iterating gens a bit later.</p>
+<hr />
+<h3 id="tags-conclusion">Tags; Conclusion</h3>
+<p>What I listed is in no way exhaustive, but I hope it got the point across: you should have a very specific way of Thinking with Tags™. You should evaluate what the tag you add will bring besides it's main function; how effective it would be; will it have negative impact on the gen; is this tag necessary to get what you want; and, most importantly, that <strong>you should experiment</strong>. Try stuff out, spend time tinkering with tags, fail over and over again to actually get what you want and <strong>learn something new</strong>. Try non-Booru tags, some of them do work (or so people say), combine tags, see how they interact — create. While image gen is not a real form of art, it's similar to one in how you use your creativity; just instead of drawing, you learn to combine things to get amazing results.</p>
+<hr />
+<h2 id="prompt-clips-and-why-you-should-follow-the-prompt-order">Prompt; CLIPs, and Why You Should Follow The Prompt Order</h2>
+<p>Let's talk about how your prompts are read by the model. I won't be technical at all as I have about 0 idea how it actually works, but there is practical stuff to know about. If you pay some attention, you may notice an indicator at the top right of both Positive Prompt and Negative prompt that says something like <code>0/75</code>. This <code>75</code> is the token count that make <strong>a single CLIP</strong>. Roughly speaking, as you press "Generate", Stable Diffusion processes your prompt in chunks of 75 tokens. Once you exceed these 75 tokens, <code>75/75</code> transitions into <code>78/150</code> (for example), and another CLIP is created. CLIPs are processed separately and then combined. Usually, it's not something you have to worry too hard about. Even if you exceed the first CLIP, prompt from the CLIP still gets correctly applied to the gen.</p>
+<p>Stuff suddenly gets more complicated once your prompt becomes complicated. For example, we have a prompt <code>1girl, ... , holding sword BREAK katana</code>. Here, <code>BREAK</code> symbolizes a transition between CLIPs. If <code>holding sword</code> and <code>katana</code> were in a single CLIP, the model won't have a second thought that the sword that's being held is indeed <code>katana</code>. In a case where two tags are separated in different CLIPs, the model might get an idea that <code>holding sword</code> and <code>katana</code> are unrelated to each other, thus making a separate sword somewhere in the gen. While you won't (usually) get a catastrophic problem from CLIPs, it's a nice habit to follow the Prompt Order. Nothing bad will ever happen if artist or style tags are separated, same for backgrounds and composition tags. By following the Prompt Order, you make yourself safe from unnecessary issues you may get.</p>
+<p>Addendum: On a related to the Prompt Order topic: how the tags are positioned in relation to each other is also important. While I can't find an exact rule on how this works yet; for example, in <code>2girls, girlA, girlB, holding sword, holding gun</code>, the model will understand that it's one girl holding a gun, and another holding a sword. As you get to genning it, you will notice that, for example, 4/5 times it's girlA holding the sword and girl B holding the gun. By either moving <code>girlA</code> and <code>girlB</code> around, or the same with <code>holding sword</code> and <code>holding gun</code>, this behaviour will change. It doesn't always look like this, especially with more complicated prompts, but sometimes you might want to move the tags around to hopefully get a better/more appropriate result, even with simple <code>1girl</code> gens.</p>
+<p>While having an idea about CLIPs is not that important by itself, it's necessary to understand the <code>BREAK</code> separator; an extremely important and sometimes life-saving piece of SD syntax. We'll talk about <code>BREAK</code>s in detail later.</p>
+<hr />
+<h2 id="syntax-introduction">Syntax; Introduction</h2>
+<p>We're all used to separating tags by <code>,</code> commas, but it's not the only piece of Stable Diffusion syntax there is. In fact, Stable Diffusion is extremely versatile in how you can manipulate your whole prompt, separate tags and even change the generation on the go. Before we actually get into it, a small warning. <strong>Most of the time, you don't need advanced syntax.</strong> It will only make stuff worse and needlessly complicated. If you don't want to spend time tuning precise settings and genning dozens or even hundreds of faulty generations, you shouldn't approach this. Most things can be done with good enough prompting anyway. However, there are some use cases where syntax is extremely useful, and a few situations where it's absolutely necessary. </p>
+<p><strong>IMPORTANT NOTE: When it will come to practical use and examples, most of what I'm talking about from here on out is empirical and can be extremely different from model to model. Some models are simply better at following your prompts and doing complex scenes than others. I can be wrong and make mistakes; some methods I describe are inconsistent, others got little to no practical use by me or literally have a single use-case. I'll try to be detailed, but there won't be a single solution for all of your problems. Keep that in mind.</strong></p>
+<hr />
+<h3 id="syntax-separators">Syntax; Separators</h3>
+<p>So, we all know and love the <code>,</code> comma. It is used to put distinguish parts of the prompt for the tokenizer. I honestly searched a lot for the use-cases of different separators, but, well, had 0 luck. I tried them, and, well, didn't see much of an impact. There is a situation where I do use them, but I'll get to it later. For the sake of completionism; Stable Diffusion supports the following separators (besides comma):
+- <code>.</code> Period. Some sites describe it as a "Hard Separator"
+- <code>;</code> Semicolon. The same sites describe it as a "Hard Separator" as well???
+- <code>!</code> Exclamation Mark. Some sites claim that it's there to "convey a sense of emphasis"??????
+- Newline (just pressing enter). The only thing (besides a comma) that had some impact on the gen for me. You can try to use it to fight tag bleeding.
+Honestly, the only real advice I can give is; just stick to commas and try putting a newline if you need to fight the tag bleeding and nothing else helps.</p>
+<hr />
+<h3 id="syntax-prompts-weight-manipulation">Syntax; Prompt's Weight Manipulation</h3>
+<p>Just typing a tag is not the only thing you can do. You can also manipulate how powerful a tag (or LoRA) is in relation to other tags. There are a few ways to do that:
+1. Using brackets <code>( )</code>. A pair of round brackets around a part of the prompt increases it's weight by 1.1. For example, <code>no humans, city, cityscape, scenery, (lamppost)</code>. Here, <code>(lamppost)</code> has a strength of 1.1. You can combine these brackets, for example <code>(((lamppost)))</code> is a weight of <code>1.1*1.1*1.1</code> or <code>1.1^3</code>, which is <code>1.33</code>.
+2. Using square brackets <code>[ ]</code>. A pair of square brackets around a part of the prompt decreases it's weight by 1.1. <code>[lamppost]</code>, for example, has a weight of 0.9. <code>[[[lamppost]]]</code> has weight of <code>1 / 1.1 / 1.1 /1.1</code> or <code>1.1^-3</code>, which is <code>0.75</code>.
+3. Using a colon <code>:</code> . With a colon, you can accurately define the weight of a tag. For example, <code>(lamppost:0.5)</code> has a strength of 0.5. This is a way I recommend sticking to. LoRAs follow a similar pattern; it will look something like this: <code>&lt;lora:lora_Name:0.5&gt;</code>, where <code>:0.5</code> is the strength. Be mindful of brackets that are a part of the prompt, <code>horror_(style)</code> for example. With a modified weight, it will look like <code>(horror \(style\):0.5)</code>.</p>
+<p>When should you resolve to this and how? In my opinion, it should be used to, A: Fight Tag Bleeding, and B: Fight Tags that are overwhelming other tags, like in the <strong>Evaluating if You Should Use a Specific Tag</strong> section. It's quite straightforward: you just lower the weight of the tag in question and see if it helps. It's mostly trial and error, and there are no fixed solutions for everything, so I leave it you you.</p>
+<hr />
+<h3 id="syntax-break-is-love-break-is-life">Syntax; BREAK is love, BREAK is life</h3>
+<p>It's a little bit difficult to approach this section, but let's start from understanding what it does. Let's have an example, <code>no humans, building, house, dusk BREAK door, window, lamppost, bench,,</code>. Here, I use <code>BREAK</code> to separate two parts of the prompt into different CLIPs, so that <code>no humans, building, house, dusk</code> (First CLIP) and <code>door, window, lamppost, bench,</code> (Second CLIP) are processed (somewhat) separately. In general, first CLIP is much more important than the second: image's composition is about 70% defined by the very first CLIP. What does it achieve?</p>
+<h4 id="multiple-defined-character-gens-without-extensions">Multiple (Defined) Character Gens without Extensions</h4>
+<p>First, it's the most powerful way to fight Tag Bleeding, and second, it allows you to define different concepts/characters completely separately. For example, in a prompt like <code>2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears,</code> it's the only way to get a satisfactory result. What to note:
+1. Concepts applicable to the whole image must be in the first CLIP. In this case, it's <code>2girls, looking at viewer, side-by-side, hand on another's shoulder, cowboy shot, white background</code>.
+2. You <strong>must</strong> use an action that involves multiple characters. Here, it's <code>side-by-side, hand on another's shoulder</code>. It'll be much harder to achieve anything meaningful without something to involve all characters. (note: it is possible to define the active participant by having the action tag in the corresponding character's part of the prompt. Here, it's 9/10 times the girl with fox ears doing the hug, and if we move <code>hand on another's shoulder</code> to the second CLIP, it will be an elf.)
+3. <strong>Keep overprompting to absolute minimum</strong>. Here, an extra <code>animal ears</code> to the first part of the prompt or <code>elf</code> to the second will ruin the gen. This is where manipulating weights will come very useful.
+4. If you define anything appearance-wise with the first character, do the same to the other. Here, we defined that the girl with fox ears has <code>red shirt, jeans, orange hair,</code>. It means that we also should define same things for our elf, so we add <code>black hair, sundress</code> to the second CLIP.
+5. Try to keep the image complexity low. If you can, avoid extremely defined backgrounds, difficult scenarios and such. Multiple character gens are already pushing image gen models to their absolute limits, so you have to be reasonable in what you want to achieve. Don't waste hours trying to get the impossible like I do sometimes.
+6. Do not expect it to work perfectly. Sometimes you get a 90% consistency, this prompt works about 50% of the time.
+That's basically it for simple 2 character gens. With 3 characters, especially if the prompt gets more complex, we get into an almost esoteric territory, so I'll talk about separately later.
+-&gt; <img alt="" src="https://files.catbox.moe/l61n79.png" /> &lt;-
+-&gt; <em>Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears, Negative prompt: extra ears, worst quality, bad quality
+Steps: 29, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 687164227, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt</em> &lt;-</p>
+<p>And another;</p>
+<p>-&gt; <img alt="" src="https://files.catbox.moe/yhm8dv.png" /> &lt;-
+-&gt; <em>Metadata: 1boy, looking at viewer, on couch, (spread arms:0.7), (spread legs:0.7), black hair, smirk, furry, wolf boy, loafers, indoors, suit jacket, open jacket, dress pants, straight-on, general
+BREAK
+3girls, (sitting on lap:1.2), sitting on person, elf, shy, maid, long hair, short hair, pink hair, white hair,  <lora:illustrious_quality_modifiers_masterpieces_v1:0.7> <lora:illustriousXL_stabilizer_v1.72:0.4>
+Negative prompt: worst quality, bad quality, simple background,
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 535719555, Size: 1216x832,, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.6, Hires steps: 23, Hires upscaler: R-ESRGAN 4x+ Anime6B,</em> &lt;-</p>
+<p><em>Yes, <code>3girls</code>, this is deliberate. I will expand this section one day.</em></p>
+<hr />
+<h4 id="multiple-non-original-character-gens">Multiple (Non-Original) Character Gens</h4>
+<p>Stuff is significantly easier if you just use Character tags. For example, let's get a gen with these characters: <code>stelle \(honkai: star rail\), belle \(zenless zone zero\), lumine \(genshin impact\)</code>. It follows the principles above with some slight alterations, so a few notes:
+- With 2-character gens, you can pass without using BREAK at all. It would simply be <code>2girls, girlA, girlB, &lt;Mutual Action Tags&gt;, &lt;etc...&gt;</code>, and it's enough. For separate actions, just use BREAKs, and keep the action inside the corresponding character's section.
+- If the model doesn't have enough training data about characters, it might start getting their features wrong or mess them up. In this case, it's BREAKs all over again; just specify messed up features for each character separately, inside their corresponding sections.
+- You shouldn't mix up Non-Original characters with defined characters; it won't work 90% of the time. All the characters in your gen should be either Non-Original or Defined.
+- In the gen below, I used a separate CLIP for actions. The reasoning is that I don't care which character performs what action, so anyone of them can do it. Using a separate CLIP for composition/style/misc tags is also very viable, I do it often.</p>
+<p>-&gt; <img alt="" src="https://files.catbox.moe/cv60ji.png" /> &lt;-
+-&gt; <em>Metadata: 3girls, stelle (honkai: star rail), grey hair, yellow eyes, BREAK belle (zenless zone zero), blue hair, green eyes, BREAK lumine (genshin impact), blonde hair, yellow eyes, BREAK looking at viewer, arm around shoulder, w, looking at viewer, smile, wide shot, simple background,  <lora:illustrious_quality_modifiers_masterpieces_v1:0.25> <lora:USNR_STYLE_ILL_V1_lokr3:0.25>
+Steps: 1, Sampler: Euler, Schedule type: Karras, CFG scale: 5, Seed: 43880133, Size: 128x128, Model hash: 0842c2a1d8, Model: amanatsuIllustrious_v11, Denoising strength: 0.75, Clip skip: 2, ADetailer model: face_yolov8n.pt</em> &lt;-</p>
+<hr />
+<h3 id="syntax-prompt-merging-delaying-prompts-and-keeping-the-quality-with-styles">Syntax; Prompt Merging, Delaying Prompts and Keeping the Quality with Styles</h3>
+<p>Let's discuss some in-built Stable Diffusion scripts. One of the more useful is a Prompt Switch script that looks like this: <code>[A:B:x]</code>, where A is the first prompt, B is a second prompt, and X is a fraction of total steps at which the switch occurs. For example, we have <code>[pixel art:2000's \(style\):0.2]</code>. The translation of it would be: First 20% of the gen, the active prompt is <code>pixel art</code>. At 20%, it's replaced with <code>2000's \(style\)</code> and stays like this until the end. What it means in practice? The overall composition of the gen is almost completely defined by about 2-3 first steps (With Euler or DPM++ 2M. It can vary based on the Sampler and Scheduler). By using <code>[A:B:x]</code>, we not only merge two styles into one, but also choose which style does the overall image composition; we're talking little details, the background, the look of the character, <strong>the quality of the image</strong>. This is where we can do another thing. </p>
+<p>In <code>[A:B:x]</code>, both A and B can be completely empty. Let's just not enter any A. We'll get: <code>[:pixel art:0.2]</code>. First, some theory. When you're using a Style Tag, an Artist Tar or a LoRA, it absolutely always has a negative impact on the gen's quality. With just a single Style or two styles at reduced weights, this impact is negligible. However, if an Artist or Style in question doesn't have enough images (&lt;100 with Artists, &lt;1k for Styles); or we start adding 3+ Styles/Artists/LoRAs, the gen's quality will get noticeably worse. One of the reasons is because the model will just have no idea how to make the image's composition with given Style Prompt. To spare the model from it, we can just have the Style Prompt disabled completely during the first few steps of the gen. With <code>[:pixel art:0.2]</code>, it only kicks in once the composition is already completely finished, and all it does is what it's supposed to do: apply style to the gen. Note that <code>0.2</code> is an arbitrary number; you may want to test in range from <code>0.15</code> to <code>0.5</code>.</p>
+<hr />
+<h3 id="syntax-prompt-addition">Syntax; Prompt Addition</h3>
+<p>When it comes to solo gens, you can also sometimes add one tag to the other. It's mostly unpredictable and there are often better ways to achieve stuff, but it's an option. For example <code>red hair, blue hair</code> has a chance of generating a hair color that's between red and blue. It can also generate a multi-colored hair, but it's easier to just specify for <code>multicolored hair</code> (+ you can pick a specific type of it from <a href="https://danbooru.donmai.us/wiki_pages/multicolored_hair">here</a>) and have a prompt like <code>red hair, blue hair, multicolored hair</code>.</p>
+<p>There is another way to specifically merge tags using <code>|</code> pipe. For example, <code>(red hair|blue hair:1.0)</code>. What pipe does is, it switches from one prompt to the other each step. Whille it is a way to specific get a blend between A and B, it is unreliable. This is where we can return to <code>[A:B:x]</code>. For example, <code>[red hair:blue hair:0.5]</code>. This is a much more reliable and better way to achieve good merging. There are also other ways to use it, for example <code>red hair, [:blue hair:0.2]</code> and such, but I leave it to you.</p>
+<hr />
+<h2 id="loras">LoRAs</h2>
+<p>LoRAs, or Low-Rank Adaptations, are a cheap and reliable way to impact the generation right on the model's technical level, basically finetuning it on the fly. I'm not the biggest LoRA enthusiast out there, so I'll be somewhat short.</p>
+<p>First, with Illustrious, I suggest using LoRAs <strong>only for styles/detail</strong>. I tried a few, like, pose and "character appearance" LoRA, and, well, just using Booru tags seems like a better option both quality and versatility-wise. It's just my opinion though.</p>
+<p>Second, <strong>do not use more than two style LoRAs at the same time</strong>, at least without making them skip first few steps. Without trickery, I recommend keeping the overall weight for two LoRAs below 1.1-1.3, for example, <code>lora_A</code> would have a weight of 0.7, and <code>lora_B</code> will have a weight of 0.4, making the total weight 1.1. These settings seem like they give the most style while keeping the quality basically the same as without LoRAs. Honestly, the very same goes for Style Tags. With Style Tags + LoRAs (that are applied like I suggested previously), a total of three seems stable. Just be mindful of weights.</p>
+<p>That's mostly all I have to say. LoRAs can be of various quality and made for different purposes/models, so it's just trial and error. You just apply them, tinker with weights and see if the results are satisfactory.</p>
+<hr />
+<h2 id="generation-parameters-introduction">Generation Parameters; Introduction</h2>
+<p>Congrats on making it this far (yes, I'm running out of ideas on how to begin sections). For most intents and purposes, you can simply setup your parameters once, never change them again and be happy. I consider "good" parameters to be:
+- Sampler: DPM++ 2M Karras
+- Steps: 28
+- CLIP Skip: 2
+- CFG: 5
+- Resolution: 832x1216 (or reverse)
+And you kinda never have to change them, they are just good. But there are cases when you'd want to try something new.</p>
+<p>For a much more detailed technical information on how samplers/schedulers works and how they're different, please check <a href="https://rentry.co/11yu_diffusion-imagegen_tech">11yu's Rentry on Tech for Diffusion Image Gens</a>.</p>
+<hr />
+<h3 id="generation-parameters-align-your-steps-and-full-quality-gens-in-just-12-steps">Generation Parameters; Align Your Steps, and Full-Quality Gens in Just 12 Steps</h3>
+<p>Available on most local frontends, there is a Scheduler called Align Your Steps, or AYS for short. AYS uses some ancient wizardry to make the gens in 10-12 steps that look the same as 28 steps Karras or Euler a. With parameters, I suggest using <code>DPM++ 2M</code> Sampler, regular <code>Align Your Steps</code> scheduler and from <code>10</code> to <code>12</code> steps. I don't think that AYS is negatively impacted by CFG, so I just keep it at <code>5</code> and go lower as needed. 
+-&gt; <img alt="" src="https://files.catbox.moe/dgrcis.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, makima (chainsaw man), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
+Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 12, Sampler: DPM++ 2M, Schedule type: Align Your Steps, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt</em> &lt;-</p>
+<p>Keep in mind that while AYS is great for simple gens, it can start messing up as you increase the complexity of your gen. The most noticeable issue I had is AYS merging hands of multiple characters into a single blob. Besides that, AYS doesn't have any artifacts and looks incredible. It works with LoRAs, Styles and Artists with no issue. On my hardware (RTX 3070 8 GB), it lowers the generation time from 15-20 seconds with Karras and 28 steps to 9-10 seconds with AYS.</p>
+<hr />
+<h3 id="generation-parameters-extra-quality-gens-in-60-steps">Generation Parameters; Extra-Quality Gens in 60 Steps</h3>
+<p>There are two notable Samplers that give you some beautiful gens without Hires and sometimes even replacing ADetailer. These are, <code>DPM++ 3M SDE Exponential</code> and <code>IPNDM Automatic</code>. Both require at least 40 steps, and I consider 60 steps to be a sweet spot, sometimes you may need up to 80. In my experience, <code>IPNDM</code> is better than <code>DPM++ 3M SDE</code>; IPNDM shows much less artifacting than DPM++ 3M SDE, which is understandable, given the nature of SDE (SDE adds some noise each step. More variety, less stability), but I still use it occasionally. In some cases, these two Samplers can even replace Hires, especially given that Hires is much slower. With some gens, faces without ADetailer look even better than with it, and it's especially mindblowing.
+-&gt; <img alt="" src="https://files.catbox.moe/vdqvg6.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, makima (chainsaw man), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 70, Sampler: IPNDM, Schedule type: Normal, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt</em> &lt;-</p>
+<hr />
+<h3 id="generation-parameters-lcm-and-draft-gens-in-just-5-steps">Generation Parameters; LCM, and Draft Gens in Just 5 Steps</h3>
+<p>Note that to use LCM, you must download it's <a href="https://huggingface.co/latent-consistency/lcm-lora-sdxl/tree/main">LoRA</a> and include it in the gen at weight 1. I suggest using <code>LCM</code> sampler with <code>SGM Uniform</code> scheduler. Your CFG <strong>must</strong> be in range from 1 to 1.5, I suggest the latter. LCM gives you perfectly fine gens extremely quickly, but they have significantly less detail than usual + there can be occasional artifacting.
+-&gt; <img alt="" src="https://files.catbox.moe/xja2y1.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, makima (chainsaw man), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality <lora:LCM_LORA:1>, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 5, Sampler: LCM, Schedule type: SGM Uniform, CFG scale: 1.5, Seed: 3757563297, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt</em> &lt;-</p>
+<hr />
+<h3 id="generation-parameters-ipndm_v-and-quicker-high-quality-gens">Generation Parameters; IPNDM_V and Quick(er) High-Quality Gens.</h3>
+<p>Found out about it recently, but it's just incredible. This sampler gives better quality at 40 steps than DPM++ 3M or regular IPNDM do at 80+ steps. First, make sure to use either Karras or Exponential schedulers. I recommend sticking to 40 steps, 30 is also viable, and technically you can go all the way down to 15 steps. Do not go above 40 steps; the image will get worse or break down. 
+-&gt; <img alt="" src="https://files.catbox.moe/7l0qcr.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, makima (chainsaw man), looking at viewer, sitting, crossed legs, on chair, head tilt, yellow eyes, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
+Negative prompt: no pupils,, worst quality, bad quality, simple background,
+Steps: 40, Sampler: IPNDM_V, Schedule type: Karras, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model: Amanatsu_v11</em> &lt;-</p>
+<p>And another; Note that it has no ADetailer;</p>
+<p>-&gt;<img alt="" src="https://files.catbox.moe/i60akw.png" /> &lt;-
+-&gt; <em>Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears
+Negative prompt: no pupils,, worst quality, bad quality, simple background,
+Steps: 40, Sampler: IPNDM_V, Schedule type: Karras, CFG scale: 5, Seed: 54443983, Size: 832x1216, Model: Amanatsu_v11</em> &lt;-</p>
+<hr />
+<h3 id="generation-parameters-deis-my-main-sampler">Generation Parameters; DEIS, my Main Sampler.</h3>
+<p>DEIS is the High-Quality and relatively low-steps of IPNDM_V, but without it's downsides. It's incredibly stable and gives amazing results, so it's my main sampler right now. Make sure to use it with SGM Uniform scheduler. I suggest 40 steps, but you can go up to 60 if needed. Comparing to IPNDM_V, they're about similar in quality; one is better in some aspects and worse in another, and vice-versa. It still gets you much more detail compared to DPM++ 2M/Euler a in just slightly more time, and it's more stable and reliable than IPNDM_V, so I can confidently recommend DEIS.</p>
+<p>-&gt; <img alt="" src="https://files.catbox.moe/3jftne.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, standing, casting spell, magical weaving chaotic threads of white light coming out of hands, magic filling the area, outstretched arms, magic, fighting stance, white cloak, long hair, blonde hair, solo BREAK lens flare, chromatic aberration, diffraction spikes, fisheye, outdoors,  night, embers, full body, dutch angle, (from side:0.4), (three quarter view:0.5), battle, war, army, soldier, fantasy
+Negative prompt: worst quality, bad quality, simple background,
+Steps: 40, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 1082317166, Size: 1536x1024, Model hash: 351447d6cd, Model: annnslmixillustrious_v31, ADetailer model: face_yolov8n.pt</em> &lt;-</p>
+<p>And another one;</p>
+<p>-&gt; <img alt="" src="https://files.catbox.moe/49r9r0.png" /> &lt;-
+-&gt; <em>Metadata: 2girls, standing, outstretched arm, hand on another's hand, black shirt, brown skirt, long hair, baseball cap, white background, two-tone background, dual persona, human, from side, (full body:0.5), portal (object), BREAK 2girls, floating, midair, reaching towards another, looking at another, hand on another's hand, purple dress, darkness, dark background BREAK (chromatic aberration:1.2), (glitch:1.2), vhs artifacts, (digital dissolve:0.9),
+Negative prompt: worst quality, bad quality, 3girls, 4girls, mirror,
+Steps: 60, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 869983613, Size: 1536x1024, Model hash: 351447d6cd, Model: annnslmixillustrious_v31, ADetailer model: face_yolov8n.pt, ADetailer confidence: 0.3, ADetailer dilate erode: 4, ADetailer mask blur: 4, ADetailer denoising strength: 0.4, ADetailer inpaint only masked: True, ADetailer inpaint padding: 32, ADetailer model 2nd: hand_yolov8n.pt</em> &lt;-</p>
+<hr />
+<h3 id="generation-parameters-hires">Generation Parameters; Hires</h3>
+<p>Hires is an incredible feature to get higher resolution gens with increased detail. I suggest the following parameters:
+- Upscaler: R-ESRGAN 4x+ Anime6b OR Lanczos
+- Hires Steps: 20-22
+- Denoising Strength: 0.39-0.43
+- Upscale by: 1.5 - 1.65
+-&gt; <img alt="" src="https://files.catbox.moe/z37rgn.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, makima (chainsaw man), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B</em> &lt;-</p>
+<hr />
+<h3 id="generation-parameters-refiner">Generation Parameters; Refiner</h3>
+<p>Refiner means that the first x fraction of steps is done by one model, and then it's replaced with another model. It's trial and error, so there's not that much to talk about. One thing I want to note is, remember that the overall composition of the image is done by the first model, not the refiner model. You can have the first model to 2-4 steps and then switch to another model; as a result, the image's composition is done by model A and the whole style is done by model B.</p>
+<hr />
+<h2 id="prompting-iterating-on-your-gens">Prompting; Iterating on Your Gens</h2>
+<p>This part is more of a philosophical view on how you should do prompting. I like to call it <strong>Iterative Prompting</strong>. The main point is, you start from drafting the overall image, and then focus on each part of the image, following the Prompt Order. You refine each part of the prompt, generate the image, reflect on the result and keep refining the prompt until you get the image you want consistently, after that you enable all the resource-intensive stuff like Hires or High-Steps Samplers and play with styles. Let's have a big example.</p>
+<ol>
+<li>I come up with an overall idea of the gen. Let's start with an idea: a creepy/dangerous punk girl in a darker style. After some thinking, I come up with this prompt: <code>1girl, looking at viewer, head tilt, raised eyebrow, smirk, holding cane, red jacket, open jacket, long hair, multicolored hair, dark, darkness, city, high contrast,</code> and gen.</li>
+<li>I look at the gens. While <code>high contrast</code> definitely gives an interesting look, the overall image is too dark. <code>smirk</code> is also not optimal, her expression is really weird in a bad way. Besides this, her overall look is pretty close to what I wanted, so I also need to add Composition tags. Reflecting on this, I edit the prompt, <code>1girl, looking at viewer, head tilt, raised eyebrow, (smirk:0.5), (grin:0.5), holding cane, red jacket, open jacket, long hair, multicolored hair, dark, darkness, city, (high contrast:0.7), cowboy shot, close-up,</code> and generate it.</li>
+<li>I'm already quite happy with the image, but I have some other ideas I want to try. I'd like to have more character focus, so I remove background tags. I also want even less dark image, so I lower the weight of <code>dark</code>. New prompt is: <code>1girl, looking at viewer, head tilt, raised eyebrow, (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, long hair, multicolored hair, (dark:0.5), darkness, (high contrast:0.7), cowboy shot, close-up,</code>. Time to gen</li>
+<li>First, she's tilting her head too much. Second, to make her more visually interesting, I add <code>hererochromia</code>, then specify two hair colors and rely on Tag Bleeding to also do eye colors. To add more to the composition, some slight <code>dutch angle</code>. Prompt turned into: <code>1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, long hair, white hair, red hair, multicolored hair, (dark:0.5), darkness, (high contrast:0.7), cowboy shot, close-up, (dutch angle:0.3),</code> and I gen it.</li>
+<li>At this point, I feel pretty happy about the result, so I start adding style and LoRAs, as well as doing some minor edits. New prompt: <code>1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, &lt;lora:illustrious_quality_modifiers_masterpieces_v1:0.7&gt; &lt;lora:illustriousXL_stabilizer_v1.72:0.35&gt;</code></li>
+<li>Not specifying backgrounds and having <code>simple background</code> in the negatives really ruined the gen, so I fix it: <code>1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, dark background, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, &lt;lora:illustrious_quality_modifiers_masterpieces_v1:0.7&gt; &lt;lora:illustriousXL_stabilizer_v1.72:0.35&gt;</code></li>
+<li>Now I feel completely happy. I take the seed of my favourite gen and reuse it, this time with Hires. Woila, we're done.
+-&gt; <img alt="" src="https://files.catbox.moe/349uqg.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, dark background, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, <lora:illustrious_quality_modifiers_masterpieces_v1:0.7> <lora:illustriousXL_stabilizer_v1.72:0.35>, Negative prompt: worst quality, bad quality,
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 1003245552, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.6, Hires steps: 22, Hires upscaler: R-ESRGAN 4x+ Anime6B</em> &lt;-</li>
+</ol>
+<p>From start to finish, this generation took 50 images to refine the first prompt into the last. This is the way I do all my gens, and I highly recommend following the same principle. It's extremely easy to mess up at the very beginning and spend hours trying to fix it; I've been there.</p>
+<hr />
+<h3 id="prompting-prompt-complexity">Prompting; Prompt Complexity</h3>
+<p>This is a quite ephemeral thing that I think is extremely important. I consider Prompt Complexity to be this: it's the amount of separate concepts you require the model to understand and generate correctly. Things like Styles are not separate specific concepts, so they're not increasing the complexity. Appearance tags on solo gens have no other interpretation than, well, that they're worn by this character, so it's also not an issue. Things start getting fun once you start doing complicated stuff. Asking for two separate actions by a single character relies on the model understanding how it's going to look, so it increases the complexity a lot. Defining two separate characters makes the complexity skyrocket: the model has to associate different characteristic (that are technically applicable to both characters) to separate characters. It's fine if you assign actions that require multiple characters, but stuff like <code>black hair</code>, <code>pointy ears</code>, <code>animal ears</code> can be assigned to either, and the model will most often just make both characters like this. Resulting from this, Prompt Complexity is a sum of every Tag Bleeding, Redundant Tags, Overtrained and Undertrained Tags, as well as ambiguous tags. The less complex your prompt is, the more consistency and quality you get. You should always look for opportunities to make your prompt simpler, to use a more specific (but still populated) tag, replace multiple tags with just one, avoid redundancy and bleeding. It's a nice habit that may save hours of work.</p>
+<hr />
+<h2 id="new-illustrious-1011-based-models">New Illustrious 1.0/1.1-Based Models</h2>
+<p>So, there are finally models based on new Illustrious 1.0/1.1 that don't suck ass, and I finally got to try them. You can find a comparison of a few of them in my thread on Aegiscord. They're pretty good, and because of their support of higher resolutions and Natural Language, I use them quite often. Let's talk about it in more detail. You can see examples of them in the DEIS section.</p>
+<p><strong>Higher Resolutions</strong>; While Illustrious 1.0/1.1-based models supports a variety of <code>1536 x 1536</code> resolutions, I suggest sticking to two: <code>1024 x 1536</code> or <code>1536 x 1024</code>; they show the most prompt adherence and overall quality. Higher resolution helps immensely in face quality, small/subtle details, and detail in general. Keep in mind that while these higher resolutions are more than usable, prompt adherence of them is <strong>worse</strong> than with regular SDXL sizes. You can always use good old <code>832 x 1216</code>, <code>1216 x 832</code>, <code>1024 x 1024</code>, etc.</p>
+<p><strong>Natural Language Prompting</strong>; While tags remain the main way of prompting, you can finally add in some Natural Language for more complicated prompts. For example, in the magical girl image I used as an example for <strong>DEIS</strong> above, I used <code>magical weaving chaotic threads of white light coming out of hands</code>, and it worked almost perfectly. As anything related to Natural Language, there can't be no guidelines or specific rules for usage, so all I can suggest is experimenting; but I'd advise that if you can do a specific thing you want with Tags, you should do just that. Natural Language is unpredictable, and I think it should be used only if there's no other way.</p>
+<p><strong>Impressions:</strong> I'm not ready to speak definitively on them right now, but I've made my impressions on them. Compared to Illustrious 0.1, Illustrious 1.0/1.1 based models show <strong>much</strong> more creativity if you prompt for it, and they can easily do extremely complex gens that 0.1 would've struggled with. 1.0/1.1 is not fool proofed in any way, and complex gens still take a lot of knowledge and understanding of how tag, prompt and gen, but Natural Language and improved creativity makes the job noticeably easier. I'm not ready to abandon Amanatsu completely, but AnnnslMix specifically is really good. Stuff like this makes me excited for what's to come.</p>
+<hr />
+<h2 id="v-pred-models-how-to-use">V-Pred Models; How to Use</h2>
+<p>While I won't be going into deail about how V-Pred models are different from eps-pred, there are some differences in how you should approach them. In general, if you see that a model you're using is a v-pred (or there are unexpected artifacts/noise in the image), you should know:
+- DPM++ 2M Karras and some other samplers/schedulers <strong>do not work</strong>.
+- DPM++ 2M SGM Uniform, Euler a Normal, DEIS SGM Uniform and IPNDM_V SGM Uniform are my recommended samplers.
+- Avoid using <code>dark</code>, <code>day</code> and other tags that change the lighting. While v-pred is famous for it's great color range and lighting, it's extremely prone to over-exposing gens or making them too dark.
+- Be ready for instabilities and jank. I personally do not like v-pred at all, and all models using it (that I tested) sucked. You can get these advantages of v-pred on regular eps-pred models with some prompting (to some extent), like <code>contrast, hdr, vibrant, shadow, dark, reflection,</code> and lighting tags.</p>
+<hr />
+<h2 id="img2img-introduction-wip">img2img; Introduction (WIP)</h2>
+<p>Well, it had to happen someday. I don't even hope to finish this section anytime soon, but I'll begin it anyway. What is img2img? Roughly speaking, it's using an already existing image (be it a generation or an unrelated human-made/real-life picture) as a base for your gen. With txt2img, there is also technically a base image called Latent Noise; it's basically randomly-placed blobs of different colors that the Diffusion models interacts with, merging these blobs in a way that corresponds to your prompt. Latent Noise is always random (or, more specifically, it's different for each seed), so having a reference image solves a lot of this randomness and gives you an option to generate images similar to the reference. It can be used to iterate on your txt2img gens, solve issues with them or even just to get a gen similar to a random picture you got from the internet or drew yourself. <strong>Please keep in mind that I'm not even closely an expert in img2img, and I intend this section as more of an introduction rather than a detailed and comprehensive guide. I can make mistakes and be wrong; feel free to tell me about it on Discord.</strong> There are different options for img2img, but we'll start from the default one.</p>
+<p><em>Note: this whole section is heavily WIP and will be improved and expanded upon; I just prefer having shit right on the Rentry, so I'll be drafting it here. Feel free to skip this section for the time being.</em></p>
+<hr />
+<h3 id="img2img-main-parameters-and-principles-not-finished-yet-wip">img2img; Main Parameters and Principles (NOT FINISHED YET; WIP)</h3>
+<p>[SCREENSHOT HERE]
+First, you import an image to the img2img tab; either via the "Send to img2img" button in the gallery or by uploading an external image. By using the "Send to img2img" button, it'll also transfer the prompt and seed to img2img. <strong>Don't forget to set your seed to <code>-1</code> if you need randomness</strong>. After that, you should go to the "Resize To" section, and press the Ruler button for img2img to set the correct resolution. You should also setup your Sampler and Scheduler, set CFG and set the Steps. <strong>img2img will almost never use the full amount of steps set, but it will impact the gen.</strong> Using the same parameters for them as in txt2img seems to be working just fine. After that, the only parameter left is <strong>Denoising Strength</strong>, the main parameter in img2img. Basically, it determines how much the reference image will be turned back into Latent Noise; The lower <code>--&gt;</code> the more of the original image remains. What values you should use:
+- 0.65 - 0.75: Most of the reference image is destroyed, but the general composition remains. Use it to have your gens slightly influenced by the reference image.
+- 0.3 - 0.5: Reference image is severely noised, but general composition remains intact. Use it to make variations of the reference image.
+- 0.1 - 0.2: Reference image is slightly damaged. General composition is completely intact, but the style and small details are destroyed. Use it to refine/slightly edit your gens.
+Let's get to prompting. For getting variations on a single gen, using the exact same prompt as it was in txt2img is completely fine. For external images, you'd have to eyeball what tags it would've had if you genned it. You'd have to be at least somewhat accurate here. For img2img with higher Denoising, you can just use the general Composition/People tags corresponding to the reference image.</p>
+<hr />
+<p>[Example section here.]</p>
+<hr />
+<p>[Inpainting section here.]</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../illustrious_guide/" class="btn btn-neutral float-left" title="Illustrious Guide; Basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../comfy_guide/" class="btn btn-neutral float-right" title="ComfyUI Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Made by @bextoper in 2025.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../illustrious_guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../comfy_guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

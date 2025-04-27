@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Installing Stable Diffusion; ForgeUI - bex's Stable Diffusion And Illustrious Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installing Stable Diffusion; ForgeUI";
+        var mkdocs_page_input_path = "forge_guide.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> bex's Stable Diffusion And Illustrious Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reusage/">IMPORTANT. Re-usage of My Prompt/Generations</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Installing Stable Diffusion; ForgeUI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#choosing-a-frontend">Choosing a Frontend</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-stable-diffusion-forgeui-and-why">Installing Stable Diffusion ForgeUI and Why</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-stable-diffusion-webui-reforge-outdated-see-section-above">Installing Stable Diffusion WebUI reForge (OUTDATED. SEE SECTION ABOVE.)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stable-diffusion-xl-models">Stable Diffusion XL Models</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-to-do-once-you-got-it-installed">What to do once you got it installed</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#command-line-flags">Command Line Flags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-interface-basic-setup">User Interface; Basic Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-interface-txt2img">User Interface; txt2img</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ui-settings">UI Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extensions">Extensions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#were-ready">We're ready?</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../illustrious_guide/">Illustrious Guide; Basics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Section</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../comfy_guide/">ComfyUI Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../conclusion/">Conclusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Special Thanks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../todo/">To-Do List</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../updates/">Update History</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">bex's Stable Diffusion And Illustrious Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Installing Stable Diffusion; ForgeUI</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installing-stable-diffusion-locally">Installing Stable Diffusion Locally:</h1>
+<p>Of course, before generating anything, we have to have something to generate it with. While there are numerous sites and services that do it on their servers, they leave you with much less customisation, convenience, sometimes speed, and, of course, they are paid. I'm no expert on these services, I only ever used <a href="https://civitai.com/">Civitai</a> just to try Early Access checkpoints, there are a few of them that people on Aegiscord keep mentioning and using, here are two I remember: <a href="https://pixai.art/">Pixai.art</a> and <a href="https://tensor.art/">Tensor.art</a> There are also <a href="https://novelai.net/">Novel.ai</a>, <a href="https://www.midjourney.com/">Midjourney</a> and others that are good, but they're not Stable Diffusion and I'm not knowledgable in them at all. These services have little to no customisation or setup required, so there's no point in talking about them specifically.
+The best option available is, of course, local Stable Diffusion. There is an option to run it from something like Google Colab, but these Colabs come and go as Google bans them, so I can't provide any links. There should be numerous guides about them anyway, just Google it. The purpose of this section of the guide is to explain how to get Stable Diffusion running on your hardware, so let's get to choosing an app for that.</p>
+<hr />
+<h2 id="system-requirements">System Requirements</h2>
+<p>First, let's talk about hardware you need to run SD locally. For PC users, <strong>you have to own an NVIDIA GPU with at least 8 GB of VRAM</strong> (for AMD GPU users, see SD.Next below). SDXL models use 6 gigabytes of VRAM themselves, and including fluctuations from the ongoing generation, moving models around, and external VRAM usage from Windows or, for example, your browser, total VRAM usage may easily reach somewhere from 7.5 GB to 8 GB max on my RTX 3070 8 GB. It can be possible to run SDXL with 6 GB of VRAM, a lot of frontends have optimisations for that, but be ready for slow generation speed, increased model moving times and <code>CUDA Out of Memory</code> errors. It is technically possible to run SD on just RAM, but it will be so extremely slow it's not worth it at all (but later in the guide I will talk about one method that can make it just barely viable). For two Mac users out there, SD runs on any Apple Silicon chip; the main issue will be the speed of Unified Memory. While it's usually much faster than conventional RAM, it's still far from VRAM speeds, so while it's more than possible and pretty simple to install and run, do not expect high generation speed.</p>
+<hr />
+<h2 id="choosing-a-frontend">Choosing a Frontend</h2>
+<p>Let's talk about frontends: they are essentially environments for Stable Diffusion. They offer various performance, compatibility, quality and customisation, which are extremely important. Let's talk about some of the most popular of them:
+(first, some explanations. <strong>IT/s, or Iterations per Second</strong> is a metric that shows the amount of generation steps completed in a second. It depends on the Resolution of the image, so all numbers I'll show are from a 832x1216 generation, which is equal to 1024x1024.)</p>
+<ul>
+<li><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTO1111</a>. The oldest and most known frontend, the good old stable-diffusion-webui. I myself used it as my first frontend years ago during the great days of Stable Diffusion 1.0. Sadly, it is extremely outdated in terms of performance: it offers literally 10x slower speeds than some other options I'll mention. I mention it here mostly for people that remember how good it was, because it's no longer the best option available; <strong>only use it if you know exactly why you need it</strong>. As a somewhat subjective metric for performance, AUTO1111 gives me just 0.15-0.20 IT/s, which is about 5-6 s/IT. There are forks of it available, for example,</li>
+<li><a href="https://github.com/lllyasviel/stable-diffusion-webui-forge">ForgeUI</a>. A huge fork for AUTO1111 that offers big improvements in terms of models it supports and, most importantly, the performance. It retains the incredible interface of AUTO1111 while providing more in-built features. From my testing, it's the second best performing frontend, giving me somewhere from 2 IT/s to 2.3 IT/s. Note that it has a slimmer extensions support compared to A1111. 
+UPD: finally gave this frontend a proper shot after the death of reForge; it has the exact same performance as reForge and either the same or slightly higher quality of generations. It supports all extensions I use (them being ADetailer, tag-autocomplete and Infinite Image Browsing), so it is a solid choice. Besides that, I don't see any noticeable differences between Forge and reForge, so I'm pretty sure I don't have to rewrite anything in this guide (besides the UI section, but I'm lazy). <strong>For newbies and people experienced with A1111/reForge, I highly recommend ForgeUI. This guide will be about it specifically going forward, but 95% of stuff is applicable to anything Stable Diffusion.</strong></li>
+<li><a href="https://github.com/Panchovix/stable-diffusion-webui-reForge/">reForgeUI</a>. It's a fork of ForgeUI. It's extremely similar to ForgeUI, but has some advantages over it. First, it fully supports most of AUTO1111's extensions. Second, it shows much less quality loss that I'd estimate at 0% to 5% compared to AUTO1111 and ComfyUI while retaining most of the performance; to me, it's somewhere between 1.9 IT/s and 2.1 IT/s. Third, it's updated constantly, ensuring the most stability and support for new models. ~~This is a frontend I personally use as my main, and I highly recommend it to you. I'll be talking specifically about it throughout the guide.~~ The development of reForge has ceased, so I cannot recommend it anymore.</li>
+</ul>
+<p><strong>Important Update</strong>: On 13th of April 2025, reForge ceased development. This means that it will no longer receive any updates, so new foundational models may not work on it. The guide was updated to focus on Forge.</p>
+<ul>
+<li><a href="https://github.com/comfyanonymous/ComfyUI">ComfyUI</a>. Arguably the best, most powerful, most customisable, supported and versatile frontend available. While it lets you do absolutely everything with your generations and receives support for new image and video generation models first, it's extremely complex, difficult and convoluted. Essentially, you're building every single function that you need yourself, from basic txt2img and img2img to Inpainting, Hires and others. There are community made workflows available, so you don't have to figure out and build them yourself, but you'd still have to understand them, switch around between workflows to get different functionality and figure out how to even use them. For all of that, it offers the best quality and performance out of all frontends, giving me about 2 IT/s at full, beautiful quality. If you're willing to spend your time understanding everything Comfy offers, tinkering with nodes, building features and such, it is the best option available, but for a regular user, it might just scare you out of doing anything image-gen or local related ever again. Just know that it exists, and if you feel ready, give it a shot.</li>
+</ul>
+<p>UPD: Now this Rentry also features sections on ComfyUI's installation and a basic usage guide. See below.</p>
+<ul>
+<li><a href="https://github.com/vladmandic/sdnext">SD.Next</a>. More of a honorable mention, this frontend is the only one I know that works with AMD GPUs on Windows and supports AMD ROCm. Stuff like ComfyUI works with AMD GPUs too, but it requires Linux.</li>
+</ul>
+<hr />
+<h2 id="installing-stable-diffusion-forgeui-and-why">Installing Stable Diffusion ForgeUI and Why</h2>
+<p>So, reForge is no longer in development, meaning that there will be a time when you'd have to switch to something else. For newbies and people familiar with A1111/reForge, I highly suggest using ForgeUI, as it's basically the same. I used it quite a bit for the past week, and, in my experience, it has the same performance and same/slightly higher image quality. To install, go to the <a href="https://github.com/lllyasviel/stable-diffusion-webui-forge?tab=readme-ov-file#installing-forge">Github page</a> and press the One-Click Install button. Unpack the archive, press <code>update.bat</code>, then <code>run.bat</code>; that should be it. You can start SD by clicking <code>run.bat</code>. Keep in mind that you will need ~5 GB of free space for the Forge itself, 6 GB for every SDXL model and ~500 MB for each LoRA you download.</p>
+<hr />
+<h2 id="installing-stable-diffusion-webui-reforge-outdated-see-section-above">Installing Stable Diffusion WebUI reForge (OUTDATED. SEE SECTION ABOVE.)</h2>
+<p><em>Kept this section for history. I highly recommend choosing other, actively-developed frontend, like Comfy or ForgeUI.</em>
+Just follow ~~the instructions on the Github page~~. One notable thing; <strong>make sure you have Python 3.7 to Python 3.12 installed (one of them), and Python 3.13 NOT installed. reForge will NOT run with Python 3.13 on your PC.</strong> To install Python, you can do it from Microsoft Store, just search <code>Python 3.10</code> for example. To check if you have Python 3.13 installed, check you Applications page in Settings and delete it if needed.</p>
+<hr />
+<h2 id="stable-diffusion-xl-models">Stable Diffusion XL Models</h2>
+<p>Let's talk about the most important thing: models we're going to use. First, <strong>you should get your models from <a href="https://civitai.com/">civitai.com</a></strong>, it has the biggest library of models to download. To search for them, go into "Models", then "Filters" and check "Checkpoints", then "Illustrious" below. Most of these models (especially more popular ones) will be Illustrious 0.1, but there are some new models based on Illustrious 1.0 and 1.1 that are slightly different. To install, just put a <code>.safetensors</code> model file into <code>models/stable-diffusion</code>. Here are some models I recommend:</p>
+<ul>
+<li><a href="https://civitai.com/models/1325426?modelVersionId=1496755">Amanatsu 1.1</a>. My current main model that I use to generate almost everything. It's based on Hassaku and made by the same people, and it's incredible. It has a style I adore and it shows some of the best prompt adherence I've seen. Great character knowledge and detail + quite good backgrounds. Works well with Artists, LoRAs and styles.</li>
+<li><a href="https://civitai.com/models/140272?modelVersionId=1483080">Hassaku XL</a>. The model Amanatsu is based on. Has a more neutral style while keeping the greats of Amanatsu. A solid model. I suggest using version 2.1, but there can be arguments made that v2.1fix is better, or that v1.2 is better, and, well, they are in some aspects, but I consider them to be just slightly different from each other.</li>
+<li><a href="https://civitai.com/models/827184?modelVersionId=1612720">WAI NSFW Illustrious XL</a>. A model of the WAI family, great and versatile. I consider it to be about the same as Hassaku quality-wise, just a different style. I suggest using v12, I didn't like v13 that much.</li>
+<li><a href="https://civitai.com/models/967405?modelVersionId=1610030">Nova Orange</a>. A model I found somewhat recently. While it suffers from a not-so-great prompt adherence, it has maybe the best quality I've seen, in both detail and backgrounds.</li>
+<li><a href="https://civitai.com/models/1386622/annnslmixillustriousxl">AnnnslMixIllustrious</a>. The only good Illustrious 1.0/1.1 based model I know at the moment. It's very versatile, has advantages of Illustrious 1.0/1.1 like an option to use higher resolution and some amount of Natural Language prompting, and adheres to your prompts well. It's default style is not exactly to my liking, but all my older Illustrious 0.1-based LoRAs work with it well.</li>
+</ul>
+<p>The list is not exhaustive. If you want to see other models and what they have to offer, I did quite a few model comparisons on Aegiscord. File sizes of them are enormous, I can't just link them with Catbox, so you can just go to the #image-spam channel of Aegiscord to find my thread called <strong>Bex's SD Hub</strong>. <a href="https://discord.com/channels/1265639855052820510/1355933426049614125">Link</a>.<em><em>
+</em>(I really should make a separate rentry with all the comparisons I've done. Soon™.)</em></p>
+<hr />
+<h2 id="what-to-do-once-you-got-it-installed">What to do once you got it installed</h2>
+<h4 id="command-line-flags">Command Line Flags</h4>
+<p>This was an important section for reForge, but it's extremely simple with Forge; you basically don't have to use it. One notable thing is: to get your Forge instance accessible from your local network, go to <code>webui</code> folder, and find <code>webui-user.bat.</code>. Open it in Notepad, find <code>COMMANDLINE_ARGS</code>, and add <code>--listen</code>. After that, Forge will be accessible on <code>DESKTOP_LOCAL_IP:7860</code>. In my case, for example, it's <code>192.168.2.207:7860</code>. On the machine itself, you can always go to <code>127.0.0.1:7860</code>.</p>
+<hr />
+<h3 id="user-interface-basic-setup">User Interface; Basic Setup</h3>
+<p><em>Important Note: This section is mostly the same as it was for reForge, but: I'll ~~cross out~~ sections that are not applicable to ForgeUI, and </em><em>make bold</em><em> sections new to ForgeUI. Screenshots are not updated yet. I really should overhaul this whole section, but not yet.</em>
+Let's start from top to bottom, left to right. First, the top line of buttons:
+<img alt="" src="https://files.catbox.moe/uh8izb.png" /></p>
+<ul>
+<li>*<em>UI: here, you select the architecture of a model you're gonna use. For Illustrious/NoobAI/Pony, it's always <code>sdxl</code>.</em></li>
+<li>Stable Diffusion Checkpoint: your current model + you can choose to load another model. Use the Refresh button if you add new models to <code>models/stable-diffusion</code> while SD is running.</li>
+<li>SD VAE: to choose which VAE you want to run. ~~In 99% of cases you want to leave it at Automatic and never touch again.~~ <strong>Leave empty in ForgeUI for Automatic</strong>.</li>
+<li><strong>Diffusion in Low Bits: Right now, I really don't know what it is. I assume it's some optimisation thing. I just leave it at auto.</strong></li>
+<li>~~CLIP Skip: In my understanding, it's the amount of deepest CLIP layers SD skips during Prompt Processing. With SDXL, you almost always want to keep it at 2 and never change again.~~</li>
+<li>txt2img: a tab for creating images from text. We'll be focusing on it throughout the guide.</li>
+<li>img2img: a tab that uses a reference picture for generation in addition to text. ~~Will explain separately later.~~ Maybe will add a section about it some other time.</li>
+<li><strong>Spaces: some ForgeUI feature to install and run tools that are separate from Forge. I won't be talking about them.</strong></li>
+<li>Extras: a tab where extra functions live. Most of the time there's nothing to do there.</li>
+<li>PNG Info: a tab where you can get metadata of your and other's generations and immediately move it to txt2img and other tabs.
+<img alt="" src="https://files.catbox.moe/mbcr1o.png" /></li>
+<li>Checkpoint Merger: used for merging different models together. I won't be talking about it.</li>
+<li>~~Train: A very scary section with questionable usefulness. I won't be talking about it at all.~~</li>
+<li>Settings: Self-explanatory</li>
+<li>Extensions: a place where you can turn on/off and download extensions.
+Now, second row of top buttons specific to txt2img:
+<img alt="" src="https://files.catbox.moe/1lhe95.png" /></li>
+<li>Generation: our main tab for txt2img generation.</li>
+<li>Textural Inversion: a tab where all your downloaded embeddings live. I don't plan on touching them here as I don't use them, so, a few words about them: from my understanding, you use them to apply Quality tags and such to a generation without actually typing them in as tags. While the idea is cool, I prefer having full control over my generation, and these embeddings do God knows what. If they work for you - great, I prefer not using them at all.</li>
+<li>~~Hypernetworks: a very scary tab I have 0 idea about. I think it's to train models or something? I won't be talking about it at all here.~~</li>
+<li>Checkpoints: a tab that shows all of your models. You can assign images to them by clicking the Edit Metadata button <code>--&gt;</code> Replace Preview. It'll be replaced with the current image selected in txt2img. To delete the image, go to <code>models/stable-diffusion</code> and remove a <code>checkpoint_name.png</code>.</li>
+<li>LoRAs: a tab that shows all your LoRAs. You can assign images to them the same way as with Checkpoints.</li>
+</ul>
+<hr />
+<h3 id="user-interface-txt2img">User Interface; txt2img</h3>
+<p>Finally, let's talk about txt2img buttons and how to setup them to get to genning quickly. I'll explain most of them later separately and in more detail, this is just to get started.
+<img alt="" src="https://files.catbox.moe/ocnqu3.png" /></p>
+<ul>
+<li>Prompt: A place where you input your Positive Prompt. At the top right you can see a <code>0/75</code> indicator: this is the amount of tokens in your prompt out of CLIP's capacity. I'll talk about CLIPs in more detail later, but for most cases, <strong>you should aim to not exceed 75 tokens, unless you know exactly what you're doing and how.</strong> This is not a hard rule, and if you go above 75, another CLIP will be created, but your prompt has the most efficiency when you're keeping it within the single CLIP. There are a lot of exceptions and cases when you'd want to have multiple CLIPs, but I'll talk about it later.</li>
+<li>Negative Prompt: The field where you input your Negative Prompt. You should only have your negative Quality tags there for the most cases. A rule of thumb is, <strong>unless you have a specific reason to add them, don't.</strong> Negative prompting is very powerful, and being careless can degrade your gens a lot. For example, if you have monochrome images popping of frequently, you may add <code>monochrome</code> to the negatives; they should have a reason to be there. I'll touch on them in more detail later.</li>
+<li>The Arrow Button: inputs your previous generation parameters into the UI. It also works on SD restart. It's great if you refreshed the page.</li>
+<li>The Trash Can Button: Clears both Prompt fields. Can be buggy, I don't recommend using it.</li>
+<li>Notebook Button: Moves prompt from enabled Styles to Prompt fields and disables the Style.</li>
+<li>Blue Spiral Button (usually hidden):  It appears if you refresh the page in the middle of the ongoing generation. Allows you to get the prompt, previous settings and images from this gen.</li>
+<li>Styles Field and the Pen Button: It's an option to have a set combination of tags be added to your prompt. You can set them up by pressing the Pen button, you can see an example below. By default, the tags are added like this: <code>1girl, standing, ...your prompt..., &lt;style&gt;</code>. You can make Style prompt be added to any position of the prompt, by using <code>{prompt}</code>, for example, <code>{prompt}, masterpiece, good quality, amazing quality,</code>.
+<img alt="" src="https://files.catbox.moe/olkast.png" /></li>
+<li>Sampling Method: This is where you choose your Sampler. While I won't go into what they do exactly, I can recommend using <code>DPM++ 2M</code>, and, if for some reason it doesn't work on some specific model, <code>Euler a</code>. I'll touch on some other Samplers later.</li>
+<li>Scheduler Type: It's a secondary setting for Samplers. With <code>DPM++ 2M</code> you should use <code>Karras</code>, and with <code>Euler a</code> you should use <code>Normal</code>. There are other useful Schedulers I'll mention much later.</li>
+<li>Sampling Steps: how many generation steps are done for a single image. I recommend having it from <code>26</code> to <code>34</code>. I use <code>28</code>, <code>30</code> is also very good. There are methods to drastically reduce the amount of steps needed (thus decreasing the generation time) with Hyper LoRAs, LCM or AYS, see further ahead.</li>
+<li>Width and Height: options to set the resolution of your gen. SDXL is trained on <code>1024x1024</code> images and finetuned on a number of other resolutions. <a href="https://stable-diffusion.app/blog/best-sdxl-sizes-recommended-sdxl-generation-sizes/">Here</a> is a list of good SDXL resolutions. I personally use either <code>832x1216</code> or <code>1216x832</code> for either Landscape or Portrait, as it's very close to a regular 2:3 aspect ratio. <strong>Note that there is no way to natively generate 16:9 images, do not use resolutions like <code>1366x768</code> and such, they will result in artifacts. Refer to the link above to see what aspect ratios are supported</strong>.</li>
+<li>Batch Count: how many images are generated separately. I recommend using it exclusively unless you have a GPU with enough VRAM to support simultaneous generation of multiple images.</li>
+<li>Batch Size: how many images are generated at the same time. Extremely VRAM intensive and not much faster than generating images one by one, I do not recommend using it. Leave it at 1.</li>
+<li>CFG Scale: A very tricky setting. Basically, the higher CFG is, the more model will adhere to your prompt. With Illustrious models, you get cohere generations in the range from CFG 3 to 7. I recommend using 5 and keeping in mind the option to move it to 4 or 3.5 the more complex your prompt gets.</li>
+<li>Seed: a number that defines your generation. By reusing the exact same prompt and exact same seed from another generation, you will get the (almost) exact same image. <code>-1</code> for Random (or by pressing the Dice button). Recycle button allows you to automatically enter the seed from previous generation. It's very useful if you want to test LoRAs or models, or Hires/Stylize an already genned image.</li>
+<li>Other menus below: These are all the different extensions you have installed. I will talk about some them separately.</li>
+<li>Gallery buttons: You have a set of useful different buttons under the image. They are explained if you hover over them, so I won't be explaining them. Just know that they're there, and that they're useful.</li>
+<li>Metadata: Under gallery buttons there is text. This text is the metadata from the current image; it contains your prompt, generation parameters, extension parameters, etc. This text is useful if you or someone else wants to replicate the exact image you got.</li>
+</ul>
+<h3 id="ui-settings">UI Settings</h3>
+<p>While there is a ton of settings, I want to tell you about some of the most important. I'll be referring to the by their name in the list on the left:
+- Defaults: Allows you to save all your current parameters and settings as a default, so that SD will be using them on launch. Press <code>View Changes</code> to see what exactly it'll save, and <code>Apply</code> to save them. Very useful to not have to setup basic things like CFG, Samplers and Resolution each time you launch SD.
+- Live Previews: This section is responsible for Live Previews of images that are still generating. While it is extremely useful, it takes a bit of performance away, so if that's an issue for you, turn it off. You can also set the period of Live Previews renders; I use 7, for example, because I always use 28 Generation steps, so I get a preview every quarter of the generation. You can also change the Preview Method; I use <code>TAESD</code>, as it's almost doesn't have quality degradation from it being a preview and I didn't notice much of a performance loss.
+- Infotext: allows you to disable writing generation metadata into the image. While I'm all for image gen being an open-source, completely collaborative hobby where we all learn from each other to improve, people should have an option to hide their generation parameters and prompts from others. Feel free to do so.
+- Paths for Saving: allows you to change the folder to where SD saves your generations.
+These are most notable settings. Feel free to explore them yourself, I could've easily missed something important.</p>
+<hr />
+<h3 id="extensions">Extensions</h3>
+<p>While base Forge is more than enough for most stuff, there are some very useful extensions you can download. First, how to install them. Go to the Extensions tab, then press the Available tab under it and press the big blue Load From button. It will give you a list of all the available extensions. Once you installed it, go to Installed tab and press Apply and Restart UI.
+<img alt="" src="https://files.catbox.moe/kckemm.png" />
+<img alt="" src="https://files.catbox.moe/ck5xjy.png" />
+<strong>Note that if you're using <code>--listen</code>, Forge will not allow you to install, enable and disable extensions. Remove the arg, do what you need with the extensions and put it back.</strong> Now, some cool extensions:</p>
+<ul>
+<li><code>Booru tag autocompletion prompting</code>: it functions as an autocomplete for Booru tags, containing, I think, literally all of them. Very convenient and useful even if you already memorised them. You can press Tab to put in the top result and arrows to move between results. On pressing Tab, it also auto-formats <code>(brackets)</code> into <code>\(sd-recongisable brackets\)</code> and auto-removes <code>_underscores_</code>. Very cool.
+<img alt="" src="https://files.catbox.moe/2m0nzf.png" /></li>
+<li><code>ADetailer</code>: an essential extension for almost everyone. What it does is: once the image finishes generation, it automatically detects any faces and re-generates them in full resolution, resulting in crisp and detailed faces in any situation. It doesn't require any setup; you just install it, enable and voila, now character faces look beautiful. </li>
+<li><code>Regional Prompter</code>: I never figured it out, but a few people on Aegiscord mention it from time to time and show impressive results with it, so I'll mention this extension too. What it does is: it separates the image area in X areas and generates characters separately for each one. It's extremely useful for multiple character gens, but is completely unintuitive and I didn't have enough patience to learn it; Illustrious is capable of generating 2 or 3 characters by itself with some tricky prompting I'll talk about in detail later. If I ever learn this extension, maybe I'll expand this section or make a new one.</li>
+<li><code>Infinite Image Browser</code>: An incredible tool to view, sort, tag, organize and compare all your generations. It indexes and views everything in your <code>outputs</code> (or any custom) folder. You can see a showcase of this extension on it's <a href="https://github.com/zanllp/sd-webui-infinite-image-browsing">github page</a>. I highly recommend giving it a shot; it's one of my essential extensions now.</li>
+</ul>
+<hr />
+<h3 id="were-ready">We're ready?</h3>
+<p>I think that's all the technical stuff need to know to get to image generation with Forge. Let's get to the deeds.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../reusage/" class="btn btn-neutral float-left" title="IMPORTANT. Re-usage of My Prompt/Generations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../illustrious_guide/" class="btn btn-neutral float-right" title="Illustrious Guide; Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Made by @bextoper in 2025.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../reusage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../illustrious_guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

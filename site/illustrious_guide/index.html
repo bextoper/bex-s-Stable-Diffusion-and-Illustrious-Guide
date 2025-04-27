@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Illustrious Guide; Basics - bex's Stable Diffusion And Illustrious Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Illustrious Guide; Basics";
+        var mkdocs_page_input_path = "illustrious_guide.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> bex's Stable Diffusion And Illustrious Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reusage/">IMPORTANT. Re-usage of My Prompt/Generations</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../forge_guide/">Installing Stable Diffusion; ForgeUI</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Illustrious Guide; Basics</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-illustrious">Why Illustrious?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#where-do-i-get-the-tags">"Where do I get the tags???"</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#brackets-and-undrescores">Brackets and Undrescores</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-prompting-tag-types-and-your-first-prompt">Basic Prompting: Tag Types and your First Prompt</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-people-tags">Step 1: People Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-character-tags">Step 2: Character Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-action-tags">Step 3: Action Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-4-appearance-tags">Step 4: Appearance Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-5-background-tags">Step 5: Background Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-6-image-composition-and-style-tags">Step 6: Image Composition and Style Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-7-artist-tags">Step 7: Artist Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-x-quality-tags">Step X: Quality Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#result">Result</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Section</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../comfy_guide/">ComfyUI Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../conclusion/">Conclusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Special Thanks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../todo/">To-Do List</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../updates/">Update History</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">bex's Stable Diffusion And Illustrious Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Illustrious Guide; Basics</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="prompting-101-basic-principles-structure-and-why-illustrious-is-amazing">Prompting 101: Basic Principles, Structure, and Why Illustrious is Amazing</h1>
+<p>All gens start from a prompt. Positive Prompt field, arguably, is the place you're going to spend the most time at. It may look deceptively simple; you just write what you want to see in the image, right? Well, yes, but no. This is where we have to understand how Image Generation models read and process your prompts. I promise it's not as technical as it sounds. I like to think that there are two main ways models understand what you want from them (or, more correctly, two different types of captioning the Training Data models are built upon):</p>
+<p><strong>Natural Language:</strong> The name pretty much explains it all; you just type what you want to see verbatim. For example, the prompt for a model that uses Natural Language may look like this: <code>a girl stands in a flower field and looks at the mountains, the wind lifts her hair. She wears a backpack. her hair is blonde and long, etc...</code>. It's good in a sense that you can just describe the image in detail; it's especially good when it comes to actions, but, in my personal opinion, the fatal flaw of this approach is that you cannot know the most optimal way to prompt. When there's literally an infinite amount of ways to describe something, how do I do it at least decently? The question may seem silly, but it's actually incredibly frustrating when you get dozens of shitty gens; you know the model is capable of doing great stuff, but when you look into the prompts of these great images, you see that it can easily be 100+ words long. Unless you spend countless hours trying and failing, you won't even get a somewhat good looking image. That's why I prefer the other way to prompt. For example, Midjourney and Pony-Based Stable Diffusion XL models use this method, while stuff like NovelAI's Image Gen supports it partially.</p>
+<p><strong>Tag-Based Prompting:</strong> It means that there are specific tags the model understands and uses to generate the image. For example, the prompt above will turn into <code>1girl, looking ahead, blonde hair, long hair, backpack, floating hair, mountain, scenery, landscape, flower field, from behind</code>. It may look less coherent, but unlike with Natural Language, this time I know for sure how to word it, and that the model will understand what I want from it. It opens other opportunities like Artist Tags, Character Tags and such, but we'll talk about that later. Tag-Based prompts are simple to build, easy to understand, and very effective. Not to say that it doesn't have its own drawbacks, but we'll talk about them later. Almost any Image Generation model supports it at some capacity (for the simple reason that these tags are, in fact, words), but Illustrious-XL v0.1 and NoobAI based models work exclusively with tags, while NovelAI prefers them but still works with Natural Language. For the sake of this guide (and things I actually know myself), we'll be talking only about <strong>Tag-Based Prompting</strong>.</p>
+<p>UPD: So, Illustrious 1.0+ now supports some amount of Natural Language. It is pretty cool, but, in my experience, you can't rely exclusively on natural language; I see it as: you prompt what you can in tags, and then try to get details with Natural Language if you can't get them with tags. I'll go in more detail in <strong>Illustrious 1.0</strong> section below.</p>
+<hr />
+<h2 id="why-illustrious">Why Illustrious?</h2>
+<p>First, let's understand what Illustrious is. Illustrious (or, more specifically, either Illustrious 0.1/1.0/1.1/2.0) is a base Stable Diffusion XL model. Base Model, in my understanding, is a model that's trained right upon the original (or foundational) model, Stable Diffusion XL in this case. Most of modern models you see on popular online image generation services or Civitai are some form (or merge; or finetune) of Illustrious nowadays. Their specific is in Tag-Based prompting, while foundational SDXL models and Pony models before it were prompted exclusively in Natural Language.</p>
+<p>There are quite a few Image Generation options out there. For the sake of this guide, I won't touch on NovelAI, Midjourney, Dalle, and Stable Diffusion architectures besides SDXL; I simply don't know much about them. But when it comes to SDXL, there are three main base models that other people build upon: Pony Diffusion XL v6, IllustriousXL v0.1 and NoobAI. The main reason why I love Illustrious is because it's incredibly easy to prompt; you just "build" the image with tags, and usually it just works. From my personal experience, Illustrious also has a much higher image quality than Pony-based models; sometimes, Illustrious-based models just excel in stuff like small details and backgrounds and more important stuff like prompt adherence, image composition, stylization, and character adherence. Like literally anything out there, it takes quite a bit of learning, trial and error, research, and even more learning, but we'll go through the most important aspects of generating images in this guide. Let's get to it, I guess.</p>
+<p>Small addendum about NoobAI. While it's technically different from Illustrious, it's prompted the same way. As long as the NoobAI model you're downloading is eps-pred (sometimes also called e-pred), you won't see any difference from Illustrious models, at least in prompting and most technicalities. You should generally avoid v-pred models, they suffer from contrast and color issues, and may work badly with LoRAs.</p>
+<hr />
+<h2 id="where-do-i-get-the-tags">"Where do I get the tags???"</h2>
+<p>Okay, actually, before we start, this is maybe the most important thing I need to address - the place where you'll get the info about tags. Illustrious models use Training Data obtained from Danbooru, so they're captioned in Booru tags. Danbooru, bless them, has a page where they list and explain almost every tag on the site: <a href="https://danbooru.donmai.us/wiki_pages/tag_groups">Danbooru Tag Groups Wiki</a>. It is big and a bit complex, and will take a while to get used to, but as I explain further down the process of making a prompt, I will be linking different Tag Group pages that list all the tags I'll be using. </p>
+<hr />
+<h3 id="brackets-and-undrescores">Brackets and Undrescores</h3>
+<p>While we're here, let me talk about <strong>underscores</strong> and <strong>brackets</strong>. On the Danbooru site, to search for tags that consist of multiple words, you have to use underscores, like <code>looking_at_viewer</code>. In Stable Diffusion, <strong>you do not use them</strong>, so the tag above will turn into a simple <code>looking at viewer</code>. Brackets are a bit trickier; let's look at the tag that Danbooru recognises as <code>2000s_(style)</code>. In Stable Diffusion, brackets are used exclusively for Weight Manipulation (that we will talk about later), so it will not recognise the tag. To fix this, every bracket must be prefixed with a <code>\</code>, so the tag above will look like <code>2000s \(style\)</code> in your Prompt field.</p>
+<hr />
+<h2 id="basic-prompting-tag-types-and-your-first-prompt">Basic Prompting: Tag Types and your First Prompt</h2>
+<h4 id="step-1-people-tags">Step 1: People Tags</h4>
+<p>Let's start with the very beginning of a prompting process. For the sake of simplicity and, to be fair, the needs of the most people getting into image gen, we'll be doing character gens. The very first thing your prompt must have is something I call <strong>People Tags</strong>. These are essential and must be at the very beginning of your prompt. They are self-explanatory, and while there are quite a few of them, you won't ever need the most. Here are People Tags that will be enough for 100% of your gens:
+<code>1boy, 2boys, 3boys, 1girl, 2girls, 3girls, multiple boys, multiple girls, no people</code>
+<a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Agroups">More Group Tags</a>
+Let's start making our prompt. So far it's:</p>
+<p>Positive Prompt: <code>1girl,</code></p>
+<h3 id="step-2-character-tags">Step 2: Character Tags</h3>
+<p>Now, let's think about how we want our <code>1girl</code> to look like. Actually, it's not strictly necessary to define the character at all: the model will come up with something on it's own. It can be useful if the exact look of the character is not important to you, for example, when you're just testing styles or generating a scenery, cases where you want to keep your Prompt Complexity low (we'll talk more about it later). Most of the time, of course, you want to define your character. The simplest way possible is by just using a <strong>Character Tag</strong> — an existing character from some media. There're multiple lists of characters from different Media on <a href="https://danbooru.donmai.us/wiki_pages/tag_groups">Tag Groups Wiki</a> under "<em>Copyrights, artists, projects and media</em>", but the easiest way to find them is by just searching the character or media you want. If you're making a completely original character, you should skip this step entirely. For example, I'll pick a character whose tag is called <code>makima_(chainsaw_man)</code>. In prompt, it will look like <code>makima \(chainsaw man\)</code>, so now we have:
+Positive Prompt: <code>1girl, makima \(chainsaw man\),</code>
+<img alt="" src="https://files.catbox.moe/lghn69.png" />
+<em>Really, you should always check Booru for a tag you're going to use. Takes a few seconds, but spares trouble from using a wrong tag. Also make sure to check what a tag actually means. <code>solo focus</code>, for example, mandates the image to be a multiple character image; it will mess up solo gens.</em></p>
+<h3 id="step-3-action-tags">Step 3: Action Tags</h3>
+<p>Now, let's make our prompt more alive. The next part of making a prompt is defining character's actions and position. I call it <strong>Action Tags</strong>. They are mostly up to your creativity: you think of what you want your character to do, look up the tags and enter them. You can find almost every Action Tag on <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Aposture">Posture Tags Wiki</a>, but they're not exhaustive; feel free to try different variations of words in Search to see if the tag not documented on Postures Wiki exists. For example, there are <a href="https://danbooru.donmai.us/wiki_pages/holding">Holding Tags</a>, Looking At tags and more on <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Aeyes_tags">Eye Tags Wiki</a>, a lot of actions on <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Averbs_and_gerunds">Verbs and Gerunds Wiki</a>, also <a href="https://danbooru.donmai.us/wiki_pages/on">'On' Tags</a> and probably much more. Anyway, let's get back to our prompt. I'll be using <code>looking at viewer, sitting, crossed legs, on chair, head tilt,</code>. It makes our prompt:</p>
+<p>Positive Prompt: <code>1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt,</code></p>
+<h3 id="step-4-appearance-tags">Step 4: Appearance Tags</h3>
+<p>This is where we define the way our character looks, like <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Aeyes_tags">Eye Tags</a>, <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Aattire">Attire Tags</a>, <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Abody_parts">Body Tags</a>, <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Aface_tags">Face Tags</a>, etc. Again, the easiest way to find them is to just use Search. Want Animal Ears? You just search it and find the correct name for the tag. I guess the most important thing here is, <strong>the less, the better</strong>, especially if you're using a Character Tag. If you want to get this non-original character 1:1 in their original attire, you can skip this step entirely 90% of the time, just like I'll do it here. I have some gens with defined appearances below, so don't worry. We still have:</p>
+<p>Positive Prompt: <code>1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt,</code></p>
+<h3 id="step-5-background-tags">Step 5: Background Tags</h3>
+<p><a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Alocations">Location Tags Wiki</a> is your best friend here. Most of the time you'd want to specify separately, whether it's <code>indoors</code> or <code>outdoors</code>. For Simple Backgrounds, make sure that your negative prompt doesn't have <code>simple background</code> in it, here's the <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Abackgrounds">Backgrounds Wiki</a>. For this prompt, I'll use <code>indoors, office</code>.</p>
+<p>Positive Prompt: <code>1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office</code></p>
+<h3 id="step-6-image-composition-and-style-tags">Step 6: Image Composition and Style Tags</h3>
+<p>It's one of the most important Tag Categories. Most Composition Tags are explained in <a href="https://danbooru.donmai.us/wiki_pages/tag_group%3Aimage_composition">Image Composition Wiki</a>; specifically in <em>View Angle</em>, <em>Focus Tags</em> and <em>Framing of the Body</em>. Style tags are used fairly rarely, but you can find them in <a href="https://danbooru.donmai.us/wiki_pages/list_of_style_parodies">Style Parodies Wiki</a>. Please note that Composition tags are essential <em>(in most cases. Note that you must not use View Angle tags in Multiple Character where both character are in focus)</em>. Without them, your gen might suffer a huge loss in quality. In my prompt, I'll use <code>cowboy shot</code>. </p>
+<p>Positive Prompt: <code>1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot,</code></p>
+<h3 id="step-7-artist-tags">Step 7: Artist Tags</h3>
+<p>This is maybe the hardest part of the prompt that I'll explain separately later. I won't be using them here.
+Okay, I never actually made this section, so a couple of words about Artist Tags. First, you can see all the different artists <a href="https://danbooru.donmai.us/artists?commit=Search&amp;search%5Border%5D=post_count">here</a>. In general, an artist should have at least 100 images for their Artist Tag to work well; I recommend aiming at artists with 500+ images. Check <strong>LoRAs</strong> section; Artist are similar in how you should use them.</p>
+<h3 id="step-x-quality-tags">Step X: Quality Tags</h3>
+<p>This is something you'll most likely have to setup once and never change again. I recommend the following quality tags:
+Positive: <code>{prompt},masterpiece,best quality,amazing quality</code>
+Negative: <code>{prompt},bad quality,worst quality,worst detail,sketch,censor,</code>
+Depending on what you get, you may also want to negative <code>signature, watermark, monochrome, l0l1, child, censor, multiple view, etc</code>, but it's best to start expanding on negatives only when you get something you don't want in the gen.</p>
+<h3 id="result">Result</h3>
+<p>We finally finished going through the prompting process, and in the end we've got:
+Positive Prompt: <code>1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality</code>
+Negative Prompt: <code>bad quality,worst quality,worst detail,sketch,censor</code>
+-&gt; <img alt="" src="https://files.catbox.moe/i0jjv0.png" /> &lt;-
+-&gt; <em>Metadata: 1girl, makima (chainsaw man), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3473795472, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B,</em> &lt;-</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../forge_guide/" class="btn btn-neutral float-left" title="Installing Stable Diffusion; ForgeUI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../advanced/" class="btn btn-neutral float-right" title="Advanced Section">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Made by @bextoper in 2025.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../forge_guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../advanced/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
