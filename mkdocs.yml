@@ -1,0 +1,34 @@
+site_name: bex's Stable Diffusion And Illustrious Guide
+copyright: Made by @bextoper in 2025.
+extra:
+    social:
+      - icon: fontawesome/brands/discord
+        link: https://discord.com/users/391965346761801738
+        name: bextoper
+nav:
+    - Introduction: index.md
+    - IMPORTANT. Re-usage of My Prompt/Generations: reusage.md
+    - Installing Stable Diffusion; ForgeUI: forge_guide.md
+    - Illustrious Guide; Basics: illustrious_guide.md
+    - Advanced Section: advanced.md
+    - ComfyUI Guide: comfy_guide.md
+    - Conclusion: conclusion.md
+    - Special Thanks: thanks.md
+    - To-Do List: todo.md
+    - Update History: updates.md
+theme:
+  name: readthedocs
+  highlightjs: true
+  color_mode: dark
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        # See: https://mkdocstrings.github.io/python/usage/
+        python:
+          options:
+            docstring_style: sphinx
+markdown_extensions:
+  - markdown_include.include:
+      base_path: .
+  - admonition

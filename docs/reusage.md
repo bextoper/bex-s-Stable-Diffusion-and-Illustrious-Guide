@@ -1,0 +1,4 @@
+# IMPORTANT. Re-usage of my prompts/generations.
+About using my prompts from this guide in your gens that you intend to share/publish. Let's break it into two cases:
+1. Partial re-usage, where you use a part of my prompt to generate something new: while I'd appreciate if you mention this guide, *you don't have to credit me.* This is your gen, made to look like you want, that I have no relation to.
+2. A complete re-usage of my prompt, where no major changes are made. This includes re-using a character with a distinct appearance or re-using characters with the style and composition of the image; in general, copying the complete prompt with no or minimal changes. In this case, **please, do not claim ownership and give a credit to this guide or me.** *This does not apply to Makima gen, 2girls elf + kemonomimi gen, and 3girls Mihoyo MCs gen, as they're very generic and were done for testing.* Much appreciated.

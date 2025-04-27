@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Basic MkDocs Example Project</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Basic MkDocs Example Project
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#example-project-usage">Example Project usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-the-example-in-your-own-project">Using the example in your own project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#read-the-docs-tutorial">Read the Docs tutorial</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="api/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="usage/">Usage</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Basic MkDocs Example Project</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="example-basic-mkdocs-project-for-read-the-docs">Example: Basic MkDocs project for Read the Docs</h1>
+<p><a href="https://example-mkdocs-basic.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/example-mkdocs-basic/badge/?version=latest" /></a></p>
+<p>This example shows the an integration of a basic MkDocs project with Read the Docs. You\'re encouraged to view it to get inspiration and copy &amp; paste from the files in the source code. If you are using Read the Docs for the first time, have a look at the official <a href="https://docs.readthedocs.io/en/stable/tutorial/index.html">Read the Docs Tutorial</a>.</p>
+<p>📚 <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/docs/">docs/</a><br>
+A basic MkDocs project lives in <code>docs/</code>, it was generated using MkDocs defaults. All the <code>*.md</code> make up sections in the documentation.</p>
+<p>⚙️ <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/.readthedocs.yaml">.readthedocs.yaml</a><br>
+Read the Docs Build configuration is stored in <code>.readthedocs.yaml</code>.</p>
+<p>⚙️ <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/mkdocs.yaml">mkdocs.yml</a><br>
+A basic <a href="https://www.mkdocs.org/user-guide/configuration/">MkDocs configuration</a> is stored here, including a few extensions for MkDocs and Markdown. Add your own configurations here, such as extensions and themes. Remember that many extensions and themes require additional Python packages to be installed.</p>
+<p>📍 <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/docs/requirements.txt">docs/requirements.txt</a> and <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/docs/requirements.in">docs/requirements.in</a><br>
+Python dependencies are <a href="https://docs.readthedocs.io/en/latest/guides/reproducible-builds.html">pinned</a> (uses <a href="https://pip-tools.readthedocs.io/en/latest/">pip-tools</a>) here. Make sure to add your Python dependencies to <code>requirements.txt</code> or if you choose <a href="https://pip-tools.readthedocs.io/en/latest/">pip-tools</a>, edit <code>docs/requirements.in</code> and remember to run to run <code>pip-compile docs/requirements.in</code>.</p>
+<p>💡 <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/docs/api.md">docs/api.md</a><br>
+We add our example Python module <code>lumache</code> in order to auto-generate an API reference. To do this, we use the <code>:::</code> syntax, you can read more in the <a href="https://mkdocstrings.github.io/">mkdocstrings documentation</a>.</p>
+<p>💡 <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/docs/usage.md">docs/usage.md</a><br>
+We also include some direct links to a function from the API reference, as well as embedding documentation for the example function <code>lumache.get_random_recipe</code>. This functionality is also from the <a href="https://mkdocstrings.github.io/python/">mkdocstrings</a> extension.</p>
+<p>💡 <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/lumache.py">lumache.py</a><br>
+API docs are generated for this example Python module - they use <em>docstrings</em> directly in the documentation, notice how this shows up in the rendered documentation. We use the <a href="https://pythonhosted.org/an_example_pypi_project/sphinx.html#function-definitions">Sphinx convention</a> for docstrings, however you are free to edit <code>mkdocs.yml</code> to change this option to <code>google</code> or <code>numpy</code>.</p>
+<p>🔢 Git tags versioning<br>
+We use a basic versioning mechanism by adding a git tag for every release of the example project. All releases and their version numbers are visible on
+<a href="https://example-mkdocs-basic.readthedocs.io/en/latest/">example-mkdocs-basic.readthedocs.io</a>.</p>
+<p>📜 <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/blob/main/README.rst">README.rst</a><br>
+Contents of this <code>README.md</code> are visible on Github and included on <a href="https://example-mkdocs-basic.readthedocs.io/en/latest/">the documentation index page</a> (Don\'t Repeat Yourself).</p>
+<p>⁉️ Questions / comments<br>
+If you have questions related to this example, feel free to can ask them as a Github issue <a href="https://github.com/readthedocs-examples/example-mkdocs-basic/issues">here</a>.</p>
+<h2 id="example-project-usage">Example Project usage</h2>
+<p>This project has a standard MkDocs layout which is built by Read the Docs almost the same way that you would build it locally (on your own laptop!).</p>
+<p>You can build and view this documentation project locally - we recommend that you activate <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">a local Python virtual environment first</a>:</p>
+<pre><code class="language-console"># Install required Python dependencies (MkDocs etc.)
+pip install -r docs/requirements.txt
+
+# Run the mkdocs development server
+mkdocs serve
+</code></pre>
+<h2 id="using-the-example-in-your-own-project">Using the example in your own project</h2>
+<p>If you are new to Read the Docs, you may want to refer to the <a href="https://docs.readthedocs.io/">Read the Docs User documentation</a>.</p>
+<p>If you are copying this code in order to get started with your documentation, you need to:</p>
+<ol>
+<li>place your <code>docs/</code> folder alongside your Python project. If you are starting a new project, you can adapt the <code>pyproject.toml</code> example configuration.</li>
+<li>use your existing project repository or create a new repository on Github, GitLab, Bitbucket or another host supported by Read the Docs.</li>
+<li>copy in <code>mkdocs.yaml</code>, <code>.readthedocs.yml</code> and the <code>docs/</code> folder into your project. Customize all the files, replacing example contents.</li>
+<li>Rebuild the documenation locally to see that it works.</li>
+<li><em>Finally</em>, register your project on Read the Docs, see <a href="https://docs.readthedocs.io/en/stable/intro/import-guide.html">Importing Your Documentation</a>.</li>
+</ol>
+<h2 id="read-the-docs-tutorial">Read the Docs tutorial</h2>
+<p>To get started with Read the Docs, you may also refer to the <a href="https://docs.readthedocs.io/en/stable/tutorial/">Read the Docs tutorial</a>. It provides a full walk-through of building an example project similar to the one in this repository.</p>
+<h1 id="welcome-to-lumaches-documentation">Welcome to Lumache's documentation!</h1>
+<p><strong>Lumache</strong> (/lu\'make/) is a Python library for cooks and food lovers
+that creates recipes mixing random ingredients. It pulls data from the
+<a href="https://world.openfoodfacts.org/">Open Food Facts database</a> and offers
+a <em>simple</em> and <em>intuitive</em> API.</p>
+<p>Check out the <a href="usage">usage</a> section for further information, including how to <a href="usage#installation">install</a> the project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This project is under active development.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="api/" class="btn btn-neutral float-right" title="API Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="api/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.3.0
+Build Date UTC : 2025-04-27 18:01:59.926383+00:00
+-->
