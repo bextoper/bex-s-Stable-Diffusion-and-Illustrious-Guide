@@ -1,5 +1,8 @@
-# ComfyUI; Introduction
+# ComfyUI
+## ComfyUI; Introduction
 So, the big boy. ComfyUI is arguably the most versatile and customisable frontend out there, but it’s pretty hard to get into. It’s pretty interesting to me, just because I can try various methods of doing various things, but it’s really hard to just start using; you need to spend hours to get basic functionality. **For new users, I highly suggest first picking a simpler frontend like Forge, just to learn basics and have all functions easily available.** But for folks who’re interested in what Comfy can do, here’s a detailed section on it. **Important. This section is intended for people who have at least some understanding of how image gen works, I won’t be describing every single little detail**.
+
+First, ComfyUI is a node-based frontend. All functionality is achieved by adding and connecting nodes. On the left of most nodes, there are *Inputs*, for example `image`, `latent`, `clip`, etc. In the middle, there are different parameters, like `denoising`, `cfg`, `checkpoint_name`, etc. On the right, there are outputs, like the same `image`, `latent`, etc. Keep in mind that most parameters can be also turned into inputs, for example you can connect a node called Primitive to `cfg`, `steps`, `text`, etc. Most nodes can take multiple nodes connected to a single input/output, for example, we connect both Load Checkpoint and Load LoRA to the same `model` input of KSampler. I'll talk about these nodes later.
 
 ## ComfyUI; Installation
 Go to [Comfy’s Github](https://github.com/comfyanonymous/ComfyUI). Here, go to Getting Started; you can pick either a Desktop Application that will install Comfy as an app (it should be the simplest option), or Windows Portable Package if you want a portable instance. They should be effectively the same, but I personally use the Windows Portable Package.

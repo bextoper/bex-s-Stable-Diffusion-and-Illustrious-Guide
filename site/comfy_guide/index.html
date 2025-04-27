@@ -64,6 +64,8 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">ComfyUI Guide</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#comfyui-introduction">ComfyUI; Introduction</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#comfyui-installation">ComfyUI; Installation</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#comfyui-custom-nodes">ComfyUI; Custom Nodes</a>
@@ -146,8 +148,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="comfyui-introduction">ComfyUI; Introduction</h1>
+                <h1 id="comfyui">ComfyUI</h1>
+<h2 id="comfyui-introduction">ComfyUI; Introduction</h2>
 <p>So, the big boy. ComfyUI is arguably the most versatile and customisable frontend out there, but it’s pretty hard to get into. It’s pretty interesting to me, just because I can try various methods of doing various things, but it’s really hard to just start using; you need to spend hours to get basic functionality. <strong>For new users, I highly suggest first picking a simpler frontend like Forge, just to learn basics and have all functions easily available.</strong> But for folks who’re interested in what Comfy can do, here’s a detailed section on it. <strong>Important. This section is intended for people who have at least some understanding of how image gen works, I won’t be describing every single little detail</strong>.</p>
+<p>First, ComfyUI is a node-based frontend. All functionality is achieved by adding and connecting nodes. On the left of most nodes, there are <em>Inputs</em>, for example <code>image</code>, <code>latent</code>, <code>clip</code>, etc. In the middle, there are different parameters, like <code>denoising</code>, <code>cfg</code>, <code>checkpoint_name</code>, etc. On the right, there are outputs, like the same <code>image</code>, <code>latent</code>, etc. Keep in mind that most parameters can be also turned into inputs, for example you can connect a node called Primitive to <code>cfg</code>, <code>steps</code>, <code>text</code>, etc. Most nodes can take multiple nodes connected to a single input/output, for example, we connect both Load Checkpoint and Load LoRA to the same <code>model</code> input of KSampler. I'll talk about these nodes later.</p>
 <h2 id="comfyui-installation">ComfyUI; Installation</h2>
 <p>Go to <a href="https://github.com/comfyanonymous/ComfyUI">Comfy’s Github</a>. Here, go to Getting Started; you can pick either a Desktop Application that will install Comfy as an app (it should be the simplest option), or Windows Portable Package if you want a portable instance. They should be effectively the same, but I personally use the Windows Portable Package.</p>
 <p>To update Comfy, go to <code>/update/</code> and start <code>update_comfyui.bat</code>.</p>

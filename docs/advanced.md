@@ -42,7 +42,8 @@ As the first example, let's imagine that we're generating a picture of a girl wi
 
 As an opposite example, let's imagine generating an image of `1girl`. It happens pretty often that when you generate an image of a single person, a copy of theirs appears somewhere in the background, especially if the background is complex. You may try to solve this by negative-ing `2girls, 3girls, multiple girls`, but it just won't work. Instead, you should positive `solo`; that's it, the issue is completely gone. Same applies to nudity tags: it's easier and much more "gentle" to use `topless`, `no panties`, `no bra`, etc instead of Negative-ing `shirt, panties, bra`. On the same topic;
 ***
-## Tags; Evaluating if You Should Use a Specific Tag
+## Tags
+### Tags; Evaluating if You Should Use a Specific Tag
 Not all tags are born equal. While there are some necessary tags that always work, like `1girl`, `indoors` or `blonde hair`, others may result in messy images or not work at all. Why does it happen? The reason is, some tags are just less populated than others. For example, a tag called `grabbing own ankles` does exist, but it only has 23 images on Danbooru, which means that using it is practically meaningless. More populated tags that count a few hundred images may work, but they may look messy, be impossible to influence or just won't work, overwhelmed by other more populated tags. A safe area for general tags starts at 1k+ images, with them working close to perfectly at 2k-3k population of images. It's a bit more difficult with characters and styles: they must have at least 2k population to even have a chance at working. Characters with 2k-ish images will often have wrong clothes, hair/eyes color, and will be completely messed up if you try to generate two characters in the same gen, for example. I'll touch on multiple character gens and how you can circumvent some of the issues later. Anyway, the morale is – always keep in mind how populated the tag you're adding is, and try to avoid tags with <1k images entirely (besides artist tags. They start working from 100+ images getting close to perfect at 500+)
 
 Another thing is **overtrained tags**. Tags with 100k+ results can completely overwhelm others, even if they technically allow for another action. For example, let's take `1girl, arm up, arm behind back`. Technically, these tags allow the other, but `arm up` is 5x more populated than `arm behind back`, so `arm behind back` may be ignored or inconsistent. You can avoid that by manipulating weight, like `(arm up:0.4)`; more about it later.
@@ -74,7 +75,8 @@ Addendum: On a related to the Prompt Order topic: how the tags are positioned in
  
 While having an idea about CLIPs is not that important by itself, it's necessary to understand the `BREAK` separator; an extremely important and sometimes life-saving piece of SD syntax. We'll talk about `BREAK`s in detail later.
 ***
-## Syntax; Introduction
+## Syntax
+### Syntax; Introduction
 We're all used to separating tags by `,` commas, but it's not the only piece of Stable Diffusion syntax there is. In fact, Stable Diffusion is extremely versatile in how you can manipulate your whole prompt, separate tags and even change the generation on the go. Before we actually get into it, a small warning. **Most of the time, you don't need advanced syntax.** It will only make stuff worse and needlessly complicated. If you don't want to spend time tuning precise settings and genning dozens or even hundreds of faulty generations, you shouldn't approach this. Most things can be done with good enough prompting anyway. However, there are some use cases where syntax is extremely useful, and a few situations where it's absolutely necessary. 
 
 **IMPORTANT NOTE: When it will come to practical use and examples, most of what I'm talking about from here on out is empirical and can be extremely different from model to model. Some models are simply better at following your prompts and doing complex scenes than others. I can be wrong and make mistakes; some methods I describe are inconsistent, others got little to no practical use by me or literally have a single use-case. I'll try to be detailed, but there won't be a single solution for all of your problems. Keep that in mind.**
@@ -153,7 +155,8 @@ Second, **do not use more than two style LoRAs at the same time**, at least with
 
 That's mostly all I have to say. LoRAs can be of various quality and made for different purposes/models, so it's just trial and error. You just apply them, tinker with weights and see if the results are satisfactory.
 ***
-## Generation Parameters; Introduction
+##Generation Parameters
+### Generation Parameters; Introduction
 Congrats on making it this far (yes, I'm running out of ideas on how to begin sections). For most intents and purposes, you can simply setup your parameters once, never change them again and be happy. I consider "good" parameters to be:
 - Sampler: DPM++ 2M Karras
 - Steps: 28

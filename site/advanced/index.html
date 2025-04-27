@@ -72,8 +72,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#negative-prompting-how-and-when">Negative Prompting: How and When</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</a>
+    <li class="toctree-l2"><a class="reference internal" href="#tags">Tags</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#tags-how-including-redundant-tags-ruins-gens">Tags; How Including Redundant Tags Ruins Gens</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#tags-tag-bleeding-and-how-to-avoid-it">Tags; Tag Bleeding, and How To Avoid It</a>
@@ -90,8 +92,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#prompt-clips-and-why-you-should-follow-the-prompt-order">Prompt; CLIPs, and Why You Should Follow The Prompt Order</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#syntax-introduction">Syntax; Introduction</a>
+    <li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax-introduction">Syntax; Introduction</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#syntax-separators">Syntax; Separators</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#syntax-prompts-weight-manipulation">Syntax; Prompt's Weight Manipulation</a>
@@ -112,8 +116,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#loras">LoRAs</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#generation-parameters-introduction">Generation Parameters; Introduction</a>
+    <li class="toctree-l2"><a class="reference internal" href="#generation-parameters">Generation Parameters</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-introduction">Generation Parameters; Introduction</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-align-your-steps-and-full-quality-gens-in-just-12-steps">Generation Parameters; Align Your Steps, and Full-Quality Gens in Just 12 Steps</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-extra-quality-gens-in-60-steps">Generation Parameters; Extra-Quality Gens in 60 Steps</a>
@@ -236,7 +242,8 @@ I used to use this prompt a lot when I was still on NTR Mix, but now I see it as
 <p>As the first example, let's imagine that we're generating a picture of a girl with <code>green eyes</code>. Even with ADetailer, models may want to turn the whole eye into a sea of green color, without pupils. There's no tag for <code>black pupil</code>, so there's nothing left to do but negative <code>no pupils</code>, and it indeed solves the issue completely. </p>
 <p>As an opposite example, let's imagine generating an image of <code>1girl</code>. It happens pretty often that when you generate an image of a single person, a copy of theirs appears somewhere in the background, especially if the background is complex. You may try to solve this by negative-ing <code>2girls, 3girls, multiple girls</code>, but it just won't work. Instead, you should positive <code>solo</code>; that's it, the issue is completely gone. Same applies to nudity tags: it's easier and much more "gentle" to use <code>topless</code>, <code>no panties</code>, <code>no bra</code>, etc instead of Negative-ing <code>shirt, panties, bra</code>. On the same topic;</p>
 <hr />
-<h2 id="tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</h2>
+<h2 id="tags">Tags</h2>
+<h3 id="tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</h3>
 <p>Not all tags are born equal. While there are some necessary tags that always work, like <code>1girl</code>, <code>indoors</code> or <code>blonde hair</code>, others may result in messy images or not work at all. Why does it happen? The reason is, some tags are just less populated than others. For example, a tag called <code>grabbing own ankles</code> does exist, but it only has 23 images on Danbooru, which means that using it is practically meaningless. More populated tags that count a few hundred images may work, but they may look messy, be impossible to influence or just won't work, overwhelmed by other more populated tags. A safe area for general tags starts at 1k+ images, with them working close to perfectly at 2k-3k population of images. It's a bit more difficult with characters and styles: they must have at least 2k population to even have a chance at working. Characters with 2k-ish images will often have wrong clothes, hair/eyes color, and will be completely messed up if you try to generate two characters in the same gen, for example. I'll touch on multiple character gens and how you can circumvent some of the issues later. Anyway, the morale is – always keep in mind how populated the tag you're adding is, and try to avoid tags with &lt;1k images entirely (besides artist tags. They start working from 100+ images getting close to perfect at 500+)</p>
 <p>Another thing is <strong>overtrained tags</strong>. Tags with 100k+ results can completely overwhelm others, even if they technically allow for another action. For example, let's take <code>1girl, arm up, arm behind back</code>. Technically, these tags allow the other, but <code>arm up</code> is 5x more populated than <code>arm behind back</code>, so <code>arm behind back</code> may be ignored or inconsistent. You can avoid that by manipulating weight, like <code>(arm up:0.4)</code>; more about it later.</p>
 <hr />
@@ -264,7 +271,8 @@ I used to use this prompt a lot when I was still on NTR Mix, but now I see it as
 <p>Addendum: On a related to the Prompt Order topic: how the tags are positioned in relation to each other is also important. While I can't find an exact rule on how this works yet; for example, in <code>2girls, girlA, girlB, holding sword, holding gun</code>, the model will understand that it's one girl holding a gun, and another holding a sword. As you get to genning it, you will notice that, for example, 4/5 times it's girlA holding the sword and girl B holding the gun. By either moving <code>girlA</code> and <code>girlB</code> around, or the same with <code>holding sword</code> and <code>holding gun</code>, this behaviour will change. It doesn't always look like this, especially with more complicated prompts, but sometimes you might want to move the tags around to hopefully get a better/more appropriate result, even with simple <code>1girl</code> gens.</p>
 <p>While having an idea about CLIPs is not that important by itself, it's necessary to understand the <code>BREAK</code> separator; an extremely important and sometimes life-saving piece of SD syntax. We'll talk about <code>BREAK</code>s in detail later.</p>
 <hr />
-<h2 id="syntax-introduction">Syntax; Introduction</h2>
+<h2 id="syntax">Syntax</h2>
+<h3 id="syntax-introduction">Syntax; Introduction</h3>
 <p>We're all used to separating tags by <code>,</code> commas, but it's not the only piece of Stable Diffusion syntax there is. In fact, Stable Diffusion is extremely versatile in how you can manipulate your whole prompt, separate tags and even change the generation on the go. Before we actually get into it, a small warning. <strong>Most of the time, you don't need advanced syntax.</strong> It will only make stuff worse and needlessly complicated. If you don't want to spend time tuning precise settings and genning dozens or even hundreds of faulty generations, you shouldn't approach this. Most things can be done with good enough prompting anyway. However, there are some use cases where syntax is extremely useful, and a few situations where it's absolutely necessary. </p>
 <p><strong>IMPORTANT NOTE: When it will come to practical use and examples, most of what I'm talking about from here on out is empirical and can be extremely different from model to model. Some models are simply better at following your prompts and doing complex scenes than others. I can be wrong and make mistakes; some methods I describe are inconsistent, others got little to no practical use by me or literally have a single use-case. I'll try to be detailed, but there won't be a single solution for all of your problems. Keep that in mind.</strong></p>
 <hr />
@@ -330,7 +338,8 @@ Steps: 1, Sampler: Euler, Schedule type: Karras, CFG scale: 5, Seed: 43880133, S
 <p>Second, <strong>do not use more than two style LoRAs at the same time</strong>, at least without making them skip first few steps. Without trickery, I recommend keeping the overall weight for two LoRAs below 1.1-1.3, for example, <code>lora_A</code> would have a weight of 0.7, and <code>lora_B</code> will have a weight of 0.4, making the total weight 1.1. These settings seem like they give the most style while keeping the quality basically the same as without LoRAs. Honestly, the very same goes for Style Tags. With Style Tags + LoRAs (that are applied like I suggested previously), a total of three seems stable. Just be mindful of weights.</p>
 <p>That's mostly all I have to say. LoRAs can be of various quality and made for different purposes/models, so it's just trial and error. You just apply them, tinker with weights and see if the results are satisfactory.</p>
 <hr />
-<h2 id="generation-parameters-introduction">Generation Parameters; Introduction</h2>
+<h2 id="generation-parameters">Generation Parameters</h2>
+<h3 id="generation-parameters-introduction">Generation Parameters; Introduction</h3>
 <p>Congrats on making it this far (yes, I'm running out of ideas on how to begin sections). For most intents and purposes, you can simply setup your parameters once, never change them again and be happy. I consider "good" parameters to be:
 - Sampler: DPM++ 2M Karras
 - Steps: 28
