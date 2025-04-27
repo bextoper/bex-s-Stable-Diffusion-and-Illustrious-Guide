@@ -92,8 +92,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#prompt-clips-and-why-you-should-follow-the-prompt-order">Prompt; CLIPs, and Why You Should Follow The Prompt Order</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#syntax-introduction">Syntax; Introduction</a>
+    <li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax-introduction">Syntax; Introduction</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#syntax-separators">Syntax; Separators</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#syntax-prompts-weight-manipulation">Syntax; Prompt's Weight Manipulation</a>
@@ -114,8 +116,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#loras">LoRAs</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#generation-parameters-introduction">Generation Parameters; Introduction</a>
+    <li class="toctree-l2"><a class="reference internal" href="#generation-parameters">Generation Parameters</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-introduction">Generation Parameters; Introduction</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-align-your-steps-and-full-quality-gens-in-just-12-steps">Generation Parameters; Align Your Steps, and Full-Quality Gens in Just 12 Steps</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#generation-parameters-extra-quality-gens-in-60-steps">Generation Parameters; Extra-Quality Gens in 60 Steps</a>
@@ -267,7 +271,8 @@ I used to use this prompt a lot when I was still on NTR Mix, but now I see it as
 <p>Addendum: On a related to the Prompt Order topic: how the tags are positioned in relation to each other is also important. While I can't find an exact rule on how this works yet; for example, in <code>2girls, girlA, girlB, holding sword, holding gun</code>, the model will understand that it's one girl holding a gun, and another holding a sword. As you get to genning it, you will notice that, for example, 4/5 times it's girlA holding the sword and girl B holding the gun. By either moving <code>girlA</code> and <code>girlB</code> around, or the same with <code>holding sword</code> and <code>holding gun</code>, this behaviour will change. It doesn't always look like this, especially with more complicated prompts, but sometimes you might want to move the tags around to hopefully get a better/more appropriate result, even with simple <code>1girl</code> gens.</p>
 <p>While having an idea about CLIPs is not that important by itself, it's necessary to understand the <code>BREAK</code> separator; an extremely important and sometimes life-saving piece of SD syntax. We'll talk about <code>BREAK</code>s in detail later.</p>
 <hr />
-<h2 id="syntax-introduction">Syntax; Introduction</h2>
+<h2 id="syntax">Syntax</h2>
+<h3 id="syntax-introduction">Syntax; Introduction</h3>
 <p>We're all used to separating tags by <code>,</code> commas, but it's not the only piece of Stable Diffusion syntax there is. In fact, Stable Diffusion is extremely versatile in how you can manipulate your whole prompt, separate tags and even change the generation on the go. Before we actually get into it, a small warning. <strong>Most of the time, you don't need advanced syntax.</strong> It will only make stuff worse and needlessly complicated. If you don't want to spend time tuning precise settings and genning dozens or even hundreds of faulty generations, you shouldn't approach this. Most things can be done with good enough prompting anyway. However, there are some use cases where syntax is extremely useful, and a few situations where it's absolutely necessary. </p>
 <p><strong>IMPORTANT NOTE: When it will come to practical use and examples, most of what I'm talking about from here on out is empirical and can be extremely different from model to model. Some models are simply better at following your prompts and doing complex scenes than others. I can be wrong and make mistakes; some methods I describe are inconsistent, others got little to no practical use by me or literally have a single use-case. I'll try to be detailed, but there won't be a single solution for all of your problems. Keep that in mind.</strong></p>
 <hr />
@@ -333,7 +338,8 @@ Steps: 1, Sampler: Euler, Schedule type: Karras, CFG scale: 5, Seed: 43880133, S
 <p>Second, <strong>do not use more than two style LoRAs at the same time</strong>, at least without making them skip first few steps. Without trickery, I recommend keeping the overall weight for two LoRAs below 1.1-1.3, for example, <code>lora_A</code> would have a weight of 0.7, and <code>lora_B</code> will have a weight of 0.4, making the total weight 1.1. These settings seem like they give the most style while keeping the quality basically the same as without LoRAs. Honestly, the very same goes for Style Tags. With Style Tags + LoRAs (that are applied like I suggested previously), a total of three seems stable. Just be mindful of weights.</p>
 <p>That's mostly all I have to say. LoRAs can be of various quality and made for different purposes/models, so it's just trial and error. You just apply them, tinker with weights and see if the results are satisfactory.</p>
 <hr />
-<h2 id="generation-parameters-introduction">Generation Parameters; Introduction</h2>
+<h2 id="generation-parameters">Generation Parameters</h2>
+<h3 id="generation-parameters-introduction">Generation Parameters; Introduction</h3>
 <p>Congrats on making it this far (yes, I'm running out of ideas on how to begin sections). For most intents and purposes, you can simply setup your parameters once, never change them again and be happy. I consider "good" parameters to be:
 - Sampler: DPM++ 2M Karras
 - Steps: 28
