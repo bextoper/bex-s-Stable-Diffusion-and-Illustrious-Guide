@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>ComfyUI Guide - bex's Stable Diffusion And Illustrious Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ComfyUI Guide";
+        var mkdocs_page_input_path = "comfy_guide.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> bex's Stable Diffusion And Illustrious Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reusage/">IMPORTANT. Re-usage of My Prompt/Generations</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../forge_guide/">Installing Stable Diffusion; ForgeUI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../illustrious_guide/">Illustrious Guide; Basics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Section</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">ComfyUI Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#comfyui-installation">ComfyUI; Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comfyui-custom-nodes">ComfyUI; Custom Nodes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comfyui-building-your-workflow">ComfyUI; Building Your Workflow</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ksampler-the-main-node">KSampler; The Main Node</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#ksampler-loading-model">KSampler; Loading Model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ksampler-positive-negative-and-clip-in-general">KSampler; Positive, Negative and CLIP in General.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ksampler-latent-image">KSampler; Latent Image</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ksampler-parameters">KSampler; Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ksampler-output-and-vae-decode">KSampler; Output and VAE Decode.</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ksampler-final-result">KSampler; Final Result</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#workflow-separating-your-prompt-and-quality-presets">Workflow; Separating your Prompt and Quality Presets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#workflow-cleaning-your-workflow-with-pipes">Workflow; Cleaning your Workflow with Pipes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#workflow-face-fixing">Workflow; Face Fixing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#workflow-hires">Workflow; Hires</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#workflow-lora">Workflow; LoRA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#workflow-groups-bypass-activation">Workflow; Groups, Bypass, Activation.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#workflow-my-workflow">Workflow; My Workflow</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comfyui-conclusion">ComfyUI; Conclusion</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../conclusion/">Conclusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Special Thanks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../todo/">To-Do List</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../updates/">Update History</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">bex's Stable Diffusion And Illustrious Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>ComfyUI Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="comfyui-introduction">ComfyUI; Introduction</h1>
+<p>So, the big boy. ComfyUI is arguably the most versatile and customisable frontend out there, but it’s pretty hard to get into. It’s pretty interesting to me, just because I can try various methods of doing various things, but it’s really hard to just start using; you need to spend hours to get basic functionality. <strong>For new users, I highly suggest first picking a simpler frontend like Forge, just to learn basics and have all functions easily available.</strong> But for folks who’re interested in what Comfy can do, here’s a detailed section on it. <strong>Important. This section is intended for people who have at least some understanding of how image gen works, I won’t be describing every single little detail</strong>.</p>
+<h2 id="comfyui-installation">ComfyUI; Installation</h2>
+<p>Go to <a href="https://github.com/comfyanonymous/ComfyUI">Comfy’s Github</a>. Here, go to Getting Started; you can pick either a Desktop Application that will install Comfy as an app (it should be the simplest option), or Windows Portable Package if you want a portable instance. They should be effectively the same, but I personally use the Windows Portable Package.</p>
+<p>To update Comfy, go to <code>/update/</code> and start <code>update_comfyui.bat</code>.</p>
+<p>To provide models from another frontend (Forge, in this case) to Comfy, go to <code>/comfy/</code> and find a file called <code>extra_model_paths.yaml.example</code>. Rename it to <code>extra_model_paths.yaml</code> and open it in Notepad. Find <code>base_path:</code> line under <code>a111:</code> and replace the <code>path/to/stable-diffusion-webui/</code> string to your A1111/Forge/reForge path, for example <code>base path: E:/Forge/webui</code>.</p>
+<hr />
+<h2 id="comfyui-custom-nodes">ComfyUI; Custom Nodes</h2>
+<p>Sooner or later, you <strong>will</strong> want to use custom nodes. To get them, install <a href="https://github.com/Comfy-Org/ComfyUI-Manager">ComfyUI Manager</a> by following the instructions on Github. After that, you’ll get a Manager button in your Comfy. Press it —&gt; Custom Nodes Manager, and you’ll be able to download custom nodes. I’ll mention a few of them later, but you’d want to get <code>ComfyUI-custom-scripts</code> as it gives a ton of essentials nodes and it’s a prerequisite for a lot of other custom nodes.</p>
+<hr />
+<h2 id="comfyui-building-your-workflow">ComfyUI; Building Your Workflow</h2>
+<p>While there are example workflows available, I highly recommend building your own. This is an incredible learning experience, and you’d know exactly what it does and how it works. For now, I’ll be using default nodes exclusively. Let’s begin</p>
+<h3 id="ksampler-the-main-node">KSampler; The Main Node</h3>
+<p><img alt="" src="https://files.catbox.moe/1v96bt.png" />
+KSampler is a node that transforms latent noise into your image. To find it, you can either RMB —&gt; Add Node —&gt; Sampling —&gt; KSampler,
+<img alt="" src="https://files.catbox.moe/sz1zcl.png" />
+or search for it in Node Library.
+![]https://files.catbox.moe/s4fzxn.png)
+Let’s take a look at it and see what inputs it takes, what parameters has and what it outputs.</p>
+<h4 id="ksampler-loading-model">KSampler; Loading Model</h4>
+<p>The first input KSampler takes is a model. To load a model, we will use a node called Load Checkpoint. 
+<img alt="" src="https://files.catbox.moe/ru4xdh.png" />
+There, you can select which model you want to use and output the model, CLIP and VAE. We’ll figure out CLIP and VAE later, but now, let’s connect <code>MODEL</code> from Load Checkpoint to KSampler.</p>
+<h4 id="ksampler-positive-negative-and-clip-in-general">KSampler; Positive, Negative and CLIP in General.</h4>
+<p>Positive and Negative are your Positive and Negative prompts. To load them, we will use a node called CLIP Text Encode (Prompt). 
+![]https://files.catbox.moe/rrci1h.png)
+It inputs CLIP, which we connect to Load Checkpoint, and outputs Conditioning, which we connect to KSampler. You should make two CLIP Text Encodes, one for Positive prompt and second for Negative Prompt. You can recolour and rename nodes, to have them distinct for convenience.</p>
+<h4 id="ksampler-latent-image">KSampler; Latent Image</h4>
+<p>Latent Image is the noise that Stable Diffusion resolves into your image. To load it, we will use Empty Latent Image node.
+<img alt="" src="https://files.catbox.moe/6nlo9x.png" />
+You just connect Latent output to Latent input of KSampler. There, make sure to select a correct resolution you want your image to be, <code>832 x 1216</code> for example.</p>
+<h4 id="ksampler-parameters">KSampler; Parameters</h4>
+<p>Let’s see what parameters you can configure in KSampler.
+- Seed. Selects a seed for your gen.
+- Control after Generate. Determines whether Seed changes or not after a single gen, and how it changes. <code>Fixed</code> to not have it changed, <code>Increment</code> for +1, <code>Decrement</code> for -1, <code>Random</code> for random.
+- Steps. Regular Steps counter, basically how much times it interacts with the image.
+- Sampler Name. The sampler you want to use.
+- Scheduler. What scheduler you want to use.
+- Denoise. The fraction of image which is turned into noise. Always keep at 1.0 for txt2img, values lower than 1 are needed for img2img.</p>
+<h4 id="ksampler-output-and-vae-decode">KSampler; Output and VAE Decode.</h4>
+<p>When KSampler is done, it’ll output your image via Latent output. To turn this Latent into an image, add the VAE Decode node.
+<img alt="" src="https://files.catbox.moe/rnyeac.png" />
+Connect Latent output of KSampler to VAE Decode, then connect VAE output of Load Checkpoint to VAE Decode, and add Save Image node to connect Image output of VAE Decode to Image input of Save Image. Now, we’re finally done with basic img2img. Configure everything, enter your prompt and press Run at the bottom.</p>
+<h3 id="ksampler-final-result">KSampler; Final Result</h3>
+<p><img alt="" src="https://files.catbox.moe/3sn1ma.png" />
+This is the bare minimum you need for txt2img gens. From now on, I’ll be less detailed about each node.</p>
+<hr />
+<h3 id="workflow-separating-your-prompt-and-quality-presets">Workflow; Separating your Prompt and Quality Presets</h3>
+<p>First, I’ll specify custom nodes with <code>Node Name (custom-node-pack-title)</code>. To download them, just search the name in ( ) in Custom Nodes Manager.
+It’s extremely convenient to just enter your prompt in a separate box and have your quality tags applied automatically. To do this, we’ll use String Function node (comfyui-custom-scripts). Add two of them. Then, we’ll use a default node called Primitive. It’s empty at first, but will double the input it’s connected to. Connect Primitive to text_a. Then, you can either connect another Primitive to text_b or use Preset Text (comfyui-custom-scripts), connecting it to text_b. In String Function, choose Append in Action and Yes in tidy_tags. Connect String output to text of Clip Text Encode and voila, it’s done. You use Primitive connected to text_a for your regular prompt, and just change Preset Text or another Primitive connected to text_b.
+<img alt="" src="https://files.catbox.moe/27pbno.png" /></p>
+<hr />
+<h3 id="workflow-cleaning-your-workflow-with-pipes">Workflow; Cleaning your Workflow with Pipes</h3>
+<p>So, there’s a very useful custom nodes pack called <code>comfyui-impact-pack</code>. It’s mostly used for Face Fixing (that I’ll mention later), but it also introduces incredible Pipe nodes. They’re great for an easier way to connect multitude of nodes, especially if you also do Face Fixing and/or Hires.
+<img alt="" src="https://files.catbox.moe/m3dr94.png" />
+First, we have a ToBasicPipe. It takes Model, CLIP, VAE, Positive, and Negative, and outputs a basic_pipe. Using FromBasicPipe, you can output them.
+<img alt="" src="https://files.catbox.moe/86f1wg.png" />.
+You can also use KSampler (pipe).
+<img alt="" src="https://files.catbox.moe/0vum3p.png" />
+This is extremely useful for more complicated workflows.</p>
+<hr />
+<h3 id="workflow-face-fixing">Workflow; Face Fixing</h3>
+<p>For Face Fixing, we’ll use <code>comfyui-impact-pack</code> and <code>ComfyUI Impact Subpack</code>. First, let’s create a FaceDetailer (pipe) node. Then, we make a <code>BasicPipe -&gt; DetailerPipe</code> node. We connect Basic_pipe. Then, we add UltralyticsDetectorProvider, select <code>face_yolo8m.pt</code> and connect BBOX_DETECTOR to <code>BasicPipe -&gt; DetailerPipe</code>. Now we create SamLoader (Impact), leave everything at default and connect SAM_MODEL. Any parameters in <code>BasicPipe -&gt; DetailerPipe</code> don’t need to be changed. We connect detailer_pipe to FaceDetailer. Image input of FaceDetailer needs to be connected to VAE Decode. As for the parameters of FaceDetailer, I suggest leaving everything at default, but changing <code>bbox_crop_factor</code> to 2, so that the area of FaceFixing will not be that big. After that, you connect Image output to Save Image, and we’re done.
+<img alt="" src="https://files.catbox.moe/9pbkt9.png" /></p>
+<hr />
+<h3 id="workflow-hires">Workflow; Hires</h3>
+<p>Let’s go to Hires. In my case, this Hires will be going after ADetailer, so the current gen is Image. First, we add Upscale Image (using Model) node. Then we add Load Upscale Model and connect it. In Load Upscale Model, I highly recommend 4x-AnimeSharp. After going through Upscale Image, the gen will be upscaled by 4x. To make it smaller, we’ll use Upscale Image By node. Connect it to the previous node. I suggest using Lanczos as a method. Then, we create a Math Expression node (comfyui-custom-scripts). We create a Primitive for variable a; it’ll be our <code>Upscale By</code> value. As an expression, we enter <code>a/4</code>. This way, we downscale this 4x upscaled image to the result we want, relatively to the original gen. Connect Float of Math Expression to Upscale Image By node’s <code>upscale by</code> variable. Now, we create VAE Encode node to turn our image into Latent, and make a KSampler. Using Latent from VAE Encode to connect to KSampler, we connect basic pipe and choose the parameters: I suggest about 20-25 steps, 3.0 - 4.0 CFG, Euler a Normal, 0.35 - 0.45 denoise. With KSampler, out upscaled image will get touched by Stable Diffusion to make it better. We connect KSampler to VAE Decode, make Save Image, and we’re done. This is how it looks:
+<img alt="" src="https://files.catbox.moe/fdfwll.png" /></p>
+<hr />
+<h3 id="workflow-lora">Workflow; LoRA</h3>
+<p>To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand <lora:lora_name:1.0> and such, so we’ll use nodes. Add Load LoRA node. Now: Input <code>Model</code> and <code>CLIP</code> are connected to <code>Load Checkpoint</code>, and output <code>Model</code> and <code>CLIP</code> are connected to KSampler or ToBasicPipe. As for the parameters, Strength_LoRA is the same as editing weights in Forge/AUTO1111, and strength_clip is a different option I’m don’t know much about, so play with it yourselves.
+<img alt="" src="https://files.catbox.moe/f4ch1x.png" /></p>
+<hr />
+<h3 id="workflow-groups-bypass-activation">Workflow; Groups, Bypass, Activation.</h3>
+<ul>
+<li>Groups. These are convenient things to group your nodes. Press Create Node, select nodes with held CTRL, RMB -&gt; Add Selected Nodes to Group.</li>
+<li>Bypass. If you press Bypass in the context menu of a node, or press CTRL + B (CMD + B) on a node, it’ll turn purple. This means that inputs and outputs still work, but the node itself it disabled. It’s useful to disable parts of your workflow, like skipping LoRAs.</li>
+<li>Activation on. While there are a few things with triggers and such I don’t know how to use properly, it works great with groups. For example, if you have a group with ADetailer, you can turn it off as a whole by pressing on the group’s label -&gt; Set Group Nodes to Never. You can enable it back with Set Group Nodes to Always.</li>
+</ul>
+<hr />
+<h3 id="workflow-my-workflow">Workflow; My Workflow</h3>
+<p>If you want to download my workflow, you can get it <a href="https://files.catbox.moe/u59yrz.json">here</a>, but I highly suggest making one yourself (go to manager -&gt; install missing custom nodes if you get an error). Figuring everything out yourself is vital for understanding how Comfy and Stable Diffusion work.</p>
+<hr />
+<h2 id="comfyui-conclusion">ComfyUI; Conclusion</h2>
+<p>This is basically it for the base txt2img. I’m still figuring img2img and inpainting, so I won’t be making these sections yet, but it’s extremely similar in principle. I’m not even close to being a pro in Comfy, but I hope it was even a bit useful for beginners.</p>
+<hr />
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../advanced/" class="btn btn-neutral float-left" title="Advanced Section"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../conclusion/" class="btn btn-neutral float-right" title="Conclusion">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Made by @bextoper in 2025.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../advanced/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../conclusion/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
