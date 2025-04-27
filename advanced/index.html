@@ -72,8 +72,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#negative-prompting-how-and-when">Negative Prompting: How and When</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</a>
+    <li class="toctree-l2"><a class="reference internal" href="#tags">Tags</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#tags-how-including-redundant-tags-ruins-gens">Tags; How Including Redundant Tags Ruins Gens</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#tags-tag-bleeding-and-how-to-avoid-it">Tags; Tag Bleeding, and How To Avoid It</a>
@@ -236,7 +238,8 @@ I used to use this prompt a lot when I was still on NTR Mix, but now I see it as
 <p>As the first example, let's imagine that we're generating a picture of a girl with <code>green eyes</code>. Even with ADetailer, models may want to turn the whole eye into a sea of green color, without pupils. There's no tag for <code>black pupil</code>, so there's nothing left to do but negative <code>no pupils</code>, and it indeed solves the issue completely. </p>
 <p>As an opposite example, let's imagine generating an image of <code>1girl</code>. It happens pretty often that when you generate an image of a single person, a copy of theirs appears somewhere in the background, especially if the background is complex. You may try to solve this by negative-ing <code>2girls, 3girls, multiple girls</code>, but it just won't work. Instead, you should positive <code>solo</code>; that's it, the issue is completely gone. Same applies to nudity tags: it's easier and much more "gentle" to use <code>topless</code>, <code>no panties</code>, <code>no bra</code>, etc instead of Negative-ing <code>shirt, panties, bra</code>. On the same topic;</p>
 <hr />
-<h2 id="tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</h2>
+<h2 id="tags">Tags</h2>
+<h3 id="tags-evaluating-if-you-should-use-a-specific-tag">Tags; Evaluating if You Should Use a Specific Tag</h3>
 <p>Not all tags are born equal. While there are some necessary tags that always work, like <code>1girl</code>, <code>indoors</code> or <code>blonde hair</code>, others may result in messy images or not work at all. Why does it happen? The reason is, some tags are just less populated than others. For example, a tag called <code>grabbing own ankles</code> does exist, but it only has 23 images on Danbooru, which means that using it is practically meaningless. More populated tags that count a few hundred images may work, but they may look messy, be impossible to influence or just won't work, overwhelmed by other more populated tags. A safe area for general tags starts at 1k+ images, with them working close to perfectly at 2k-3k population of images. It's a bit more difficult with characters and styles: they must have at least 2k population to even have a chance at working. Characters with 2k-ish images will often have wrong clothes, hair/eyes color, and will be completely messed up if you try to generate two characters in the same gen, for example. I'll touch on multiple character gens and how you can circumvent some of the issues later. Anyway, the morale is – always keep in mind how populated the tag you're adding is, and try to avoid tags with &lt;1k images entirely (besides artist tags. They start working from 100+ images getting close to perfect at 500+)</p>
 <p>Another thing is <strong>overtrained tags</strong>. Tags with 100k+ results can completely overwhelm others, even if they technically allow for another action. For example, let's take <code>1girl, arm up, arm behind back</code>. Technically, these tags allow the other, but <code>arm up</code> is 5x more populated than <code>arm behind back</code>, so <code>arm behind back</code> may be ignored or inconsistent. You can avoid that by manipulating weight, like <code>(arm up:0.4)</code>; more about it later.</p>
 <hr />
