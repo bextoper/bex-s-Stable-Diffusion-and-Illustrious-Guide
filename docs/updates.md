@@ -10,4 +10,5 @@
 - 27/04/25 - v1.3. Added ComfyUI guide.
 - 28/04/25 - v1.35. Migrated to mkdocs.
 	- v1.36. Some migration-related fixes, expanded some Comfy sections.
+	- v1.37. CFG++ Section.
 ***
