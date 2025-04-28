@@ -217,6 +217,17 @@ And another one;
 Negative prompt: worst quality, bad quality, 3girls, 4girls, mirror,
 Steps: 60, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 869983613, Size: 1536x1024, Model hash: 351447d6cd, Model: annnslmixillustrious_v31, ADetailer model: face_yolov8n.pt, ADetailer confidence: 0.3, ADetailer dilate erode: 4, ADetailer mask blur: 4, ADetailer denoising strength: 0.4, ADetailer inpaint only masked: True, ADetailer inpaint padding: 32, ADetailer model 2nd: hand_yolov8n.pt* <-
 ***
+### Generation Parameters; CFG++, Pain and Incredibe Gens (ComfyUI)
+**This section is only for ComfyUI, Forge doesn't have CFG++ samplers and reForge is dead + has a different implementation of it.**
+So, CFG++. The main principle behind it is that the sampler itself chooses an appropriate CFG scale. When it comes to practical usage, *in general*, you choose CFG two times lower than without CFG++; if you usually run CFG 4, use CFG 2 with CFG++; this is in theory. In practice, I suggest first trying CFG 1; if it's shit (it most likely will be), try going to CFG 1.5, and then increasing until you get a good image. CFG 1.6 - CFG 1.9 seem to be good values for me, but it can be different from model to model, and even gen to gen sometimes. As a CFG++ sampler, I suggest `res_multistep_cfg_pp`, and either `SGM Uniform` or `Karras` as a scheduler. In my experience, using step count higher than 30 makes gens worse, so I recommend sticking to it and doing a Hires pass later if you want. In my eyes, it may be the best sampler we have; it straight up improved the quality of lighting, colors, and detail compared to the same CFG 3 gen of DPM++ 3M SDE at 60 steps.
+
+-> ![](https://files.catbox.moe/molbo0.png) <-
+
+-> *Generation Parameters: Positive: 1girl, kneeling, praying, magic, golden threads of magic, magic circle, magic symbols, blue hair, long hair, white coat, red eyes, elf, dark, indoors, church, light particles, three quarter view, full body, solo;
+Negative: no pupils,
+Sampler: res_multistep_cfg_pp, scheduler: SGM Uniform, Step Count: 30, CFG Scale: 1.8, Face Detailer, 1.5x Hires Pass, seed: 43, 1024 x 1536, checkpoint: Nova Orange v9.0. ComfyUI.* <-
+
+***
 ### Generation Parameters; Hires
 Hires is an incredible feature to get higher resolution gens with increased detail. I suggest the following parameters:
 - Upscaler: R-ESRGAN 4x+ Anime6b OR Lanczos

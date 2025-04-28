@@ -11,6 +11,7 @@
 - ~~DEIS SGM Uniform section.~~ Credits to @11yu
 - More Screenshots
 - ~~Explain "Illustrious"~~
+- CFG++ section.
 - Make the first part of the guide more beginner-friendly
 - ComfyUI section. I finally somewhat learned it.
 - Expand the section on multiple character gens. I'm absolutely sure there's a way to get 2/3 characters gens consistent, I just need to find the exact formula.
