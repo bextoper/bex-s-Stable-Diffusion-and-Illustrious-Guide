@@ -1,4 +1,7 @@
 # To-Do List
+
+*(since mkdocs apparently doesn't understand crossed out text, having ~~ ~~ in between stuff means that it's done. I'll figure something out... someday...)*
+
 - img2img and Inpainting (In Process)
 - ControlNet, specifically Style Cloning
 - Hyper-LoRA section. Credits to @Siberys.
@@ -11,9 +14,9 @@
 - ~~DEIS SGM Uniform section.~~ Credits to @11yu
 - More Screenshots
 - ~~Explain "Illustrious"~~
-- CFG++ section.
+- ~~CFG++ section.~~
 - Make the first part of the guide more beginner-friendly
-- ComfyUI section. I finally somewhat learned it.
+- ~~ComfyUI section. I finally somewhat learned it.~~
 - Expand the section on multiple character gens. I'm absolutely sure there's a way to get 2/3 characters gens consistent, I just need to find the exact formula.
 - "Notable Tags" section.
 - Get a life (will never happen).
