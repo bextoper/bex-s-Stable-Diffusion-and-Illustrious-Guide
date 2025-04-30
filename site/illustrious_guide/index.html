@@ -60,7 +60,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#where-do-i-get-the-tags">"Where do I get the tags???"</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#brackets-and-undrescores">Brackets and Undrescores</a>
+    <li class="toctree-l3"><a class="reference internal" href="#brackets-and-underscores">Brackets and Underscores</a>
     </li>
         </ul>
     </li>
@@ -150,7 +150,7 @@
 <h2 id="where-do-i-get-the-tags">"Where do I get the tags???"</h2>
 <p>Okay, actually, before we start, this is maybe the most important thing I need to address - the place where you'll get the info about tags. Illustrious models use Training Data obtained from Danbooru, so they're captioned in Booru tags. Danbooru, bless them, has a page where they list and explain almost every tag on the site: <a href="https://danbooru.donmai.us/wiki_pages/tag_groups">Danbooru Tag Groups Wiki</a>. It is big and a bit complex, and will take a while to get used to, but as I explain further down the process of making a prompt, I will be linking different Tag Group pages that list all the tags I'll be using. </p>
 <hr />
-<h3 id="brackets-and-undrescores">Brackets and Undrescores</h3>
+<h3 id="brackets-and-underscores">Brackets and Underscores</h3>
 <p>While we're here, let me talk about <strong>underscores</strong> and <strong>brackets</strong>. On the Danbooru site, to search for tags that consist of multiple words, you have to use underscores, like <code>looking_at_viewer</code>. In Stable Diffusion, <strong>you do not use them</strong>, so the tag above will turn into a simple <code>looking at viewer</code>. Brackets are a bit trickier; let's look at the tag that Danbooru recognises as <code>2000s_(style)</code>. In Stable Diffusion, brackets are used exclusively for Weight Manipulation (that we will talk about later), so it will not recognise the tag. To fix this, every bracket must be prefixed with a <code>\</code>, so the tag above will look like <code>2000s \(style\)</code> in your Prompt field.</p>
 <hr />
 <h2 id="basic-prompting-tag-types-and-your-first-prompt">Basic Prompting: Tag Types and your First Prompt</h2>

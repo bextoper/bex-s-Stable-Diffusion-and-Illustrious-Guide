@@ -167,7 +167,7 @@
 KSampler is a node that transforms latent noise into your image. To find it, you can either RMB —&gt; Add Node —&gt; Sampling —&gt; KSampler,
 <img alt="" src="https://files.catbox.moe/sz1zcl.png" />
 or search for it in Node Library.
-![]https://files.catbox.moe/s4fzxn.png)
+<img alt="" src="https://files.catbox.moe/s4fzxn.png" />
 Let’s take a look at it and see what inputs it takes, what parameters has and what it outputs.</p>
 <h4 id="ksampler-loading-model">KSampler; Loading Model</h4>
 <p>The first input KSampler takes is a model. To load a model, we will use a node called Load Checkpoint. 
@@ -175,7 +175,7 @@ Let’s take a look at it and see what inputs it takes, what parameters has and 
 There, you can select which model you want to use and output the model, CLIP and VAE. We’ll figure out CLIP and VAE later, but now, let’s connect <code>MODEL</code> from Load Checkpoint to KSampler.</p>
 <h4 id="ksampler-positive-negative-and-clip-in-general">KSampler; Positive, Negative and CLIP in General.</h4>
 <p>Positive and Negative are your Positive and Negative prompts. To load them, we will use a node called CLIP Text Encode (Prompt). 
-![]https://files.catbox.moe/rrci1h.png)
+<img alt="" src="https://files.catbox.moe/rrci1h.png" />
 It inputs CLIP, which we connect to Load Checkpoint, and outputs Conditioning, which we connect to KSampler. You should make two CLIP Text Encodes, one for Positive prompt and second for Negative Prompt. You can recolour and rename nodes, to have them distinct for convenience.</p>
 <h4 id="ksampler-latent-image">KSampler; Latent Image</h4>
 <p>Latent Image is the noise that Stable Diffusion resolves into your image. To load it, we will use Empty Latent Image node.
@@ -220,7 +220,7 @@ This is extremely useful for more complicated workflows.</p>
 <img alt="" src="https://files.catbox.moe/fdfwll.png" /></p>
 <hr />
 <h3 id="workflow-lora">Workflow; LoRA</h3>
-<p>To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand <lora:lora_name:1.0> and such, so we’ll use nodes. Add Load LoRA node. Now: Input <code>Model</code> and <code>CLIP</code> are connected to <code>Load Checkpoint</code>, and output <code>Model</code> and <code>CLIP</code> are connected to KSampler or ToBasicPipe. As for the parameters, Strength_LoRA is the same as editing weights in Forge/AUTO1111, and strength_clip is a different option I’m don’t know much about, so play with it yourselves.
+<p>To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand <lora:lora_name:1.0> and such, so we’ll use nodes. Add Load LoRA node. Now: Input <code>Model</code> and <code>CLIP</code> are connected to <code>Load Checkpoint</code>, and output <code>Model</code> and <code>CLIP</code> are connected to KSampler or ToBasicPipe. As for the parameters, Strength_LoRA is the same as editing weights in Forge/AUTO1111, and strength_clip is a different option I don’t know much about, so play with it yourselves.
 <img alt="" src="https://files.catbox.moe/f4ch1x.png" /></p>
 <hr />
 <h3 id="workflow-groups-bypass-activation">Workflow; Groups, Bypass, Activation.</h3>

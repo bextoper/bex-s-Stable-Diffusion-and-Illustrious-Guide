@@ -31,7 +31,7 @@ The first input KSampler takes is a model. To load a model, we will use a node c
 There, you can select which model you want to use and output the model, CLIP and VAE. We’ll figure out CLIP and VAE later, but now, let’s connect `MODEL` from Load Checkpoint to KSampler.
 #### KSampler; Positive, Negative and CLIP in General.
 Positive and Negative are your Positive and Negative prompts. To load them, we will use a node called CLIP Text Encode (Prompt). 
-![]https://files.catbox.moe/rrci1h.png)
+![](https://files.catbox.moe/rrci1h.png)
 It inputs CLIP, which we connect to Load Checkpoint, and outputs Conditioning, which we connect to KSampler. You should make two CLIP Text Encodes, one for Positive prompt and second for Negative Prompt. You can recolour and rename nodes, to have them distinct for convenience.
 
 #### KSampler; Latent Image
