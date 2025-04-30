@@ -175,7 +175,7 @@ Let’s take a look at it and see what inputs it takes, what parameters has and 
 There, you can select which model you want to use and output the model, CLIP and VAE. We’ll figure out CLIP and VAE later, but now, let’s connect <code>MODEL</code> from Load Checkpoint to KSampler.</p>
 <h4 id="ksampler-positive-negative-and-clip-in-general">KSampler; Positive, Negative and CLIP in General.</h4>
 <p>Positive and Negative are your Positive and Negative prompts. To load them, we will use a node called CLIP Text Encode (Prompt). 
-![]https://files.catbox.moe/rrci1h.png)
+<img alt="" src="https://files.catbox.moe/rrci1h.png" />
 It inputs CLIP, which we connect to Load Checkpoint, and outputs Conditioning, which we connect to KSampler. You should make two CLIP Text Encodes, one for Positive prompt and second for Negative Prompt. You can recolour and rename nodes, to have them distinct for convenience.</p>
 <h4 id="ksampler-latent-image">KSampler; Latent Image</h4>
 <p>Latent Image is the noise that Stable Diffusion resolves into your image. To load it, we will use Empty Latent Image node.
