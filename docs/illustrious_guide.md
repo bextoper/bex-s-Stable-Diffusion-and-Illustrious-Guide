@@ -17,7 +17,7 @@ Small addendum about NoobAI. While it's technically different from Illustrious, 
 ## "Where do I get the tags???"
 Okay, actually, before we start, this is maybe the most important thing I need to address - the place where you'll get the info about tags. Illustrious models use Training Data obtained from Danbooru, so they're captioned in Booru tags. Danbooru, bless them, has a page where they list and explain almost every tag on the site: [Danbooru Tag Groups Wiki](https://danbooru.donmai.us/wiki_pages/tag_groups). It is big and a bit complex, and will take a while to get used to, but as I explain further down the process of making a prompt, I will be linking different Tag Group pages that list all the tags I'll be using. 
 ***
-### Brackets and Undrescores
+### Brackets and Underscores
 While we're here, let me talk about **underscores** and **brackets**. On the Danbooru site, to search for tags that consist of multiple words, you have to use underscores, like `looking_at_viewer`. In Stable Diffusion, **you do not use them**, so the tag above will turn into a simple `looking at viewer`. Brackets are a bit trickier; let's look at the tag that Danbooru recognises as `2000s_(style)`. In Stable Diffusion, brackets are used exclusively for Weight Manipulation (that we will talk about later), so it will not recognise the tag. To fix this, every bracket must be prefixed with a `\`, so the tag above will look like `2000s \(style\)` in your Prompt field.
 ***
 ## Basic Prompting: Tag Types and your First Prompt

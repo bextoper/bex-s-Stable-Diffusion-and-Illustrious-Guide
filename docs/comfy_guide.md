@@ -22,7 +22,7 @@ While there are example workflows available, I highly recommend building your ow
 KSampler is a node that transforms latent noise into your image. To find it, you can either RMB —> Add Node —> Sampling —> KSampler,
 ![](https://files.catbox.moe/sz1zcl.png)
 or search for it in Node Library.
-![]https://files.catbox.moe/s4fzxn.png)
+![](https://files.catbox.moe/s4fzxn.png)
 Let’s take a look at it and see what inputs it takes, what parameters has and what it outputs.
 
 #### KSampler; Loading Model
@@ -78,7 +78,7 @@ Let’s go to Hires. In my case, this Hires will be going after ADetailer, so th
 ![](https://files.catbox.moe/fdfwll.png)
 ***
 ### Workflow; LoRA
-To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand <lora:lora_name:1.0> and such, so we’ll use nodes. Add Load LoRA node. Now: Input `Model` and `CLIP` are connected to `Load Checkpoint`, and output `Model` and `CLIP` are connected to KSampler or ToBasicPipe. As for the parameters, Strength_LoRA is the same as editing weights in Forge/AUTO1111, and strength_clip is a different option I’m don’t know much about, so play with it yourselves.
+To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand <lora:lora_name:1.0> and such, so we’ll use nodes. Add Load LoRA node. Now: Input `Model` and `CLIP` are connected to `Load Checkpoint`, and output `Model` and `CLIP` are connected to KSampler or ToBasicPipe. As for the parameters, Strength_LoRA is the same as editing weights in Forge/AUTO1111, and strength_clip is a different option I don’t know much about, so play with it yourselves.
 ![](https://files.catbox.moe/f4ch1x.png)
 ***
 ### Workflow; Groups, Bypass, Activation.
