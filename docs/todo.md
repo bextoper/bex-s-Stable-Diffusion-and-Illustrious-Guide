@@ -2,7 +2,7 @@
 
 *(since mkdocs apparently doesn't understand crossed out text, having ~~ ~~ in between stuff means that it's done. I'll figure something out... someday...)*
 
-- img2img and Inpainting (In Process)
+- img2img and Inpainting
 - ControlNet, specifically Style Cloning
 - Hyper-LoRA section. Credits to @Siberys.
 - ~~Rewrite Installation section to feature ForgeUI instead of reForge.~~ Kinda did it. Still need to overhaul it properly.

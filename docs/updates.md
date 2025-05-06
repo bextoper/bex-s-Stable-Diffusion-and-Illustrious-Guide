@@ -11,4 +11,5 @@
 - 28/04/25 - v1.35. Migrated to mkdocs.
 	- v1.36. Some migration-related fixes, expanded some Comfy sections.
 	- v1.37. CFG++ Section.
+- 07/05/25 - v1.4. Expanded CFG++ and Recommended Checkpoints sections, added Illustrious 2.0 and Regional Prompter sections. A lot of fixes, thanks @kirhn from Aegiscord. Removed img2img section until I'm actually ready to do it. Removed reForge section.
 ***

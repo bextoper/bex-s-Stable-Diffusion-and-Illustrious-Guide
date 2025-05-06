@@ -2,14 +2,7 @@
 This is the part I'm dreading. I have so much to write about and even more stuff I feel like I'm forgetting. This part can be messy and not extremely detailed as I'm explaining my experience and "feels" on how certain things work or impact your generation. I can be very wrong on some aspects and completely misunderstand others, so if you see anything that you disagree with or it doesn't make sense, tell me. This part will be loosely sorted, refer to the Table of Contents to find stuff you want. Here we go.
 ***
 ## Preamble
-So, let's talk about the extent of stuff I'm going to talk about here. While some things are universal to SD and Illustrious, I don't think I'll be able to completely avoid stuff specific to, say, Forge, or some extensions/functions I rely on personally. Some things may not apply to your specific frontend or, especially, model. Illustrious models are generally similar to each other, but they still can have their specifics. To give you some ground to, maybe, follow me along, here are my exact parameters that I'll use to talk about everything in this section. I will touch on some of them in more detail in this section. Assume the following parameters unless stated otherwise:
-- Model: Amanatsu v1.1 OR AnnnslMixIllustrious
-- Sampler: DPM++ 2M Karras
-- Steps: 28 
-- CFG: 5
-- Assume that ADetailer is always on
-- Hires: R-ESRGAN 4x+ Anime6B. Hires Steps: 22. Denoising Strength: 0.39. Upscale By: 1.6
-- Quality Tags: Positive: None, Negative: `bad quality,worst quality,worst detail`
+So, let's talk about the extent of stuff I'm going to talk about here. While some things are universal to SD and Illustrious, I don't think I'll be able to completely avoid stuff specific to, say, Forge, or some extensions/functions I rely on personally. Some things may not apply to your specific frontend or, especially, model. Illustrious models are generally similar to each other, but they still can have their specifics. To give you some ground to, maybe, follow me along, here are my exact parameters that I'll use to talk about everything in this section. I will touch on some of them in more detail in this section.
 ***
 ## Prompt Order
 Let's start with basics. again. Ideally, your prompt order should be: `<Quality Tags?>, <People Tags>, <Character Tags?>, <Action Tags>, <Appearance Tags>, <Background Tags>, <Composition Tags>, <Style/Artist Tags?>, <Quality Tags?>`. It's not a strict requirement, but it has it's own huge advantages. Besides keeping stuff organised, we're positioning more important stuff closer to the beginning, and the closer a prompt is to the beginning, the harder the model will adhere to it. "Adhere" here is not really similar to stuff like LLMs, for example. Here, it's more like "what will the model consider more important". Very roughly speaking, we want the model to focus on a detailed and correct character first, then assign specifics to them, and only then it will start figuring out the background and style. Of course, models do all of that simultaneously, like how it positions the character correctly according to Composition Tags, but there's still an order of More Important to Less Important. Another huge reason is preventing concepts from separating into different CLIPs when you're not intending to do it (we'll talk about them when it comes to Syntax). Since we're here, let's touch on Quality tags.
@@ -33,6 +26,8 @@ A solid Quality Prompt that I use for all my model comparisons, just to include 
 
 - Positive: `,masterpiece, best quality, amazing quality, very aesthetic, absurdres, newest,`. Negative: `,lowres, (worst quality, bad quality:1.2), bad anatomy, sketch, jpeg artifacts, signature, watermark, old, oldest, censored, l0li, bar_censor, (pregnant), chibi, simple background, conjoined, futanari,` (yes I had to censor one tag, hi Rentry pls don't ban).
 I used to use this prompt a lot when I was still on NTR Mix, but now I see it as a bit overwhelming. It gives the image a pretty nice 2.5D look but can have a pretty big negative impact on detail and background quality. In my opinion, a lot of tags here are redundant and unnecessary in most cases. This prompt tries to be a catch-all, but I appreciate the reverse approach much more.
+
+- No quality/negative tags. With each new release, their role kinda gets less and less important, and with some styles, they just hurt your gens. How I suggest doing is, just gen. If you see something you want to remove from the gen, **and you can't do it with positive prompting**, add it to the negatives. Besides that, I recommend `no pupils` in your negatives; it's extremely useful almost in every gen.
 
 ***
 ## Negative Prompting: How and When
@@ -159,13 +154,13 @@ That's mostly all I have to say. LoRAs can be of various quality and made for di
 ***
 ##Generation Parameters
 ### Generation Parameters; Introduction
-Congrats on making it this far (yes, I'm running out of ideas on how to begin sections). For most intents and purposes, you can simply setup your parameters once, never change them again and be happy. I consider "good" parameters to be:
+Congrats on making it this far (yes, I'm running out of ideas on how to begin sections). For most intents and purposes, you can simply setup your parameters once, never change them again and be happy. The following is parameters I consider to be stable and "good". Please keep in mind that I'll explore other parameters later, you may want to see them:
 - Sampler: DPM++ 2M Karras
 - Steps: 28
 - CLIP Skip: 2
-- CFG: 5
-- Resolution: 832x1216 (or reverse)
-And you kinda never have to change them, they are just good. But there are cases when you'd want to try something new.
+- CFG: 4
+- Resolution: 832x1216 (or reverse), or 1024x1536 (if you're using a model based on Illustrious 1.0/1.1/2.0).
+And you kinda never have to change them, they are just good. But there are cases when you'd want to try something new and models that just won't take this.
 
 For a much more detailed technical information on how samplers/schedulers works and how they're different, please check [11yu's Rentry on Tech for Diffusion Image Gens](https://rentry.co/11yu_diffusion-imagegen_tech).
 ***
@@ -204,8 +199,8 @@ And another; Note that it has no ADetailer;
 Negative prompt: no pupils,, worst quality, bad quality, simple background,
 Steps: 40, Sampler: IPNDM_V, Schedule type: Karras, CFG scale: 5, Seed: 54443983, Size: 832x1216, Model: Amanatsu_v11* <-
 ***
-### Generation Parameters; DEIS, my Main Sampler.
-DEIS is the High-Quality and relatively low-steps of IPNDM_V, but without it's downsides. It's incredibly stable and gives amazing results, so it's my main sampler right now. Make sure to use it with SGM Uniform scheduler. I suggest 40 steps, but you can go up to 60 if needed. Comparing to IPNDM_V, they're about similar in quality; one is better in some aspects and worse in another, and vice-versa. It still gets you much more detail compared to DPM++ 2M/Euler a in just slightly more time, and it's more stable and reliable than IPNDM_V, so I can confidently recommend DEIS.
+### Generation Parameters; DEIS, Another High-ish Quality Sampler.
+DEIS is the High-Quality and relatively low-steps of IPNDM_V, but without it's downsides. It's incredibly stable and gives amazing results. Make sure to use it with SGM Uniform scheduler. I suggest 40 steps, but you can go up to 60 if needed. Comparing to IPNDM_V, they're about similar in quality; one is better in some aspects and worse in another, and vice-versa. It still gets you much more detail compared to DPM++ 2M/Euler a in just slightly more time, and it's more stable and reliable than IPNDM_V, so I can confidently recommend DEIS.
 
 -> ![](https://files.catbox.moe/3jftne.png) <-
 -> *Metadata: 1girl, standing, casting spell, magical weaving chaotic threads of white light coming out of hands, magic filling the area, outstretched arms, magic, fighting stance, white cloak, long hair, blonde hair, solo BREAK lens flare, chromatic aberration, diffraction spikes, fisheye, outdoors,  night, embers, full body, dutch angle, (from side:0.4), (three quarter view:0.5), battle, war, army, soldier, fantasy
@@ -221,13 +216,27 @@ Steps: 60, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 8699
 ***
 ### Generation Parameters; CFG++, Pain and Incredibe Gens (ComfyUI)
 **This section is only for ComfyUI, Forge doesn't have CFG++ samplers and reForge is dead + has a different implementation of it.**
-So, CFG++. The main principle behind it is that the sampler itself chooses an appropriate CFG scale. When it comes to practical usage, *in general*, you choose CFG two times lower than without CFG++; if you usually run CFG 4, use CFG 2 with CFG++; this is in theory. In practice, I suggest first trying CFG 1; if it's shit (it most likely will be), try going to CFG 1.5, and then increasing until you get a good image. CFG 1.6 - CFG 1.9 seem to be good values for me, but it can be different from model to model, and even gen to gen sometimes. As a CFG++ sampler, I suggest `res_multistep_cfg_pp`, and either `SGM Uniform` or `Karras` as a scheduler. In my experience, using step count higher than 30 makes gens worse, so I recommend sticking to it and doing a Hires pass later if you want. In my eyes, it may be the best sampler we have; it straight up improved the quality of lighting, colors, and detail compared to the same CFG 3 gen of DPM++ 3M SDE at 60 steps.
+So, CFG++. The main principle behind it is that the sampler itself chooses an appropriate CFG scale. When it comes to practical usage, *in general*, you choose CFG two times lower than without CFG++; if you usually run CFG 4, use CFG 2 with CFG++; this is in theory. In practice, I suggest first trying CFG 1; if it's shit (it most likely will be), try going to CFG 1.5, and then increasing until you get a good image. CFG 1.5 - CFG 1.9 seem to be good values for me, but it can be different from model to model, and even gen to gen sometimes. As a CFG++ sampler, I suggest `res_multistep_cfg_pp`, and either `SGM Uniform` or `Karras` as a scheduler. In my experience, using step count higher than 30 makes gens worse, so I recommend sticking to it and doing a Hires pass later if you want. In my eyes, it may be the best sampler we have; it straight up improved the quality of lighting, colors, and detail compared to the same CFG 3 gen of DPM++ 3M SDE at 60 steps. More after the image:
 
 -> ![](https://files.catbox.moe/molbo0.png) <-
 
 -> *Generation Parameters: Positive: 1girl, kneeling, praying, magic, golden threads of magic, magic circle, magic symbols, blue hair, long hair, white coat, red eyes, elf, dark, indoors, church, light particles, three quarter view, full body, solo;
 Negative: no pupils,
 Sampler: res_multistep_cfg_pp, scheduler: SGM Uniform, Step Count: 30, CFG Scale: 1.8, Face Detailer, 1.5x Hires Pass, seed: 43, 1024 x 1536, checkpoint: Nova Orange v9.0. ComfyUI.* <-
+
+So, let's talk about practical usage in more detail. Main advantages of CFG++ are light contrast, colors and color contrast. With conventional samplers, when you try to go for a darker gen, you often get an image that's grey and still bright. Using some magic, CFG++ just solves the issue entirely. You (almost) get true black and incredible color contrast. The only issue with CFG++ is that it's very picky about your CFG scale, sometimes requiring you to set different values for different gens on the same model. You get something a little bit wrong, and you get an overexposed / oversaturated gen. Right now, I use this sampler for almost every model, it's just that good.
+
+![](https://files.catbox.moe/8oo6xa.png)
+
+![](https://files.catbox.moe/io4r70.png)
+
+![](https://files.catbox.moe/b20uyb.png)
+
+![](https://files.catbox.moe/mdzobs.png)
+
+(*I lost prompts for individual images, so no prompts. Sorry.*)
+
+*Generation Parameters: Style Prompt: `2d, sketch, oekaki, limited palette, black background`, Negatives: `no pupils, loli, child`,  Sampler: `res_multistep_ancestral_cfgpp`, Scheduler: `Karras`, CFG Scale: 1.8, Steps: 30, Checkpoint: Nova Anime v7.0, Resolution: either `1536 x 1024` or `1024 x 1536`. No Fixes, Hires or additional passes.*
 
 ***
 ### Generation Parameters; Hires
@@ -264,7 +273,7 @@ From start to finish, this generation took 50 images to refine the first prompt 
 ### Prompting; Prompt Complexity
 This is a quite ephemeral thing that I think is extremely important. I consider Prompt Complexity to be this: it's the amount of separate concepts you require the model to understand and generate correctly. Things like Styles are not separate specific concepts, so they're not increasing the complexity. Appearance tags on solo gens have no other interpretation than, well, that they're worn by this character, so it's also not an issue. Things start getting fun once you start doing complicated stuff. Asking for two separate actions by a single character relies on the model understanding how it's going to look, so it increases the complexity a lot. Defining two separate characters makes the complexity skyrocket: the model has to associate different characteristic (that are technically applicable to both characters) to separate characters. It's fine if you assign actions that require multiple characters, but stuff like `black hair`, `pointy ears`, `animal ears` can be assigned to either, and the model will most often just make both characters like this. Resulting from this, Prompt Complexity is a sum of every Tag Bleeding, Redundant Tags, Overtrained and Undertrained Tags, as well as ambiguous tags. The less complex your prompt is, the more consistency and quality you get. You should always look for opportunities to make your prompt simpler, to use a more specific (but still populated) tag, replace multiple tags with just one, avoid redundancy and bleeding. It's a nice habit that may save hours of work.
 ***
-## New Illustrious 1.0/1.1-Based Models
+## New Illustrious 1.0/1.1/2.0-Based Models
 So, there are finally models based on new Illustrious 1.0/1.1 that don't suck ass, and I finally got to try them. You can find a comparison of a few of them in my thread on Aegiscord. They're pretty good, and because of their support of higher resolutions and Natural Language, I use them quite often. Let's talk about it in more detail. You can see examples of them in the DEIS section.
 
 **Higher Resolutions**; While Illustrious 1.0/1.1-based models supports a variety of `1536 x 1536` resolutions, I suggest sticking to two: `1024 x 1536` or `1536 x 1024`; they show the most prompt adherence and overall quality. Higher resolution helps immensely in face quality, small/subtle details, and detail in general. Keep in mind that while these higher resolutions are more than usable, prompt adherence of them is **worse** than with regular SDXL sizes. You can always use good old `832 x 1216`, `1216 x 832`, `1024 x 1024`, etc.
@@ -272,28 +281,14 @@ So, there are finally models based on new Illustrious 1.0/1.1 that don't suck as
 **Natural Language Prompting**; While tags remain the main way of prompting, you can finally add in some Natural Language for more complicated prompts. For example, in the magical girl image I used as an example for **DEIS** above, I used `magical weaving chaotic threads of white light coming out of hands`, and it worked almost perfectly. As anything related to Natural Language, there can't be no guidelines or specific rules for usage, so all I can suggest is experimenting; but I'd advise that if you can do a specific thing you want with Tags, you should do just that. Natural Language is unpredictable, and I think it should be used only if there's no other way.
 
 **Impressions:** I'm not ready to speak definitively on them right now, but I've made my impressions on them. Compared to Illustrious 0.1, Illustrious 1.0/1.1 based models show **much** more creativity if you prompt for it, and they can easily do extremely complex gens that 0.1 would've struggled with. 1.0/1.1 is not fool proofed in any way, and complex gens still take a lot of knowledge and understanding of how tag, prompt and gen, but Natural Language and improved creativity makes the job noticeably easier. I'm not ready to abandon Amanatsu completely, but AnnnslMix specifically is really good. Stuff like this makes me excited for what's to come.
+
+**UPD: Illustrious 2.0**:So, we finally got good Illustrious 2.0 models, like Nova Orange and Nova Anime. First, they seem to really hate regular samplers, like DPM++ 2M and regular Euler. From my testing, these models require you to use a sampler that does noise injection, so it's samplers that have `Ancestral` or `SDE` in them. I got the best results using `Euler ancestral` and `res_multistep_ancestral`. Besides that, they really like CFG++ samplers, so I recommend using `res_multistep_ancestral_cfgpp` with CFG at about 1.5 - 1.7 in Comfy. Second, they're now much more coherent at higher resolutions, sometimes showing just better results there compared to regular stuff like `832 x 1216`. Note that it results in higher VRAM usage; with my RTX 3070 8 GB, I usually reach about 7.0 - 7.5 GB usage. Third, I don't see any improvements in Natural Language compared to Illustrious 1.0/1.1; you can try your luck using them, but it's preffered to stick to tags if you can. Fourth, from my testing, Illustrious 2.0 models show much better prompt adherence and understanding; you can combine more difficult tags, sometimes ditch the "Prompt for what you want to see" principle and other creative stuff; you are not as likely to ruin your gen as before. I suspect recent Illustrious 2.0-based models to be heavily overtrained, but it's something to be researched.
 ***
 ## V-Pred Models; How to Use
 While I won't be going into deail about how V-Pred models are different from eps-pred, there are some differences in how you should approach them. In general, if you see that a model you're using is a v-pred (or there are unexpected artifacts/noise in the image), you should know:
 - DPM++ 2M Karras and some other samplers/schedulers **do not work**.
 - DPM++ 2M SGM Uniform, Euler a Normal, DEIS SGM Uniform and IPNDM_V SGM Uniform are my recommended samplers.
+- I highly recommend using a CFG++ sampler, like `res_multistep_cfgpp`.
 - Avoid using `dark`, `day` and other tags that change the lighting. While v-pred is famous for it's great color range and lighting, it's extremely prone to over-exposing gens or making them too dark.
 - Be ready for instabilities and jank. I personally do not like v-pred at all, and all models using it (that I tested) sucked. You can get these advantages of v-pred on regular eps-pred models with some prompting (to some extent), like `contrast, hdr, vibrant, shadow, dark, reflection,` and lighting tags.
-***
-## img2img; Introduction (WIP)
-Well, it had to happen someday. I don't even hope to finish this section anytime soon, but I'll begin it anyway. What is img2img? Roughly speaking, it's using an already existing image (be it a generation or an unrelated human-made/real-life picture) as a base for your gen. With txt2img, there is also technically a base image called Latent Noise; it's basically randomly-placed blobs of different colors that the Diffusion models interacts with, merging these blobs in a way that corresponds to your prompt. Latent Noise is always random (or, more specifically, it's different for each seed), so having a reference image solves a lot of this randomness and gives you an option to generate images similar to the reference. It can be used to iterate on your txt2img gens, solve issues with them or even just to get a gen similar to a random picture you got from the internet or drew yourself. **Please keep in mind that I'm not even closely an expert in img2img, and I intend this section as more of an introduction rather than a detailed and comprehensive guide. I can make mistakes and be wrong; feel free to tell me about it on Discord.** There are different options for img2img, but we'll start from the default one.
-
-*Note: this whole section is heavily WIP and will be improved and expanded upon; I just prefer having shit right on the Rentry, so I'll be drafting it here. Feel free to skip this section for the time being.*
-***
-### img2img; Main Parameters and Principles (NOT FINISHED YET; WIP)
-[SCREENSHOT HERE]
-First, you import an image to the img2img tab; either via the "Send to img2img" button in the gallery or by uploading an external image. By using the "Send to img2img" button, it'll also transfer the prompt and seed to img2img. **Don't forget to set your seed to `-1` if you need randomness**. After that, you should go to the "Resize To" section, and press the Ruler button for img2img to set the correct resolution. You should also setup your Sampler and Scheduler, set CFG and set the Steps. **img2img will almost never use the full amount of steps set, but it will impact the gen.** Using the same parameters for them as in txt2img seems to be working just fine. After that, the only parameter left is **Denoising Strength**, the main parameter in img2img. Basically, it determines how much the reference image will be turned back into Latent Noise; The lower `-->` the more of the original image remains. What values you should use:
-- 0.65 - 0.75: Most of the reference image is destroyed, but the general composition remains. Use it to have your gens slightly influenced by the reference image.
-- 0.3 - 0.5: Reference image is severely noised, but general composition remains intact. Use it to make variations of the reference image.
-- 0.1 - 0.2: Reference image is slightly damaged. General composition is completely intact, but the style and small details are destroyed. Use it to refine/slightly edit your gens.
-Let's get to prompting. For getting variations on a single gen, using the exact same prompt as it was in txt2img is completely fine. For external images, you'd have to eyeball what tags it would've had if you genned it. You'd have to be at least somewhat accurate here. For img2img with higher Denoising, you can just use the general Composition/People tags corresponding to the reference image.
-***
-[Example section here.]
-***
-[Inpainting section here.]
 ***
