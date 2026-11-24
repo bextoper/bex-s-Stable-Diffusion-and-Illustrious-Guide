@@ -5,11 +5,15 @@ So, the big boy. ComfyUI is arguably the most versatile and customisable fronten
 First, ComfyUI is a node-based frontend. All functionality is achieved by adding and connecting nodes. On the left of most nodes, there are *Inputs*, for example `image`, `latent`, `clip`, etc. In the middle, there are different parameters, like `denoising`, `cfg`, `checkpoint_name`, etc. On the right, there are outputs, like the same `image`, `latent`, etc. Keep in mind that most parameters can be also turned into inputs, for example you can connect a node called Primitive to `cfg`, `steps`, `text`, etc. Most nodes can take multiple nodes connected to a single input/output, for example, we connect both Load Checkpoint and Load LoRA to the same `model` input of KSampler. I'll talk about these nodes later.
 
 ## ComfyUI; Installation
-Go to [Comfy’s Github](https://github.com/comfyanonymous/ComfyUI). Here, go to Getting Started; you can pick either a Desktop Application that will install Comfy as an app (it should be the simplest option), or Windows Portable Package if you want a portable instance. They should be effectively the same, but I personally use the Windows Portable Package.
+Windows: Go to [Comfy’s Github](https://github.com/comfyanonymous/ComfyUI). Here, go to Getting Started; you can pick either a Desktop Application that will install Comfy as an app (it should be the simplest option), or Windows Portable Package if you want a portable instance. They should be effectively the same, but I personally use the Windows Portable Package.
 
 To update Comfy, go to `/update/` and start `update_comfyui.bat`.
 
 To provide models from another frontend (Forge, in this case) to Comfy, go to `/comfy/` and find a file called `extra_model_paths.yaml.example`. Rename it to `extra_model_paths.yaml` and open it in Notepad. Find `base_path:` line under `a111:` and replace the `path/to/stable-diffusion-webui/` string to your A1111/Forge/reForge path, for example `base path: E:/Forge/webui`.
+
+Linux: Go to [Comfy's Github page](https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file#manual-install-windows-linux). Clone the repo. [Make a venv](https://docs.python.org/3/library/venv.html) somewhere on your computer. After you're done, remember the path to the `python` file in your venv. I'll be referring to it as `path/python`. For Nvidia GPUs, run this command: `path/python -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130`. After that, run `path/python -m pip install -r /path/to/comfy/requirements.txt`. As you did that, you can make a .sh file with the following content: `path/comfy /path/to/comfy/main.py`, and just launch Comfy with that.
+
+To update, either `git pull` or use ComfyUI Manager. To update requirements, just do the requirements step again after updating your Comfy.
 ***
 ## ComfyUI; Custom Nodes
 Sooner or later, you **will** want to use custom nodes. To get them, install [ComfyUI Manager](https://github.com/Comfy-Org/ComfyUI-Manager) by following the instructions on Github. After that, you’ll get a Manager button in your Comfy. Press it —> Custom Nodes Manager, and you’ll be able to download custom nodes. I’ll mention a few of them later, but you’d want to get `ComfyUI-custom-scripts` as it gives a ton of essentials nodes and it’s a prerequisite for a lot of other custom nodes.
@@ -57,7 +61,7 @@ This is the bare minimum you need for txt2img gens. From now on, I’ll be less 
 ***
 ### Workflow; Separating your Prompt and Quality Presets
 First, I’ll specify custom nodes with `Node Name (custom-node-pack-title)`. To download them, just search the name in ( ) in Custom Nodes Manager.
-It’s extremely convenient to just enter your prompt in a separate box and have your quality tags applied automatically. To do this, we’ll use String Function node (comfyui-custom-scripts). Add two of them. Then, we’ll use a default node called Primitive. It’s empty at first, but will double the input it’s connected to. Connect Primitive to text_a. Then, you can either connect another Primitive to text_b or use Preset Text (comfyui-custom-scripts), connecting it to text_b. In String Function, choose Append in Action and Yes in tidy_tags. Connect String output to text of Clip Text Encode and voila, it’s done. You use Primitive connected to text_a for your regular prompt, and just change Preset Text or another Primitive connected to text_b.
+It’s extremely convenient to just enter your prompt in a separate box and have your quality tags applied automatically. To do this, we’ll use String Function node (comfyui-custom-scripts). Add two of them. Then, we’ll use a default node called Primitive. It’s empty at first, but will repeat the input it’s connected to. Connect Primitive to text_a. Then, you can either connect another Primitive to text_b or use Preset Text (comfyui-custom-scripts), connecting it to text_b. In String Function, choose Append in Action and Yes in tidy_tags. Connect String output to text of Clip Text Encode and voila, it’s done. You use Primitive connected to text_a for your regular prompt, and just change Preset Text or another Primitive connected to text_b.
 ![](https://files.catbox.moe/27pbno.png)
 ***
 ### Workflow; Cleaning your Workflow with Pipes
@@ -104,7 +108,9 @@ To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand
 - Activation on. While there are a few things with triggers and such I don’t know how to use properly, it works great with groups. For example, if you have a group with ADetailer, you can turn it off as a whole by pressing on the group’s label -> Set Group Nodes to Never. You can enable it back with Set Group Nodes to Always.
 ***
 ### Workflow; My Workflow
-If you want to download my workflow, you can get it [here](https://files.catbox.moe/u59yrz.json), but I highly suggest making one yourself (go to manager -> install missing custom nodes if you get an error). Figuring everything out yourself is vital for understanding how Comfy and Stable Diffusion work.
+If you want to download my text2img workflow, you can get it (link later), but I highly suggest making one yourself (go to manager -> install missing custom nodes if you get an error). Figuring everything out yourself is vital for understanding how Comfy and Stable Diffusion work.
+
+UPD: Here's a half-assed update to this section. It's been 6 months, my WF went though a lot of changes, and the old one, described in this guide, gets more and more outdated. As of October 30th, 2025, here's my current WF: [Link](https://files.catbox.moe/pg30m1.json). 
 ***
 ## ComfyUI; Conclusion
 This is basically it for the base txt2img. I’m still figuring img2img and inpainting, so I won’t be making these sections yet, but it’s extremely similar in principle. I’m not even close to being a pro in Comfy, but I hope it was even a bit useful for beginners.
