@@ -127,7 +127,7 @@ That's basically it for simple 2 character gens. With 3 characters, especially i
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/l61n79.png)
+![](img/advanced/defined-characters-1.png)
 
 *Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears, Negative prompt: extra ears, worst quality, bad quality
 Steps: 29, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 687164227, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt*
@@ -138,7 +138,7 @@ And another;
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/yhm8dv.png)
+![](img/advanced/defined-characters-2.png)
 
 *Metadata: 1boy, looking at viewer, on couch, (spread arms:0.7), (spread legs:0.7), black hair, smirk, furry, wolf boy, loafers, indoors, suit jacket, open jacket, dress pants, straight-on, general
 BREAK
@@ -163,7 +163,7 @@ Stuff is significantly easier if you just use Character tags. For example, let's
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/cv60ji.png)
+![](img/advanced/non-original-characters.png)
 
 *Metadata: 3girls, stelle \(honkai: star rail\), grey hair, yellow eyes, BREAK belle \(zenless zone zero\), blue hair, green eyes, BREAK lumine \(genshin impact\), blonde hair, yellow eyes, BREAK looking at viewer, arm around shoulder, w, looking at viewer, smile, wide shot, simple background,  &lt;lora:illustrious_quality_modifiers_masterpieces_v1:0.25> &lt;lora:USNR_STYLE_ILL_V1_lokr3:0.25>
 Steps: 1, Sampler: Euler, Schedule type: Karras, CFG scale: 5, Seed: 43880133, Size: 128x128, Model hash: 0842c2a1d8, Model: amanatsuIllustrious_v11, Denoising strength: 0.75, Clip skip: 2, ADetailer model: face_yolov8n.pt*
@@ -211,7 +211,7 @@ Available on most local frontends, there is a Scheduler called Align Your Steps,
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/dgrcis.png)
+![](img/advanced/align-your-steps-12-steps.png)
 
 *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
 Negative prompt: bad quality,worst quality,worst detail,sketch,censor
@@ -226,7 +226,7 @@ There are two notable Samplers that give you some beautiful gens without Hires a
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/vdqvg6.png)
+![](img/advanced/extra-quality-60-steps.png)
 
 *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
 Steps: 70, Sampler: IPNDM, Schedule type: Normal, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt*
@@ -239,7 +239,7 @@ Note that to use LCM, you must download it's [LoRA](https://huggingface.co/laten
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/xja2y1.png)
+![](img/advanced/lcm-draft-5-steps.png)
 
 *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality &lt;lora:LCM_LORA:1>, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
 Steps: 5, Sampler: LCM, Schedule type: SGM Uniform, CFG scale: 1.5, Seed: 3757563297, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt*
@@ -252,7 +252,7 @@ Found out about it recently, but it's just incredible. This sampler gives better
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/7l0qcr.png)
+![](img/advanced/ipndm-v-1.png)
 
 *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, yellow eyes, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
 Negative prompt: no pupils,, worst quality, bad quality, simple background,
@@ -264,7 +264,7 @@ And another; Note that it has no ADetailer;
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/i60akw.png)
+![](img/advanced/ipndm-v-2.png)
 
 *Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears
 Negative prompt: no pupils,, worst quality, bad quality, simple background,
@@ -278,7 +278,7 @@ DEIS is the High-Quality and relatively low-steps of IPNDM_V, but without it's d
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/3jftne.png)
+![](img/advanced/deis-1.png)
 
 *Metadata: 1girl, standing, casting spell, magical weaving chaotic threads of white light coming out of hands, magic filling the area, outstretched arms, magic, fighting stance, white cloak, long hair, blonde hair, solo BREAK lens flare, chromatic aberration, diffraction spikes, fisheye, outdoors,  night, embers, full body, dutch angle, (from side:0.4), (three quarter view:0.5), battle, war, army, soldier, fantasy
 Negative prompt: worst quality, bad quality, simple background,
@@ -290,7 +290,7 @@ And another one;
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/49r9r0.png)
+![](img/advanced/deis-2.png)
 
 *Metadata: 2girls, standing, outstretched arm, hand on another's hand, black shirt, brown skirt, long hair, baseball cap, white background, two-tone background, dual persona, human, from side, (full body:0.5), portal \(object\), BREAK 2girls, floating, midair, reaching towards another, looking at another, hand on another's hand, purple dress, darkness, dark background BREAK (chromatic aberration:1.2), (glitch:1.2), vhs artifacts, (digital dissolve:0.9),
 Negative prompt: worst quality, bad quality, 3girls, 4girls, mirror,
@@ -305,7 +305,7 @@ So, CFG++. The main principle behind it is that the sampler itself chooses an ap
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/molbo0.png)
+![](img/advanced/cfgpp-1.png)
 
 *Generation Parameters: Positive: 1girl, kneeling, praying, magic, golden threads of magic, magic circle, magic symbols, blue hair, long hair, white coat, red eyes, elf, dark, indoors, church, light particles, three quarter view, full body, solo;
 Negative: no pupils,
@@ -315,13 +315,13 @@ Sampler: res_multistep_cfg_pp, scheduler: SGM Uniform, Step Count: 30, CFG Scale
 
 So, let's talk about practical usage in more detail. Main advantages of CFG++ are light contrast, colors and color contrast. With conventional samplers, when you try to go for a darker gen, you often get an image that's grey and still bright. Using some magic, CFG++ just solves the issue entirely. You (almost) get true black and incredible color contrast. The only issue with CFG++ is that it's very picky about your CFG scale, sometimes requiring you to set different values for different gens on the same model. You get something a little bit wrong, and you get an overexposed / oversaturated gen. Right now, I use this sampler for almost every model, it's just that good.
 
-![](https://files.catbox.moe/8oo6xa.png)
+![](img/advanced/cfgpp-2.png)
 
-![](https://files.catbox.moe/io4r70.png)
+![](img/advanced/cfgpp-3.png)
 
-![](https://files.catbox.moe/b20uyb.png)
+![](img/advanced/cfgpp-4.png)
 
-![](https://files.catbox.moe/mdzobs.png)
+![](img/advanced/cfgpp-5.png)
 
 (*I lost prompts for individual images, so no prompts. Sorry.*)
 
@@ -349,7 +349,7 @@ Hires is an incredible feature to get higher resolution gens with increased deta
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/z37rgn.png)
+![](img/advanced/hires.png)
 
 *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
 Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B*
@@ -373,7 +373,7 @@ This part is more of a philosophical view on how you should do prompting. I like
 
 <div class="center" markdown>
 
-![](https://files.catbox.moe/349uqg.png)
+![](img/advanced/iterating-on-gens.png)
 
 *Metadata: 1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, dark background, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, &lt;lora:illustrious_quality_modifiers_masterpieces_v1:0.7> &lt;lora:illustriousXL_stabilizer_v1.72:0.35>, Negative prompt: worst quality, bad quality,
 Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 1003245552, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.6, Hires steps: 22, Hires upscaler: R-ESRGAN 4x+ Anime6B*
