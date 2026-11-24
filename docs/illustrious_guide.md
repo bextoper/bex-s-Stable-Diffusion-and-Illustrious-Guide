@@ -66,7 +66,14 @@ Depending on what you get, you may also want to negative `signature, watermark, 
 We finally finished going through the prompting process, and in the end we've got:
 Positive Prompt: `1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality`
 Negative Prompt: `bad quality,worst quality,worst detail,sketch,censor`
--> ![](https://files.catbox.moe/i0jjv0.png) <-
--> *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
-Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3473795472, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B,* <-
+
+<div class="center" markdown>
+
+![](https://files.catbox.moe/i0jjv0.png)
+
+*Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3473795472, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B,*
+
+</div>
+
 ***

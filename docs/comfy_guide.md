@@ -99,7 +99,7 @@ First, make sure that each `KSamplerAdvancedProvider` has the exact same setting
 You can get the workflow [here](https://files.catbox.moe/8ivnhh.json), **but I highly recommend building your own workflow to understand how exactly everything here works.**
 ***
 ### Workflow; LoRA
-To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand <lora:lora_name:1.0> and such, so we’ll use nodes. Add Load LoRA node. Now: Input `Model` and `CLIP` are connected to `Load Checkpoint`, and output `Model` and `CLIP` are connected to KSampler or ToBasicPipe. As for the parameters, Strength_LoRA is the same as editing weights in Forge/AUTO1111, and strength_clip is a different option I don’t know much about, so play with it yourselves.
+To use LoRAs, we can’t do it like in ForgeUI; Default nodes don’t understand `<lora:lora_name:1.0>` and such, so we’ll use nodes. Add Load LoRA node. Now: Input `Model` and `CLIP` are connected to `Load Checkpoint`, and output `Model` and `CLIP` are connected to KSampler or ToBasicPipe. As for the parameters, Strength_LoRA is the same as editing weights in Forge/AUTO1111, and strength_clip is a different option I don’t know much about, so play with it yourselves.
 ![](https://files.catbox.moe/f4ch1x.png)
 ***
 ### Workflow; Groups, Bypass, Activation.

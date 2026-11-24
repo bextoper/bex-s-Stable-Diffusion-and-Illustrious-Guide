@@ -124,18 +124,29 @@ What to note:
 5. Try to keep the image complexity low. If you can, avoid extremely defined backgrounds, difficult scenarios and such. Multiple character gens are already pushing image gen models to their absolute limits, so you have to be reasonable in what you want to achieve. Don't waste hours trying to get the impossible like I do sometimes.
 6. Do not expect it to work perfectly. Sometimes you get a 90% consistency, this prompt works about 50% of the time.
 That's basically it for simple 2 character gens. With 3 characters, especially if the prompt gets more complex, we get into an almost esoteric territory, so I'll talk about separately later.
--> ![](https://files.catbox.moe/l61n79.png) <-
--> *Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears, Negative prompt: extra ears, worst quality, bad quality
-Steps: 29, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 687164227, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt* <-
+
+<div class="center" markdown>
+
+![](https://files.catbox.moe/l61n79.png)
+
+*Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears, Negative prompt: extra ears, worst quality, bad quality
+Steps: 29, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 687164227, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt*
+
+</div>
 
 And another;
 
--> ![](https://files.catbox.moe/yhm8dv.png) <-
--> *Metadata: 1boy, looking at viewer, on couch, (spread arms:0.7), (spread legs:0.7), black hair, smirk, furry, wolf boy, loafers, indoors, suit jacket, open jacket, dress pants, straight-on, general
+<div class="center" markdown>
+
+![](https://files.catbox.moe/yhm8dv.png)
+
+*Metadata: 1boy, looking at viewer, on couch, (spread arms:0.7), (spread legs:0.7), black hair, smirk, furry, wolf boy, loafers, indoors, suit jacket, open jacket, dress pants, straight-on, general
 BREAK
-3girls, (sitting on lap:1.2), sitting on person, elf, shy, maid, long hair, short hair, pink hair, white hair,  <lora:illustrious_quality_modifiers_masterpieces_v1:0.7> <lora:illustriousXL_stabilizer_v1.72:0.4>
+3girls, (sitting on lap:1.2), sitting on person, elf, shy, maid, long hair, short hair, pink hair, white hair,  &lt;lora:illustrious_quality_modifiers_masterpieces_v1:0.7> &lt;lora:illustriousXL_stabilizer_v1.72:0.4>
 Negative prompt: worst quality, bad quality, simple background,
-Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 535719555, Size: 1216x832,, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.6, Hires steps: 23, Hires upscaler: R-ESRGAN 4x+ Anime6B,* <-
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 535719555, Size: 1216x832,, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.6, Hires steps: 23, Hires upscaler: R-ESRGAN 4x+ Anime6B,*
+
+</div>
 
 *Yes, `3girls`, this is deliberate. I will expand this section one day.*
 
@@ -150,9 +161,15 @@ Stuff is significantly easier if you just use Character tags. For example, let's
 - You shouldn't mix up Non-Original characters with defined characters; it won't work 90% of the time. All the characters in your gen should be either Non-Original or Defined.
 - In the gen below, I used a separate CLIP for actions. The reasoning is that I don't care which character performs what action, so anyone of them can do it. Using a separate CLIP for composition/style/misc tags is also very viable, I do it often.
 
--> ![](https://files.catbox.moe/cv60ji.png) <-
--> *Metadata: 3girls, stelle \(honkai: star rail\), grey hair, yellow eyes, BREAK belle \(zenless zone zero\), blue hair, green eyes, BREAK lumine \(genshin impact\), blonde hair, yellow eyes, BREAK looking at viewer, arm around shoulder, w, looking at viewer, smile, wide shot, simple background,  <lora:illustrious_quality_modifiers_masterpieces_v1:0.25> <lora:USNR_STYLE_ILL_V1_lokr3:0.25>
-Steps: 1, Sampler: Euler, Schedule type: Karras, CFG scale: 5, Seed: 43880133, Size: 128x128, Model hash: 0842c2a1d8, Model: amanatsuIllustrious_v11, Denoising strength: 0.75, Clip skip: 2, ADetailer model: face_yolov8n.pt* <-
+<div class="center" markdown>
+
+![](https://files.catbox.moe/cv60ji.png)
+
+*Metadata: 3girls, stelle \(honkai: star rail\), grey hair, yellow eyes, BREAK belle \(zenless zone zero\), blue hair, green eyes, BREAK lumine \(genshin impact\), blonde hair, yellow eyes, BREAK looking at viewer, arm around shoulder, w, looking at viewer, smile, wide shot, simple background,  &lt;lora:illustrious_quality_modifiers_masterpieces_v1:0.25> &lt;lora:USNR_STYLE_ILL_V1_lokr3:0.25>
+Steps: 1, Sampler: Euler, Schedule type: Karras, CFG scale: 5, Seed: 43880133, Size: 128x128, Model hash: 0842c2a1d8, Model: amanatsuIllustrious_v11, Denoising strength: 0.75, Clip skip: 2, ADetailer model: face_yolov8n.pt*
+
+</div>
+
 ***
 ### Syntax; Prompt Merging, Delaying Prompts and Keeping the Quality with Styles
 **This section is exclusive to ForgeUI. ComfyUI does not support any of it by default.**
@@ -191,63 +208,110 @@ For a much more detailed technical information on how samplers/schedulers works 
 ***
 ### Generation Parameters; Align Your Steps, and Full-Quality Gens in Just 12 Steps
 Available on most local frontends, there is a Scheduler called Align Your Steps, or AYS for short. AYS uses some ancient wizardry to make the gens in 10-12 steps that look the same as 28 steps Karras or Euler a. With parameters, I suggest using `DPM++ 2M` Sampler, regular `Align Your Steps` scheduler and from `10` to `12` steps. I don't think that AYS is negatively impacted by CFG, so I just keep it at `5` and go lower as needed. 
--> ![](https://files.catbox.moe/dgrcis.png) <-
--> *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
+
+<div class="center" markdown>
+
+![](https://files.catbox.moe/dgrcis.png)
+
+*Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
 Negative prompt: bad quality,worst quality,worst detail,sketch,censor
-Steps: 12, Sampler: DPM++ 2M, Schedule type: Align Your Steps, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt* <-
+Steps: 12, Sampler: DPM++ 2M, Schedule type: Align Your Steps, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt*
+
+</div>
 
 Keep in mind that while AYS is great for simple gens, it can start messing up as you increase the complexity of your gen. The most noticeable issue I had is AYS merging hands of multiple characters into a single blob. Besides that, AYS doesn't have any artifacts and looks incredible. It works with LoRAs, Styles and Artists with no issue. On my hardware (RTX 3070 8 GB), it lowers the generation time from 15-20 seconds with Karras and 28 steps to 9-10 seconds with AYS.
 ***
 ### Generation Parameters; Extra-Quality Gens in 60 Steps
 There are two notable Samplers that give you some beautiful gens without Hires and sometimes even replacing ADetailer. These are, `DPM++ 3M SDE Exponential` and `IPNDM Automatic`. Both require at least 40 steps, and I consider 60 steps to be a sweet spot, sometimes you may need up to 80. In my experience, `IPNDM` is better than `DPM++ 3M SDE`; IPNDM shows much less artifacting than DPM++ 3M SDE, which is understandable, given the nature of SDE (SDE adds some noise each step. More variety, less stability), but I still use it occasionally. In some cases, these two Samplers can even replace Hires, especially given that Hires is much slower. With some gens, faces without ADetailer look even better than with it, and it's especially mindblowing.
--> ![](https://files.catbox.moe/vdqvg6.png) <-
--> *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
-Steps: 70, Sampler: IPNDM, Schedule type: Normal, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt* <-
+
+<div class="center" markdown>
+
+![](https://files.catbox.moe/vdqvg6.png)
+
+*Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 70, Sampler: IPNDM, Schedule type: Normal, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt*
+
+</div>
+
 ***
 ### Generation Parameters; LCM, and Draft Gens in Just 5 Steps
 Note that to use LCM, you must download it's [LoRA](https://huggingface.co/latent-consistency/lcm-lora-sdxl/tree/main) and include it in the gen at weight 1. I suggest using `LCM` sampler with `SGM Uniform` scheduler. Your CFG **must** be in range from 1 to 1.5, I suggest the latter. LCM gives you perfectly fine gens extremely quickly, but they have significantly less detail than usual + there can be occasional artifacting.
--> ![](https://files.catbox.moe/xja2y1.png) <-
--> *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality <lora:LCM_LORA:1>, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
-Steps: 5, Sampler: LCM, Schedule type: SGM Uniform, CFG scale: 1.5, Seed: 3757563297, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt* <-
+
+<div class="center" markdown>
+
+![](https://files.catbox.moe/xja2y1.png)
+
+*Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality &lt;lora:LCM_LORA:1>, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 5, Sampler: LCM, Schedule type: SGM Uniform, CFG scale: 1.5, Seed: 3757563297, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Clip skip: 2, ADetailer model: face_yolov8n.pt*
+
+</div>
+
 ***
 ### Generation Parameters; IPNDM_V and Quick(er) High-Quality Gens.
 Found out about it recently, but it's just incredible. This sampler gives better quality at 40 steps than DPM++ 3M or regular IPNDM do at 80+ steps. First, make sure to use either Karras or Exponential schedulers. I recommend sticking to 40 steps, 30 is also viable, and technically you can go all the way down to 15 steps. Do not go above 40 steps; the image will get worse or break down. 
--> ![](https://files.catbox.moe/7l0qcr.png) <-
--> *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, yellow eyes, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
+
+<div class="center" markdown>
+
+![](https://files.catbox.moe/7l0qcr.png)
+
+*Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, yellow eyes, indoors, office, cowboy shot, masterpiece,best quality,amazing quality
 Negative prompt: no pupils,, worst quality, bad quality, simple background,
-Steps: 40, Sampler: IPNDM_V, Schedule type: Karras, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model: Amanatsu_v11* <-
+Steps: 40, Sampler: IPNDM_V, Schedule type: Karras, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model: Amanatsu_v11*
+
+</div>
 
 And another; Note that it has no ADetailer;
 
-->![](https://files.catbox.moe/i60akw.png) <-
--> *Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears
+<div class="center" markdown>
+
+![](https://files.catbox.moe/i60akw.png)
+
+*Metadata: 2girls, looking at viewer, smile, side-by-side, hand on another's shoulder, red shirt, jeans, fox ears, orange hair, cowboy shot, white background BREAK black hair, sundress, pointy ears
 Negative prompt: no pupils,, worst quality, bad quality, simple background,
-Steps: 40, Sampler: IPNDM_V, Schedule type: Karras, CFG scale: 5, Seed: 54443983, Size: 832x1216, Model: Amanatsu_v11* <-
+Steps: 40, Sampler: IPNDM_V, Schedule type: Karras, CFG scale: 5, Seed: 54443983, Size: 832x1216, Model: Amanatsu_v11*
+
+</div>
+
 ***
 ### Generation Parameters; DEIS, Another High-ish Quality Sampler.
 DEIS is the High-Quality and relatively low-steps of IPNDM_V, but without it's downsides. It's incredibly stable and gives amazing results. Make sure to use it with SGM Uniform scheduler. I suggest 40 steps, but you can go up to 60 if needed. Comparing to IPNDM_V, they're about similar in quality; one is better in some aspects and worse in another, and vice-versa. It still gets you much more detail compared to DPM++ 2M/Euler a in just slightly more time, and it's more stable and reliable than IPNDM_V, so I can confidently recommend DEIS.
 
--> ![](https://files.catbox.moe/3jftne.png) <-
--> *Metadata: 1girl, standing, casting spell, magical weaving chaotic threads of white light coming out of hands, magic filling the area, outstretched arms, magic, fighting stance, white cloak, long hair, blonde hair, solo BREAK lens flare, chromatic aberration, diffraction spikes, fisheye, outdoors,  night, embers, full body, dutch angle, (from side:0.4), (three quarter view:0.5), battle, war, army, soldier, fantasy
+<div class="center" markdown>
+
+![](https://files.catbox.moe/3jftne.png)
+
+*Metadata: 1girl, standing, casting spell, magical weaving chaotic threads of white light coming out of hands, magic filling the area, outstretched arms, magic, fighting stance, white cloak, long hair, blonde hair, solo BREAK lens flare, chromatic aberration, diffraction spikes, fisheye, outdoors,  night, embers, full body, dutch angle, (from side:0.4), (three quarter view:0.5), battle, war, army, soldier, fantasy
 Negative prompt: worst quality, bad quality, simple background,
-Steps: 40, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 1082317166, Size: 1536x1024, Model hash: 351447d6cd, Model: annnslmixillustrious_v31, ADetailer model: face_yolov8n.pt* <-
+Steps: 40, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 1082317166, Size: 1536x1024, Model hash: 351447d6cd, Model: annnslmixillustrious_v31, ADetailer model: face_yolov8n.pt*
+
+</div>
 
 And another one;
 
--> ![](https://files.catbox.moe/49r9r0.png) <-
--> *Metadata: 2girls, standing, outstretched arm, hand on another's hand, black shirt, brown skirt, long hair, baseball cap, white background, two-tone background, dual persona, human, from side, (full body:0.5), portal \(object\), BREAK 2girls, floating, midair, reaching towards another, looking at another, hand on another's hand, purple dress, darkness, dark background BREAK (chromatic aberration:1.2), (glitch:1.2), vhs artifacts, (digital dissolve:0.9),
+<div class="center" markdown>
+
+![](https://files.catbox.moe/49r9r0.png)
+
+*Metadata: 2girls, standing, outstretched arm, hand on another's hand, black shirt, brown skirt, long hair, baseball cap, white background, two-tone background, dual persona, human, from side, (full body:0.5), portal \(object\), BREAK 2girls, floating, midair, reaching towards another, looking at another, hand on another's hand, purple dress, darkness, dark background BREAK (chromatic aberration:1.2), (glitch:1.2), vhs artifacts, (digital dissolve:0.9),
 Negative prompt: worst quality, bad quality, 3girls, 4girls, mirror,
-Steps: 60, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 869983613, Size: 1536x1024, Model hash: 351447d6cd, Model: annnslmixillustrious_v31, ADetailer model: face_yolov8n.pt, ADetailer confidence: 0.3, ADetailer dilate erode: 4, ADetailer mask blur: 4, ADetailer denoising strength: 0.4, ADetailer inpaint only masked: True, ADetailer inpaint padding: 32, ADetailer model 2nd: hand_yolov8n.pt* <-
+Steps: 60, Sampler: DEIS, Schedule type: SGM Uniform, CFG scale: 4.5, Seed: 869983613, Size: 1536x1024, Model hash: 351447d6cd, Model: annnslmixillustrious_v31, ADetailer model: face_yolov8n.pt, ADetailer confidence: 0.3, ADetailer dilate erode: 4, ADetailer mask blur: 4, ADetailer denoising strength: 0.4, ADetailer inpaint only masked: True, ADetailer inpaint padding: 32, ADetailer model 2nd: hand_yolov8n.pt*
+
+</div>
+
 ***
 ### Generation Parameters; CFG++, Pain and Incredible Gens (ComfyUI)
 **This section is only for ComfyUI, Forge doesn't have CFG++ samplers and reForge is dead + has a different implementation of it.**
 So, CFG++. The main principle behind it is that the sampler itself chooses an appropriate CFG scale. When it comes to practical usage, *in general*, you choose CFG two times lower than without CFG++; if you usually run CFG 4, use CFG 2 with CFG++; this is in theory. In practice, I suggest first trying CFG 1; if it's shit (it most likely will be), try going to CFG 1.5, and then increasing until you get a good image. CFG 1.5 - CFG 1.9 seem to be good values for me, but it can be different from model to model, and even gen to gen sometimes. As a CFG++ sampler, I suggest `res_multistep_cfg_pp` and `euler_ancestral_cfg_pp`, and either `SGM Uniform` or `Karras` as a scheduler. In my experience, using step count higher than 30 makes gens worse, so I recommend sticking to it and doing a Hires pass later if you want. In my eyes, it may be the best sampler we have; it straight up improved the quality of lighting, colors, and detail compared to the same CFG 3 gen of DPM++ 3M SDE at 60 steps. More after the image:
 
--> ![](https://files.catbox.moe/molbo0.png) <-
+<div class="center" markdown>
 
--> *Generation Parameters: Positive: 1girl, kneeling, praying, magic, golden threads of magic, magic circle, magic symbols, blue hair, long hair, white coat, red eyes, elf, dark, indoors, church, light particles, three quarter view, full body, solo;
+![](https://files.catbox.moe/molbo0.png)
+
+*Generation Parameters: Positive: 1girl, kneeling, praying, magic, golden threads of magic, magic circle, magic symbols, blue hair, long hair, white coat, red eyes, elf, dark, indoors, church, light particles, three quarter view, full body, solo;
 Negative: no pupils,
-Sampler: res_multistep_cfg_pp, scheduler: SGM Uniform, Step Count: 30, CFG Scale: 1.8, Face Detailer, 1.5x Hires Pass, seed: 43, 1024 x 1536, checkpoint: Nova Orange v9.0. ComfyUI.* <-
+Sampler: res_multistep_cfg_pp, scheduler: SGM Uniform, Step Count: 30, CFG Scale: 1.8, Face Detailer, 1.5x Hires Pass, seed: 43, 1024 x 1536, checkpoint: Nova Orange v9.0. ComfyUI.*
+
+</div>
 
 So, let's talk about practical usage in more detail. Main advantages of CFG++ are light contrast, colors and color contrast. With conventional samplers, when you try to go for a darker gen, you often get an image that's grey and still bright. Using some magic, CFG++ just solves the issue entirely. You (almost) get true black and incredible color contrast. The only issue with CFG++ is that it's very picky about your CFG scale, sometimes requiring you to set different values for different gens on the same model. You get something a little bit wrong, and you get an overexposed / oversaturated gen. Right now, I use this sampler for almost every model, it's just that good.
 
@@ -282,10 +346,15 @@ Hires is an incredible feature to get higher resolution gens with increased deta
 - Hires Steps: 20-22
 - Denoising Strength: 0.35 - 0.39
 - Upscale by: 1.5 - 2.0
--> ![](https://files.catbox.moe/z37rgn.png) <-
--> *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
-Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B* <-
 
+<div class="center" markdown>
+
+![](https://files.catbox.moe/z37rgn.png)
+
+*Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3757563295, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B*
+
+</div>
 
 ***
 ### Generation Parameters; Refiner
@@ -301,9 +370,15 @@ This part is more of a philosophical view on how you should do prompting. I like
 5. At this point, I feel pretty happy about the result, so I start adding style and LoRAs, as well as doing some minor edits. New prompt: `1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, <lora:illustrious_quality_modifiers_masterpieces_v1:0.7> <lora:illustriousXL_stabilizer_v1.72:0.35>`
 6. Not specifying backgrounds and having `simple background` in the negatives really ruined the gen, so I fix it: `1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, dark background, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, <lora:illustrious_quality_modifiers_masterpieces_v1:0.7> <lora:illustriousXL_stabilizer_v1.72:0.35>`
 7. Now I feel completely happy. I take the seed of my favourite gen and reuse it, this time with Hires. Woila, we're done.
--> ![](https://files.catbox.moe/349uqg.png) <-
--> *Metadata: 1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, dark background, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, <lora:illustrious_quality_modifiers_masterpieces_v1:0.7> <lora:illustriousXL_stabilizer_v1.72:0.35>, Negative prompt: worst quality, bad quality,
-Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 1003245552, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.6, Hires steps: 22, Hires upscaler: R-ESRGAN 4x+ Anime6B* <-
+
+<div class="center" markdown>
+
+![](https://files.catbox.moe/349uqg.png)
+
+*Metadata: 1girl, looking at viewer, (head tilt:0.7), (smirk:0.5), (grin:0.5), holding cane, cane, red jacket, open jacket, heterochromia, ringed eyes, long hair, white hair, red hair, multicolored hair, dark background, (cowboy shot:0.7), close-up, (dutch angle:0.3), traditional media, &lt;lora:illustrious_quality_modifiers_masterpieces_v1:0.7> &lt;lora:illustriousXL_stabilizer_v1.72:0.35>, Negative prompt: worst quality, bad quality,
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 1003245552, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.6, Hires steps: 22, Hires upscaler: R-ESRGAN 4x+ Anime6B*
+
+</div>
 
 From start to finish, this generation took 50 images to refine the first prompt into the last. This is the way I do all my gens, and I highly recommend following the same principle. It's extremely easy to mess up at the very beginning and spend hours trying to fix it; I've been there.
 ***
