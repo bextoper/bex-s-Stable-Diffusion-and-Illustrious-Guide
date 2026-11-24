@@ -45,7 +45,7 @@ This was an important section for reForge, but it's extremely simple with Forge;
 ### User Interface; Basic Setup
 *Important Note: This section is mostly the same as it was for reForge, but: I'll <s>cross out</s> sections that are not applicable to ForgeUI, and **make bold** sections new to ForgeUI. Screenshots are not updated yet. I really should overhaul this whole section, but not yet.*
 Let's start from top to bottom, left to right. First, the top line of buttons:
-![](https://files.catbox.moe/uh8izb.png)
+![](img/forge_guide/basic-setup-1.png)
 
 - **UI: here, you select the architecture of a model you're gonna use. For Illustrious/NoobAI/Pony, it's always `sdxl`.*
 - Stable Diffusion Checkpoint: your current model + you can choose to load another model. Use the Refresh button if you add new models to `models/stable-diffusion` while SD is running.
@@ -57,13 +57,13 @@ Let's start from top to bottom, left to right. First, the top line of buttons:
 - **Spaces: some ForgeUI feature to install and run tools that are separate from Forge. I won't be talking about them.**
 - Extras: a tab where extra functions live. Most of the time there's nothing to do there.
 - PNG Info: a tab where you can get metadata of your and other's generations and immediately move it to txt2img and other tabs.
-![](https://files.catbox.moe/mbcr1o.png)
+![](img/forge_guide/basic-setup-2.png)
 - Checkpoint Merger: used for merging different models together. I won't be talking about it.
 - <s>Train: A very scary section with questionable usefulness. I won't be talking about it at all.</s>
 - Settings: Self-explanatory
 - Extensions: a place where you can turn on/off and download extensions.
 Now, second row of top buttons specific to txt2img:
-![](https://files.catbox.moe/1lhe95.png)
+![](img/forge_guide/basic-setup-3.png)
 - Generation: our main tab for txt2img generation.
 - Textural Inversion: a tab where all your downloaded embeddings live. I don't plan on touching them here as I don't use them, so, a few words about them: from my understanding, you use them to apply Quality tags and such to a generation without actually typing them in as tags. While the idea is cool, I prefer having full control over my generation, and these embeddings do God knows what. If they work for you - great, I prefer not using them at all.
 - <s>Hypernetworks: a very scary tab I have 0 idea about. I think it's to train models or something? I won't be talking about it at all here.</s>
@@ -72,7 +72,7 @@ Now, second row of top buttons specific to txt2img:
 ***
 ### User Interface; txt2img
 Finally, let's talk about txt2img buttons and how to setup them to get to genning quickly. I'll explain most of them later separately and in more detail, this is just to get started.
-![](https://files.catbox.moe/ocnqu3.png)
+![](img/forge_guide/txt2img-1.png)
 
 - Prompt: A place where you input your Positive Prompt. At the top right you can see a `0/75` indicator: this is the amount of tokens in your prompt out of CLIP's capacity. I'll talk about CLIPs in more detail later, but for most cases, **you should aim to not exceed 75 tokens, unless you know exactly what you're doing and how.** This is not a hard rule, and if you go above 75, another CLIP will be created, but your prompt has the most efficiency when you're keeping it within the single CLIP. There are a lot of exceptions and cases when you'd want to have multiple CLIPs, but I'll talk about it later.
 - Negative Prompt: The field where you input your Negative Prompt. You should only have your negative Quality tags there for the most cases. A rule of thumb is, **unless you have a specific reason to add them, don't.** Negative prompting is very powerful, and being careless can degrade your gens a lot. For example, if you have monochrome images popping of frequently, you may add `monochrome` to the negatives; they should have a reason to be there. I'll touch on them in more detail later.
@@ -81,7 +81,7 @@ Finally, let's talk about txt2img buttons and how to setup them to get to gennin
 - Notebook Button: Moves prompt from enabled Styles to Prompt fields and disables the Style.
 - Blue Spiral Button (usually hidden):  It appears if you refresh the page in the middle of the ongoing generation. Allows you to get the prompt, previous settings and images from this gen.
 - Styles Field and the Pen Button: It's an option to have a set combination of tags be added to your prompt. You can set them up by pressing the Pen button, you can see an example below. By default, the tags are added like this: `1girl, standing, ...your prompt..., <style>`. You can make Style prompt be added to any position of the prompt, by using `{prompt}`, for example, `{prompt}, masterpiece, good quality, amazing quality,`.
-![](https://files.catbox.moe/olkast.png)
+![](img/forge_guide/txt2img-2.png)
 - Sampling Method: This is where you choose your Sampler. While I won't go into what they do exactly, I can recommend using `DPM++ 2M`, and, if for some reason it doesn't work on some specific model, `Euler a`. I'll touch on some other Samplers later.
 - Scheduler Type: It's a secondary setting for Samplers. With `DPM++ 2M` you should use `Karras`, and with `Euler a` you should use `Normal`. There are other useful Schedulers I'll mention much later.
 - Sampling Steps: how many generation steps are done for a single image. I recommend having it from `26` to `34`. I use `28`, `30` is also very good. There are methods to drastically reduce the amount of steps needed (thus decreasing the generation time) with Hyper LoRAs, LCM or AYS, see further ahead.
@@ -103,12 +103,12 @@ These are most notable settings. Feel free to explore them yourself, I could've 
 ***
 ### Extensions
 While base Forge is more than enough for most stuff, there are some very useful extensions you can download. First, how to install them. Go to the Extensions tab, then press the Available tab under it and press the big blue Load From button. It will give you a list of all the available extensions. Once you installed it, go to Installed tab and press Apply and Restart UI.
-![](https://files.catbox.moe/kckemm.png)
-![](https://files.catbox.moe/ck5xjy.png)
+![](img/forge_guide/extensions-1.png)
+![](img/forge_guide/extensions-2.png)
 **Note that if you're using `--listen`, Forge will not allow you to install, enable and disable extensions. Remove the arg, do what you need with the extensions and put it back.** Now, some cool extensions:
 
 - `Booru tag autocompletion prompting`: it functions as an autocomplete for Booru tags, containing, I think, literally all of them. Very convenient and useful even if you already memorised them. You can press Tab to put in the top result and arrows to move between results. On pressing Tab, it also auto-formats `(brackets)` into `\(sd-recongisable brackets\)` and auto-removes `_underscores_`. Very cool.
-![](https://files.catbox.moe/2m0nzf.png)
+![](img/forge_guide/extensions-3.png)
 - `ADetailer`: an essential extension for almost everyone. What it does is: once the image finishes generation, it automatically detects any faces and re-generates them in full resolution, resulting in crisp and detailed faces in any situation. It doesn't require any setup; you just install it, enable and voila, now character faces look beautiful. 
 - `Regional Prompter`: I never figured it out, but a few people on Aegiscord mention it from time to time and show impressive results with it, so I'll mention this extension too. What it does is: it separates the image area in X areas and generates characters separately for each one. It's extremely useful for multiple character gens, but is completely unintuitive and I didn't have enough patience to learn it; Illustrious is capable of generating 2 or 3 characters by itself with some tricky prompting I'll talk about in detail later. If I ever learn this extension, maybe I'll expand this section or make a new one.
 - `Infinite Image Browser`: An incredible tool to view, sort, tag, organize and compare all your generations. It indexes and views everything in your `outputs` (or any custom) folder. You can see a showcase of this extension on it's [github page](https://github.com/zanllp/sd-webui-infinite-image-browsing). I highly recommend giving it a shot; it's one of my essential extensions now.

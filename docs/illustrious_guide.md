@@ -31,7 +31,7 @@ Positive Prompt: `1girl,`
 ### Step 2: Character Tags
 Now, let's think about how we want our `1girl` to look like. Actually, it's not strictly necessary to define the character at all: the model will come up with something on it's own. It can be useful if the exact look of the character is not important to you, for example, when you're just testing styles or generating a scenery, cases where you want to keep your Prompt Complexity low (we'll talk more about it later). Most of the time, of course, you want to define your character. The simplest way possible is by just using a **Character Tag** — an existing character from some media. There're multiple lists of characters from different Media on [Tag Groups Wiki](https://danbooru.donmai.us/wiki_pages/tag_groups) under "*Copyrights, artists, projects and media*", but the easiest way to find them is by just searching the character or media you want. If you're making a completely original character, you should skip this step entirely. For example, I'll pick a character whose tag is called `makima_(chainsaw_man)`. In prompt, it will look like `makima \(chainsaw man\)`, so now we have:
 Positive Prompt: `1girl, makima \(chainsaw man\),`
-![](https://files.catbox.moe/lghn69.png)
+![](img/illustrious_guide/step-2-character-tags.png)
 *Really, you should always check Booru for a tag you're going to use. Takes a few seconds, but spares trouble from using a wrong tag. Also make sure to check what a tag actually means. `solo focus`, for example, mandates the image to be a multiple character image; it will mess up solo gens.*
 
 ### Step 3: Action Tags
@@ -66,7 +66,14 @@ Depending on what you get, you may also want to negative `signature, watermark, 
 We finally finished going through the prompting process, and in the end we've got:
 Positive Prompt: `1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality`
 Negative Prompt: `bad quality,worst quality,worst detail,sketch,censor`
--> ![](https://files.catbox.moe/i0jjv0.png) <-
--> *Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
-Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3473795472, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B,* <-
+
+<div class="center" markdown>
+
+![](img/illustrious_guide/result.png)
+
+*Metadata: 1girl, makima \(chainsaw man\), looking at viewer, sitting, crossed legs, on chair, head tilt, indoors, office, cowboy shot, masterpiece,best quality,amazing quality, Negative prompt: bad quality,worst quality,worst detail,sketch,censor
+Steps: 28, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 5, Seed: 3473795472, Size: 832x1216, Model hash: 0842c2a1d8, Model: Amanatsu_v11, Denoising strength: 0.39, Clip skip: 2, ADetailer model: face_yolov8n.pt, Hires CFG Scale: 5, Hires upscale: 1.5, Hires steps: 20, Hires upscaler: R-ESRGAN 4x+ Anime6B,*
+
+</div>
+
 ***
