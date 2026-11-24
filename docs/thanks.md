@@ -13,5 +13,5 @@ My wholehearted gratitude goes to folks on Aegis City Discord; thanks for your s
 
 - @Skelly - for support.
 
-My life is a bit of a clusterfuck right now, but despite leaving Aegiscord, I still love you guys. I hope you're doing great. Thank you for everything.
+And thank YOU for reading this guide. You're the best.
 ***

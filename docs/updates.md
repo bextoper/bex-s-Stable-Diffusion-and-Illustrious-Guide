@@ -13,4 +13,6 @@
 	- v1.37. CFG++ Section.
 - 07/05/25 - v1.4. Expanded CFG++ and Recommended Checkpoints sections, added Illustrious 2.0 and Regional Prompter sections. A lot of fixes, thanks @kirhn from Aegiscord. Removed img2img section until I'm actually ready to do it. Removed reForge section.
 - 25/06/25 - v1.41. Added a small section on overtrained models. Small "Special Thanks" and "Introduction" edits.
+- 26/06/25 - v1.45. Many updates to the Advanced section, making stuff more up-to-date with modern models. Similar updates to other sections are WIP.
+- 30/10/25 - v1.46. A lot of fixes, bringing some stuff up to date and updating Comfy section with Linux installation guide. Notable Tags section WIP.
 ***
